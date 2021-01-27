@@ -9,6 +9,5 @@ public class LogIn extends JFrame {
         setSize(new Dimension(380,320));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        setLocationRelativeTo(null);
     }
 }
