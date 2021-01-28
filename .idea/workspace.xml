@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7473a109-50ee-4344-9f62-cb93797e1f88" name="Default Changelist" comment="Login setup.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Exam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7473a109-50ee-4344-9f62-cb93797e1f88" name="Default Changelist" comment="Added User,Result,Exam,MultipleChoiceQuestion class in model package" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +87,7 @@
       <workItem from="1611685576326" duration="1450000" />
       <workItem from="1611688109801" duration="5358000" />
       <workItem from="1611735692452" duration="258000" />
-      <workItem from="1611859273867" duration="5978000" />
+      <workItem from="1611859273867" duration="6160000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -109,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611735945778</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added User,Result,Exam,MultipleChoiceQuestion class in model package">
+      <created>1611866094231</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611866094231</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +132,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First setup." />
     <MESSAGE value="Login setup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login setup." />
+    <MESSAGE value="Added User,Result,Exam,MultipleChoiceQuestion class in model package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added User,Result,Exam,MultipleChoiceQuestion class in model package" />
   </component>
 </project>
