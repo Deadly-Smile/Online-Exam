@@ -7,7 +7,8 @@ public class LogIn extends JFrame {
     JLabel l1,l2;
     JTextField t1;
     JPasswordField t2;
-    JButton b1;
+    JButton b1,b2;
+    JCheckBox c1;
 
     public LogIn(String title) throws HeadlessException {
         super(title);
@@ -27,8 +28,16 @@ public class LogIn extends JFrame {
         b1=new JButton("Login");
         b1.setBackground(Color.BLACK);
         b1.setForeground(Color.WHITE);
-        b1.setBounds(150,150,70,20);
+        b1.setBounds(100,170,80,20);
         add(b1);
+        c1=new JCheckBox("Remember me");
+        c1.setBounds(95,140,120,20);
+        add(c1);
+        b2=new JButton("Sign in");
+        b2.setBackground(Color.BLACK);
+        b2.setForeground(Color.WHITE);
+        b2.setBounds(140,220,100,20);
+        add(b2);
         setLayout(null);
         setBounds(400,200,400,300);
         setVisible(true);
