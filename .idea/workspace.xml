@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
+    <list default="true" id="7473a109-50ee-4344-9f62-cb93797e1f88" name="Default Changelist" comment="Added User,Result,Exam,MultipleChoiceQuestion class in model package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Creating-Sing-In-Jfram" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,17 +62,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -83,7 +71,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="" />
+      <changelist id="7473a109-50ee-4344-9f62-cb93797e1f88" name="Default Changelist" comment="" />
       <created>1611685569186</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -91,8 +79,10 @@
       <workItem from="1611685576326" duration="1450000" />
       <workItem from="1611688109801" duration="5358000" />
       <workItem from="1611735692452" duration="258000" />
-      <workItem from="1611922737327" duration="632000" />
-      <workItem from="1612013099818" duration="5484000" />
+      <workItem from="1612114425913" duration="156000" />
+      <workItem from="1612122036549" duration="22000" />
+      <workItem from="1612123423229" duration="1198000" />
+      <workItem from="1612178903342" duration="4101000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
