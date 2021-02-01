@@ -4,40 +4,57 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LogIn extends JFrame {
-    JLabel l1,l2;
-    JTextField t1;
-    JPasswordField t2;
-    JButton b1,b2;
-    JCheckBox c1;
+    private final JLabel passwordLabel;
+    private final JLabel handleLabel;
+    private JTextField handleField;
+    private JPasswordField passwordField;
+    private JButton logInButton;
+    private JButton signInButton;
+    private JCheckBox rememberMeCheck;
+    private final JLabel noAccountLabel;
 
     public LogIn(String title) throws HeadlessException {
         super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        l1=new JLabel("Username");
-        l1.setBounds(100,55,60,30);
-        add(l1);
-        l2=new JLabel("Password");
-        l2.setBounds(100,100,60,30);
-        add(l2);
-        t1=new JTextField();
-        t1.setBounds(180,60,80,20);
-        add(t1);
-        t2=new JPasswordField();
-        t2.setBounds(180,105,80,20);
-        add(t2);
-        b1=new JButton("Login");
-        b1.setBackground(Color.BLACK);
-        b1.setForeground(Color.WHITE);
-        b1.setBounds(100,170,80,20);
-        add(b1);
-        c1=new JCheckBox("Remember me");
-        c1.setBounds(95,140,120,20);
-        add(c1);
-        b2=new JButton("Sign in");
-        b2.setBackground(Color.BLACK);
-        b2.setForeground(Color.WHITE);
-        b2.setBounds(140,220,100,20);
-        add(b2);
+        setResizable(false);
+
+        handleLabel = new JLabel("Handle ");
+        handleLabel.setBounds(100,60,60,30);
+        add(handleLabel);
+
+        passwordLabel = new JLabel("Password");
+        passwordLabel.setBounds(100,95,60,30);
+        add(passwordLabel);
+
+        handleField = new JTextField();
+        handleField.setBounds(180,65,120,20);
+        add(handleField);
+
+        passwordField = new JPasswordField();
+        passwordField.setBounds(180,100,120,20);
+        add(passwordField);
+
+        rememberMeCheck = new JCheckBox("Remember me");
+        rememberMeCheck.setBounds(95,135,120,20);
+        add(rememberMeCheck);
+
+        logInButton = new JButton("Login");
+        logInButton.setBackground(new Color(0xa3ddcb));
+        logInButton.setForeground(Color.BLACK);
+        logInButton.setBounds(220,170,80,20);
+        add(logInButton);
+
+        noAccountLabel = new JLabel("No account ?");
+        noAccountLabel.setForeground(new Color(0xeb5e0b));
+        noAccountLabel.setBounds(120,220,100,30);
+        add(noAccountLabel);
+
+        signInButton = new JButton("Sign in");
+        signInButton.setBackground(new Color(0x276678));
+        signInButton.setForeground(Color.BLACK);
+        signInButton.setBounds(200,225,80,20);
+        add(signInButton);
+
         setLayout(null);
         setBounds(400,200,400,300);
         setVisible(true);
