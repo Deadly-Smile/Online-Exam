@@ -5,7 +5,7 @@ import view.register.SignIn;
 
 public class Main {
     public static void main(String[] args) {
-        new LogIn("Register");
-        new SignIn("Register");
+        new LogIn("Log In");
+        new SignIn("Sign In");
     }
 }
