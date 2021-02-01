@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
+=======
+    <list default="true" id="7473a109-50ee-4344-9f62-cb93797e1f88" name="Default Changelist" comment="LogIn and SignIn class modified">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +96,15 @@
       <workItem from="1611685576326" duration="1450000" />
       <workItem from="1611688109801" duration="5358000" />
       <workItem from="1611735692452" duration="258000" />
+<<<<<<< Updated upstream
       <workItem from="1611922737327" duration="632000" />
       <workItem from="1612013099818" duration="5484000" />
+=======
+      <workItem from="1612114425913" duration="156000" />
+      <workItem from="1612122036549" duration="22000" />
+      <workItem from="1612123423229" duration="1198000" />
+      <workItem from="1612178903342" duration="6825000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -115,7 +127,25 @@
       <option name="project" value="LOCAL" />
       <updated>1611866094231</updated>
     </task>
+<<<<<<< Updated upstream
     <option name="localTasksCounter" value="4" />
+=======
+    <task id="LOCAL-00004" summary="LogIn class modified">
+      <created>1612184424266</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612184424267</updated>
+    </task>
+    <task id="LOCAL-00005" summary="LogIn and SignIn class modified">
+      <created>1612186593474</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1612186593474</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +168,12 @@
     <MESSAGE value="First setup." />
     <MESSAGE value="Login setup." />
     <MESSAGE value="Added User,Result,Exam,MultipleChoiceQuestion class in model package" />
+<<<<<<< Updated upstream
     <option name="LAST_COMMIT_MESSAGE" value="Added User,Result,Exam,MultipleChoiceQuestion class in model package" />
+=======
+    <MESSAGE value="LogIn class modified" />
+    <MESSAGE value="LogIn and SignIn class modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogIn and SignIn class modified" />
+>>>>>>> Stashed changes
   </component>
 </project>
