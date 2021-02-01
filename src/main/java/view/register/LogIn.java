@@ -39,19 +39,20 @@ public class LogIn extends JFrame {
         add(rememberMeCheck);
 
         logInButton = new JButton("Login");
-        logInButton.setBackground(new Color(0x0a043c));
-        logInButton.setForeground(Color.WHITE);
+        logInButton.setBackground(new Color(0xa3ddcb));
+        logInButton.setForeground(Color.BLACK);
         logInButton.setBounds(220,170,80,20);
         add(logInButton);
 
         noAccountLabel = new JLabel("No account ?");
-        noAccountLabel.setBounds(100,220,100,30);
+        noAccountLabel.setForeground(new Color(0xeb5e0b));
+        noAccountLabel.setBounds(120,220,100,30);
         add(noAccountLabel);
 
         signInButton = new JButton("Sign in");
-        signInButton.setBackground(new Color(0x252525));
-        signInButton.setForeground(new Color(0xfde8cd));
-        signInButton.setBounds(180,225,80,20);
+        signInButton.setBackground(new Color(0x276678));
+        signInButton.setForeground(Color.BLACK);
+        signInButton.setBounds(200,225,80,20);
         add(signInButton);
 
         setLayout(null);
