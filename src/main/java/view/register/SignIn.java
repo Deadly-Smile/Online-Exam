@@ -61,5 +61,6 @@ public class SignIn extends JFrame {
         setLayout(null);
         setBounds(400,200,400,300);
         setVisible(true);
+        setResizable(false);
     }
 }

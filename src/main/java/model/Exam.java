@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Exam {
+    private String id;
     private String examName;
+    private String examSetterHandle;
     private String examPassword;
     private LocalDateTime examStartingTime;
     private ArrayList<MultipleChoiceQuestion> questions;
@@ -30,9 +32,23 @@ public class Exam {
     public Exam() {
     }
 
-    public Exam(String examName, String examPassword, LocalDateTime examStartingTime,
+    public String getId() {
+        return id;
+    }
+
+    public String getExamSetterHandle() {
+        return examSetterHandle;
+    }
+
+    public void setExamSetterHandle(String examSetterHandle) {
+        this.examSetterHandle = examSetterHandle;
+    }
+
+    public Exam(String id, String examName, String examSetterHandle, String examPassword, LocalDateTime examStartingTime,
                 ArrayList<MultipleChoiceQuestion> questions, int givenTimeInMinutes) {
+        this.id = id;
         this.examName = examName;
+        this.examSetterHandle = examSetterHandle;
         this.examPassword = examPassword;
         this.examStartingTime = examStartingTime;
         this.questions = questions;
