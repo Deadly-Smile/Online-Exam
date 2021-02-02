@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
-    <list default="true" id="7473a109-50ee-4344-9f62-cb93797e1f88" name="Default Changelist" comment="LogIn and SignIn class modified">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,9 +41,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="view.homepage" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anik\Documents\Java - Swing\Online Exam\Online-Exam\src\main\resources" />
+      <recent name="C:\Users\Anik\Documents\Java - Swing\Online Exam\Online-Exam\src\main\java\view\homepage" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -65,17 +69,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -85,7 +78,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7473a109-50ee-4344-9f62-cb93797e1f88" name="Default Changelist" comment="" />
+      <changelist id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="" />
       <created>1611685569186</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -99,12 +92,9 @@
       <workItem from="1612122036549" duration="22000" />
       <workItem from="1612123423229" duration="1198000" />
       <workItem from="1612178903342" duration="6825000" />
-<<<<<<< Updated upstream
-=======
       <workItem from="1612255815581" duration="7291000" />
       <workItem from="1612274775616" duration="8807000" />
       <workItem from="1612289834987" duration="303000" />
->>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -127,7 +117,6 @@
       <option name="project" value="LOCAL" />
       <updated>1611866094231</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
     <task id="LOCAL-00004" summary="LogIn class modified">
       <created>1612184424266</created>
       <option name="number" value="00004" />
@@ -142,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612186593474</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="HomePage created">
+      <created>1612285103960</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612285103960</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,9 +161,14 @@
     <MESSAGE value="First setup." />
     <MESSAGE value="Login setup." />
     <MESSAGE value="Added User,Result,Exam,MultipleChoiceQuestion class in model package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added User,Result,Exam,MultipleChoiceQuestion class in model package" />
     <MESSAGE value="LogIn class modified" />
     <MESSAGE value="LogIn and SignIn class modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="LogIn and SignIn class modified" />
+    <MESSAGE value="HomePage created" />
+    <option name="LAST_COMMIT_MESSAGE" value="HomePage created" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Online_Exam$Main.ic" NAME="Main Coverage Results" MODIFIED="1612284830981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>view.*</FILTER>
+    </SUITE>
   </component>
 </project>

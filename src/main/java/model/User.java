@@ -1,12 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class User {
     private String name;
     private String handle;
     private String password;
-    private Stack<Result> history;
+    private List<Result> history;
 
     public User() {
     }
@@ -15,7 +17,7 @@ public class User {
         this.name = name;
         this.handle = handle;
         this.password = password;
-        history = new Stack<>();
+        history = new ArrayList<>();
     }
 
     public String getName() {
@@ -42,7 +44,7 @@ public class User {
         this.password = password;
     }
 
-    public Stack<Result> getHistory() {
+    public List<Result> getHistory() {
         return history;
     }
 
