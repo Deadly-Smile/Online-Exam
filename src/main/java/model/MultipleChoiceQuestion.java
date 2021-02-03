@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class MultipleChoiceQuestion {
+    private int id;
     private String question;
     private ArrayList<String> choices;
     private int rightIndex;
@@ -10,8 +11,17 @@ public class MultipleChoiceQuestion {
     public MultipleChoiceQuestion() {
     }
 
-    public MultipleChoiceQuestion(String question, ArrayList<String> choices,
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public MultipleChoiceQuestion(int id, String question, ArrayList<String> choices,
                                   int rightIndex) {
+        this.id = id;
         this.question = question;
         this.choices = choices;
         this.rightIndex = rightIndex;

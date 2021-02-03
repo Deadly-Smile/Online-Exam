@@ -1,5 +1,7 @@
 package view.homepage;
 
+import view.StatusPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
