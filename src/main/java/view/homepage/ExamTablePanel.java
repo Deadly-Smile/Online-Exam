@@ -18,6 +18,7 @@ public class ExamTablePanel extends JPanel{
         add(new JScrollPane(examTable),BorderLayout.CENTER);
         setBorder(BorderFactory.createMatteBorder(1,1,1,1,new Color(0x726a95)));
 
+
     }
 
     public void setData(List<Exam> examList){

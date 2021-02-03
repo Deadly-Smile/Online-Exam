@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="" />
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/StatusPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/TimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TimerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/StatusPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/TimerThread$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/TimerThread.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +74,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="view.add_exam" />
       <recent name="view.homepage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -55,7 +82,20 @@
       <recent name="C:\Users\Anik\Documents\Java - Swing\Online Exam\Online-Exam\src\main\java\view\homepage" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="AddQuestion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.add_exam.AddQuestion" />
+      <module name="Online-Exam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.add_exam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.Main" />
       <module name="Online-Exam" />
@@ -72,6 +112,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AddQuestion" />
       </list>
     </recent_temporary>
   </component>
@@ -95,6 +136,10 @@
       <workItem from="1612255815581" duration="7291000" />
       <workItem from="1612274775616" duration="8807000" />
       <workItem from="1612289834987" duration="303000" />
+      <workItem from="1612294240522" duration="7921000" />
+      <workItem from="1612343713544" duration="10286000" />
+      <workItem from="1612365542664" duration="10857000" />
+      <workItem from="1612378028168" duration="1076000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>

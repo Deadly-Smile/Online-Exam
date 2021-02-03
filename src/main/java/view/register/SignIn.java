@@ -10,7 +10,7 @@ public class SignIn extends JFrame {
     private JLabel accountLabel;
     private JTextField nameTextField;
     private JTextField handleField;
-    private JTextField passwordField;
+    private JPasswordField passwordField;
     private JButton signInButton;
     private JButton logInButton;
     public SignIn(String title) throws HeadlessException {
@@ -42,7 +42,7 @@ public class SignIn extends JFrame {
         handleField.setBounds(190,85,120,20);
         add(handleField);
 
-        passwordField =new JTextField();
+        passwordField =new JPasswordField();
         passwordField.setBounds(190,115,120,20);
         add(passwordField);
 

@@ -6,11 +6,10 @@ import model.User;
 import javax.swing.table.AbstractTableModel;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 
 public class HistoryTableModel extends AbstractTableModel {
     private User user;
-    private List<String> fieldNames = Arrays.asList("Exam name", "Score");
+    private final List<String> fieldNames = Arrays.asList("Exam name", "Score");
 
     public HistoryTableModel() {
     }
