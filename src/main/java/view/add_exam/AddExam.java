@@ -7,7 +7,7 @@ public class AddExam extends JFrame {
     private ToolBarPanel toolBarPanel;
     private FromPanel fromPanel;
     private QuestionTablePanel questionTablePanel;
-    private AddQDialog addQDialog;
+    private AddQuestionDialog addQuestionDialog;
     public AddExam() throws HeadlessException {
         super("Add an Exam");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -21,7 +21,7 @@ public class AddExam extends JFrame {
         questionTablePanel = new QuestionTablePanel();
         add(questionTablePanel,BorderLayout.CENTER);
 
-        addQDialog = new AddQDialog(this,"Add Question");
+        addQuestionDialog = new AddQuestionDialog(this,"Add Question");
 
         setVisible(true);
     }

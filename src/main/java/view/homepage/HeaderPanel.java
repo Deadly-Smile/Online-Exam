@@ -65,10 +65,6 @@ public class HeaderPanel extends JPanel {
 
     private ImageIcon createIcon(String path){
         URL url = getClass().getResource(path);
-        if (url == null){
-            System.err.println("Unable to lode " + path);
-        }
-
         return new ImageIcon(path);
     }
 }

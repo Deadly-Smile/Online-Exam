@@ -1,11 +1,11 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MultipleChoiceQuestion {
     private int id;
     private String question;
-    private ArrayList<String> choices;
+    private List<String> choices;
     private int rightIndex;
 
     public MultipleChoiceQuestion() {
@@ -19,7 +19,7 @@ public class MultipleChoiceQuestion {
         this.id = id;
     }
 
-    public MultipleChoiceQuestion(int id, String question, ArrayList<String> choices,
+    public MultipleChoiceQuestion(int id, String question, List<String> choices,
                                   int rightIndex) {
         this.id = id;
         this.question = question;
@@ -35,11 +35,11 @@ public class MultipleChoiceQuestion {
         this.question = question;
     }
 
-    public ArrayList<String> getChoices() {
-        return choices;
+    public List<String> getChoices() {
+        return (List<String>) choices;
     }
 
-    public void setChoices(ArrayList<String> choices) {
+    public void setChoices(List<String> choices) {
         this.choices = choices;
     }
 
