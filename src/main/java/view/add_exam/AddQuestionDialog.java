@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddQDialog extends JDialog {
+public class AddQuestionDialog extends JDialog {
     private JLabel questionLabel;
     private JTextArea questionTextArea;
     private JLabel choice1Label;
@@ -19,7 +19,7 @@ public class AddQDialog extends JDialog {
     private JLabel rightAnswerLabel;
     private JSpinner rightAnswerSpinner;
     private JButton confirmButton;
-    public AddQDialog(Frame owner, String title) {
+    public AddQuestionDialog(Frame owner, String title) {
         super(owner, title);
         setSize(new Dimension(500,350));
 
@@ -36,6 +36,7 @@ public class AddQDialog extends JDialog {
         questionTextArea = new JTextArea();
         questionTextArea.setColumns(20);
         questionTextArea.setRows(4);
+        questionTextArea.setLineWrap(true);
 
         choice1Label = new JLabel("Choice A :");
         choice1Field = new JTextField(20);
