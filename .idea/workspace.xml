@@ -5,22 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/QuestionFormPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/TimerPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Free Stolen Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/LogInInfoCollector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/SignInInfoCollector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/StatusPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Search Icon raw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Search Icon raw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/StatusPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/StatusPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddQDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +137,12 @@
       <workItem from="1612378028168" duration="1076000" />
       <workItem from="1612380990841" duration="7537000" />
       <workItem from="1612430271305" duration="11666000" />
+      <workItem from="1612462602736" duration="166000" />
+      <workItem from="1612503188373" duration="680000" />
+      <workItem from="1612519039434" duration="8147000" />
+      <workItem from="1612538215105" duration="10242000" />
+      <workItem from="1612600111997" duration="5111000" />
+      <workItem from="1612626627812" duration="5997000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>

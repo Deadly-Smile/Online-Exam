@@ -1,11 +1,18 @@
 package view.homepage;
 
+import controller.Controller;
 import view.StatusPanel;
+import view.add_exam.AddExam;
+import view.attend_exam.ExamRoom;
+import view.register.LogIn;
+import view.register.SignIn;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class HomePage extends JFrame {
+
+    public static boolean isVisual = false;
 
     private HeaderPanel headerPanel;
     private HistoryTablePanel historyTablePanel;
@@ -16,6 +23,12 @@ public class HomePage extends JFrame {
         super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(new Dimension(800,500));
+        setLocationRelativeTo(null);
+
+        new LogIn(this, "Log In");
+//
+//        new ExamRoom("Exam Room");
+//        new AddExam("Add an Exam").setVisible(Controller.);
 
         setLayout(new BorderLayout());
         headerPanel = new HeaderPanel();
@@ -26,8 +39,5 @@ public class HomePage extends JFrame {
         add(historyTablePanel,BorderLayout.WEST);
         statusPanel = new StatusPanel();
         add(statusPanel,BorderLayout.SOUTH);
-
-        setVisible(true);
     }
-
 }
