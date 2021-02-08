@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/LogInInfoCollector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/SignInInfoCollector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" afterDir="false" />
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Log in, Sign In, Homepage is connected">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/UserDataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/StatusPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/StatusPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/StatusPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +129,13 @@
       <workItem from="1612519039434" duration="8147000" />
       <workItem from="1612538215105" duration="10242000" />
       <workItem from="1612600111997" duration="5111000" />
-      <workItem from="1612626627812" duration="5997000" />
+      <workItem from="1612626627812" duration="6474000" />
+      <workItem from="1612645390393" duration="5552000" />
+      <workItem from="1612687796059" duration="289000" />
+      <workItem from="1612690043934" duration="467000" />
+      <workItem from="1612691169799" duration="251000" />
+      <workItem from="1612718865259" duration="65000" />
+      <workItem from="1612725822699" duration="1974000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -186,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612285103960</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Log in, Sign In, Homepage is connected">
+      <created>1612633510105</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1612633510105</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +212,8 @@
     <MESSAGE value="LogIn class modified" />
     <MESSAGE value="LogIn and SignIn class modified" />
     <MESSAGE value="HomePage created" />
-    <option name="LAST_COMMIT_MESSAGE" value="HomePage created" />
+    <MESSAGE value="Log in, Sign In, Homepage is connected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Log in, Sign In, Homepage is connected" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Online_Exam$Main.ic" NAME="Main Coverage Results" MODIFIED="1612284830981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

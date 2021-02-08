@@ -18,7 +18,7 @@ public class SignIn extends JFrame {
     private JButton signInButton;
     private JButton logInButton;
 
-    private Controller controller;
+    private final Controller controller;
 
     public SignIn(LogIn logIn, String title, boolean b) throws HeadlessException {
         super(title);

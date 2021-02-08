@@ -1,22 +1,23 @@
 package model;
 
-import java.time.LocalDateTime;
-
 public class Result {
     private String examName;
     private double maximumMark;
     private double achievedMark;
-    private LocalDateTime timeOfExam;
 
     public Result() {
     }
 
-    public Result(String examName, double maximumMark, double achievedMark,
-                  LocalDateTime timeOfExam) {
+    public Result(String examName, double maximumMark, double achievedMark) {
         this.examName = examName;
         this.maximumMark = maximumMark;
         this.achievedMark = achievedMark;
-        this.timeOfExam = timeOfExam;
+    }
+
+    public Result(Object exam_name, Object maximum_mark, Object achieved_mark) {
+        this.examName = exam_name.toString();
+        this.maximumMark = (double) maximum_mark;
+        this.achievedMark = (double) achieved_mark;
     }
 
     public String getExamName() {
@@ -41,13 +42,5 @@ public class Result {
 
     public void setAchievedMark(double achievedMark) {
         this.achievedMark = achievedMark;
-    }
-
-    public LocalDateTime getTimeOfExam() {
-        return timeOfExam;
-    }
-
-    public void setTimeOfExam(LocalDateTime timeOfExam) {
-        this.timeOfExam = timeOfExam;
     }
 }
