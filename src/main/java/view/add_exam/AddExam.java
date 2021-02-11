@@ -8,8 +8,8 @@ public class AddExam extends JFrame {
     private FromPanel fromPanel;
     private QuestionTablePanel questionTablePanel;
     private AddQuestionDialog addQuestionDialog;
-    public AddExam() throws HeadlessException {
-        super("Add an Exam");
+    public AddExam(String title) throws HeadlessException {
+        super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(new Dimension(800,500));
 

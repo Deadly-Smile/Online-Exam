@@ -1,5 +1,6 @@
 package view.attend_exam;
 
+import controller.Controller;
 import model.Exam;
 import model.MultipleChoiceQuestion;
 
@@ -15,8 +16,8 @@ public class ExamRoom extends JFrame {
     private QuestionFormPanel questionFormPanel;
     private Exam exam;
 
-    public ExamRoom() throws HeadlessException {
-        super("Exam Room");
+    public ExamRoom(String title) throws HeadlessException {
+        super(title);
         setSize(new Dimension(900,550));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Image logo = Toolkit.getDefaultToolkit().getImage("src/main/resources/Free Stolen Logo.png");

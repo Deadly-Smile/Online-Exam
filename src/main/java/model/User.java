@@ -2,7 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class User {
     private String name;
@@ -50,5 +49,9 @@ public class User {
 
     public void addResult(Result latestResult) {
         history.add(latestResult);
+    }
+
+    public void setHistory(List<Result> history) {
+        this.history = history;
     }
 }
