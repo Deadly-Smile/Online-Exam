@@ -12,8 +12,6 @@ import java.awt.*;
 
 public class HomePage extends JFrame {
 
-    public static boolean isVisual = false;
-
     private HeaderPanel headerPanel;
     private HistoryTablePanel historyTablePanel;
     private ExamTablePanel examTablePanel;
@@ -25,11 +23,13 @@ public class HomePage extends JFrame {
         setSize(new Dimension(800,500));
         setLocationRelativeTo(null);
 
-        new LogIn(this, "Log In");
-//
-//        new ExamRoom("Exam Room");
-//        new AddExam("Add an Exam").setVisible(Controller.);
+        new LogIn(this, "Log In"); /* calling login frame */
 
+        setComponents();
+    }
+
+    private void setComponents() {
+        /* adding panels */
         setLayout(new BorderLayout());
         headerPanel = new HeaderPanel();
         add(headerPanel,BorderLayout.NORTH);

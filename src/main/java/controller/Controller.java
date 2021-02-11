@@ -1,16 +1,18 @@
 package controller;
 
-import view.homepage.HomePage;
+import model.User;
+import model.UserDataBase;
 import view.register.LogIn;
+import view.register.SignIn;
 
 import javax.swing.*;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Controller {
 
+    private static final UserDataBase dataBase = new UserDataBase();
     private static LogInInfoCollector userLog = null;
     public Controller(){
 
@@ -21,6 +23,7 @@ public class Controller {
         return userLog != null;
     }
 
+    /* getting user info from the User Log In Info file */
     private LogInInfoCollector getLogInDataFile(){
         LogInInfoCollector userLogInfoFromFile = new LogInInfoCollector();
         try (Scanner scanner = new Scanner(new BufferedReader(
@@ -37,39 +40,49 @@ public class Controller {
         return userLogInfoFromFile;
     }
 
+    /* checking handle and password and its next step */
     public void setLogInDataUI(String handle, String password,
-                               boolean isRemembered, JFrame caller, JFrame source)
+    boolean isRemembered, JFrame caller, LogIn source)
             throws IOException {
         if(userLog != null) {
             System.err.println("We already have data");
         } else {
-            if(handle.length() <= 2 || password.length() <= 4){
-                return;
-            }
-            if (isRemembered){
-                System.out.println(password);
-                userLog = new LogInInfoCollector(handle,password);
-                try(FileWriter fileWriter = new FileWriter("src/main/resources/User Log In Info.txt")) {
-                    fileWriter.write(handle + "\n" + password);
-                } catch (IOException e) {
-                    throw new IOException("Could not open " + "src/main/resources/User Log In Info.txt");
+            if(handle.length() <= 3 || password.length() <= 5){
+                source.setMassage(true);
+            }else{
+                if (dataBase.verifyUser(handle,password)){
+                    source.setVisible(false);
+                    caller.setVisible(true);
+                    if (isRemembered){
+                        System.out.println(password);
+                        userLog = new LogInInfoCollector(handle,password);
+                        try(FileWriter fileWriter = new FileWriter("src/main/resources/User Log In Info.txt")) {
+                            fileWriter.write(handle + "\n" + password);
+                        } catch (IOException e) {
+                            throw new IOException("Could not open " + "src/main/resources/User Log In Info.txt");
+                        }
+                    }
+                } else {
+                    source.setMassage(true);
                 }
             }
-            source.setVisible(false);
-            caller.setVisible(true);
         }
     }
 
-    public void createUser(String name, String handle, String password,
-                           JFrame caller, JFrame source) {
-        if(name.length() <= 2 || handle.length() <= 3){
-            return;
+    /* Attempting to create new user */
+    public void createUser(String name, String handle, String password, SignIn source) {
+        if(handle.length() <= 3 || password.length() <= 5){
+            source.setTooShortVisible();
         }
-        SignInInfoCollector newUser = new SignInInfoCollector(name, handle, password);
-        // this goes to database
-
-        caller.setVisible(true);
-        source.setVisible(false);
+        else {
+            User newUser = new User(name, handle, password);
+            // this goes to database
+            if (dataBase.addUser(newUser)){
+                source.setSuccessVisible();
+            } else {
+                source.setAlreadyVisible();
+            }
+        }
     }
 
 }

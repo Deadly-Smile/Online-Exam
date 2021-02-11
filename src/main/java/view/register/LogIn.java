@@ -4,8 +4,6 @@ import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class LogIn extends JFrame {
@@ -19,24 +17,29 @@ public class LogIn extends JFrame {
     private JButton signInButton;
     private JCheckBox rememberMeCheck;
     private JLabel noAccountLabel;
+    private JLabel massageLabel;
 
-    private Controller controller;
+    private final Controller controller;
 
     public LogIn(JFrame caller, String title) throws HeadlessException {
         super(title);
         controller = new Controller();
-
+        /* checking userinfo is in the file or not
+        * if it is there then direct to homepage
+        * if not then login to enter */
         isVisual = !controller.isLogInDefault();
         caller.setVisible(!isVisual);
 
         initializeComponents();
         setComponents();
-        JFrame source = this;
+        LogIn source = this;
 
         logInButton.addActionListener(e -> {
             try {
                 String handle = handleField.getText();
-                String password = passwordField.getText();
+                char[] pass = passwordField.getPassword();
+                String password = new String(pass);
+
                 boolean isRemembered = rememberMeCheck.isSelected();
                 controller.setLogInDataUI(handle, password, isRemembered, caller, source);
             } catch (NullPointerException | IOException ignored){}
@@ -46,6 +49,7 @@ public class LogIn extends JFrame {
 
     }
 
+    /* initializing part is here, all styling of components should be done in this method */
     private void initializeComponents() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
@@ -60,6 +64,11 @@ public class LogIn extends JFrame {
 
         rememberMeCheck = new JCheckBox("Remember me");
 
+        massageLabel = new JLabel("Incorrect handle or password*");
+        massageLabel.setForeground(Color.RED);
+        massageLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        massageLabel.setVisible(false);
+
         logInButton = new JButton("Login");
         logInButton.setBackground(new Color(0xa3ddcb));
         logInButton.setForeground(Color.BLACK);
@@ -72,6 +81,7 @@ public class LogIn extends JFrame {
         signInButton.setForeground(Color.BLACK);
     }
 
+    /* setting components in position is done in this method */
     private void setComponents() {
         handleLabel.setBounds(100,60,60,30);
         add(handleLabel);
@@ -88,7 +98,10 @@ public class LogIn extends JFrame {
         rememberMeCheck.setBounds(95,135,120,20);
         add(rememberMeCheck);
 
-        logInButton.setBounds(220,170,80,20);
+        massageLabel.setBounds(100,162,200,20);
+        add(massageLabel);
+
+        logInButton.setBounds(220,190,80,20);
         add(logInButton);
 
         noAccountLabel.setBounds(120,220,100,30);
@@ -101,5 +114,9 @@ public class LogIn extends JFrame {
         setBounds(400,200,400,300);
         setVisible(isVisual);
         setResizable(false);
+    }
+
+    public void setMassage(boolean b) {
+        massageLabel.setVisible(b);
     }
 }
