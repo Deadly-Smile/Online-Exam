@@ -19,7 +19,7 @@ public class AddQuestionDialog extends JDialog {
     private JLabel rightAnswerLabel;
     private JSpinner rightAnswerSpinner;
     private JButton confirmButton;
-    public AddQuestionDialog(Frame owner, String title) {
+    public AddQuestionDialog(JDialog owner, String title) {
         super(owner, title);
         setSize(new Dimension(500,350));
 

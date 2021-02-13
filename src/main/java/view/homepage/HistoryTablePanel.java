@@ -9,8 +9,8 @@ public class HistoryTablePanel extends JPanel {
     private JTable historyTable;
     private HistoryTableModel historyTableModel;
 
-    public HistoryTablePanel() {
-        historyTableModel = new HistoryTableModel();
+    public HistoryTablePanel(User user) {
+        historyTableModel = new HistoryTableModel(user);
         historyTable = new JTable(historyTableModel);
         setLayout(new BorderLayout());
         add(new JScrollPane(historyTable),BorderLayout.CENTER);
@@ -19,14 +19,10 @@ public class HistoryTablePanel extends JPanel {
         dimension.width = 250;
         setPreferredSize(dimension);
         setBorder(BorderFactory.createMatteBorder(1,1,1,1,new Color(0x726a95)));
-
+        refresh();
     }
-
-    public void setData(User user){
-        historyTableModel.setData(user);
-    }
-
     public void refresh() {
         historyTableModel.fireTableDataChanged();
     }
+
 }

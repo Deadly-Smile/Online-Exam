@@ -3,15 +3,18 @@ package view.homepage;
 import model.Result;
 import model.User;
 
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import java.util.Arrays;
 import java.util.List;
 
 public class HistoryTableModel extends AbstractTableModel {
-    private User user;
-    private final List<String> fieldNames = Arrays.asList("Exam name", "Score");
+    private final User user;
+    private final List<String> fieldNames = Arrays.asList("Exam name", "Scored", "Out of");
 
-    public HistoryTableModel() {
+    public HistoryTableModel(User user) {
+        this.user = user;
     }
 
     @Override
@@ -21,13 +24,13 @@ public class HistoryTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-//        return user.getHistory().size();
-        return 0;
+        return user.getHistory().size();
+//        return 0;
     }
 
     @Override
     public int getColumnCount() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -37,12 +40,10 @@ public class HistoryTableModel extends AbstractTableModel {
             case 0:
                 return result.getExamName();
             case 1:
-                return result.getAchievedMark() + "" + "/" + result.getMaximumMark();
+                return result.getAchievedMark();
+            case 2:
+                return result.getMaximumMark();
         }
         return null;
-    }
-
-    public void setData(User user) {
-        this.user = user;
     }
 }

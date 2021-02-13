@@ -54,7 +54,7 @@ public class UserDataBase {
         }
     }
 
-    private User getUser(String id){
+    public User getUser(String id){
         Document doc = new Document("_id",id);
         FindIterable<Document> iterable = userCollection.find(doc);
         boolean b = false;

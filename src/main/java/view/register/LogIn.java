@@ -1,6 +1,7 @@
 package view.register;
 
 import controller.Controller;
+import view.homepage.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,7 @@ public class LogIn extends JFrame {
 
     private final Controller controller;
 
-    public LogIn(JFrame caller, String title) throws HeadlessException {
+    public LogIn(HomePage caller, String title) throws HeadlessException {
         super(title);
         controller = new Controller();
         /* checking userinfo is in the file or not
@@ -29,6 +30,9 @@ public class LogIn extends JFrame {
         * if not then login to enter */
         isVisual = !controller.isLogInDefault();
         caller.setVisible(!isVisual);
+        if (!isVisual){
+            caller.addHistoryTable(controller.getUser());
+        }
 
         initializeComponents();
         setComponents();
@@ -72,6 +76,7 @@ public class LogIn extends JFrame {
         logInButton = new JButton("Login");
         logInButton.setBackground(new Color(0xa3ddcb));
         logInButton.setForeground(Color.BLACK);
+        logInButton.setFocusPainted(false);
 
         noAccountLabel = new JLabel("No account ?");
         noAccountLabel.setForeground(new Color(0xeb5e0b));
@@ -79,6 +84,7 @@ public class LogIn extends JFrame {
         signInButton = new JButton("Sign in");
         signInButton.setBackground(new Color(0x276678));
         signInButton.setForeground(Color.BLACK);
+        signInButton.setFocusPainted(false);
     }
 
     /* setting components in position is done in this method */

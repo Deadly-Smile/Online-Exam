@@ -82,10 +82,12 @@ public class SignIn extends JFrame {
         signInButton =new JButton("Sign In");
         signInButton.setBackground(new Color(0xa3ddcb));
         signInButton.setForeground(Color.BLACK);
+        signInButton.setFocusPainted(false);
 
         logInButton =new JButton("Log In");
         logInButton.setBackground(new Color(0x276678));
         logInButton.setForeground(Color.BLACK);
+        logInButton.setFocusPainted(false);
     }
 /* setting components in position is done in this method */
     private void setComponents() {

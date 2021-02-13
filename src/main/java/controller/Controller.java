@@ -2,6 +2,7 @@ package controller;
 
 import model.User;
 import model.UserDataBase;
+import view.homepage.HomePage;
 import view.register.LogIn;
 import view.register.SignIn;
 
@@ -19,30 +20,37 @@ public class Controller {
     }
 
     public boolean isLogInDefault() {
-        userLog = getLogInDataFile();
+        userLog = getLogInData("src/main/resources/User Log In Info.txt");
         return userLog != null;
     }
 
     /* getting user info from the User Log In Info file */
-    private LogInInfoCollector getLogInDataFile(){
-        LogInInfoCollector userLogInfoFromFile = new LogInInfoCollector();
+    private LogInInfoCollector getLogInData(String url){
+        LogInInfoCollector userLogInfoFromFile = null;
         try (Scanner scanner = new Scanner(new BufferedReader(
-                new FileReader("src/main/resources/User Log In Info.txt")
+                new FileReader(url)
         ))) {
-            userLogInfoFromFile.setHandle(scanner.nextLine());
-            userLogInfoFromFile.setPassword(scanner.nextLine());
+            userLogInfoFromFile = new LogInInfoCollector(scanner.nextLine(),scanner.nextLine());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.err.println("Couldn't load " + "src/main/resources/User Log In Info.txt");
+            System.err.println("Couldn't load " + url);
         } catch (NoSuchElementException e){
             return null;
         }
         return userLogInfoFromFile;
     }
 
+    private void writeFile(String url) throws IOException {
+        try(FileWriter fileWriter = new FileWriter(url)) {
+            fileWriter.write(userLog.getHandle() + "\n" + userLog.getPassword());
+        } catch (IOException e) {
+            throw new IOException("Could not open " + url);
+        }
+    }
+
     /* checking handle and password and its next step */
     public void setLogInDataUI(String handle, String password,
-    boolean isRemembered, JFrame caller, LogIn source)
+                               boolean isRemembered, HomePage homePage, LogIn source)
             throws IOException {
         if(userLog != null) {
             System.err.println("We already have data");
@@ -51,22 +59,24 @@ public class Controller {
                 source.setMassage(true);
             }else{
                 if (dataBase.verifyUser(handle,password)){
-                    source.setVisible(false);
-                    caller.setVisible(true);
+                    userLog = new LogInInfoCollector(handle,password);
                     if (isRemembered){
-                        System.out.println(password);
-                        userLog = new LogInInfoCollector(handle,password);
-                        try(FileWriter fileWriter = new FileWriter("src/main/resources/User Log In Info.txt")) {
-                            fileWriter.write(handle + "\n" + password);
-                        } catch (IOException e) {
-                            throw new IOException("Could not open " + "src/main/resources/User Log In Info.txt");
-                        }
+                        writeFile("src/main/resources/User Log In Info.txt");
                     }
+                    source.setVisible(false);
+                    homePage.addHistoryTable(getUser());
+                    homePage.setVisible(true);
                 } else {
                     source.setMassage(true);
                 }
             }
         }
+    }
+
+    public User getUser(){
+        User user;
+        user = dataBase.getUser(userLog.getHandle());
+        return user;
     }
 
     /* Attempting to create new user */
