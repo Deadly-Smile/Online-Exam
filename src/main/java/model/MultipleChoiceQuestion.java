@@ -36,7 +36,7 @@ public class MultipleChoiceQuestion {
     }
 
     public List<String> getChoices() {
-        return (List<String>) choices;
+        return choices;
     }
 
     public void setChoices(List<String> choices) {
@@ -49,5 +49,15 @@ public class MultipleChoiceQuestion {
 
     public void setRightIndex(int rightIndex) {
         this.rightIndex = rightIndex;
+    }
+
+    @Override
+    public String toString() {
+        return "MultipleChoiceQuestion{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", choices=" + choices +
+                ", rightIndex=" + rightIndex +
+                '}';
     }
 }

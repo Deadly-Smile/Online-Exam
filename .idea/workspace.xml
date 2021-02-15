@@ -5,23 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="History table working">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionFormEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionFormListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User Log In Info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel$Form.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel$Label.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel$Note.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -155,6 +159,9 @@
       <workItem from="1613151564971" duration="4352000" />
       <workItem from="1613172176306" duration="4157000" />
       <workItem from="1613210791741" duration="260000" />
+      <workItem from="1613211270965" duration="8353000" />
+      <workItem from="1613246972548" duration="8231000" />
+      <workItem from="1613387442611" duration="1074000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>

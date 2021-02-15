@@ -18,16 +18,49 @@ public class AddQuestionDialog extends JDialog {
     private JTextField choice4Field;
     private JLabel rightAnswerLabel;
     private JSpinner rightAnswerSpinner;
+    private JLabel noteLabel;
     private JButton confirmButton;
-    public AddQuestionDialog(JDialog owner, String title) {
-        super(owner, title);
-        setSize(new Dimension(500,350));
+    private QuestionFormListener questionFormListener;
+    public AddQuestionDialog(JDialog owner, String title, boolean model) {
+        super(owner, title, model);
+        setSize(new Dimension(450,350));
+        setLocationRelativeTo(owner);
 
         initialization();
         setComponents();
 
+        confirmButton.addActionListener(e -> {
+            String question = questionTextArea.getText();
+            String choice1 = choice1Field.getText();
+            String choice2 = choice2Field.getText();
+            String choice3 = choice3Field.getText();
+            String choice4 = choice4Field.getText();
+            String rightChoice = (String) rightAnswerSpinner.getValue();
+            if(question.length() <= 1){
+                noteLabel.setVisible(true);
+            }else{
+                noteLabel.setVisible(false);
+                QuestionFormEvent event = new QuestionFormEvent(
+                        this, question, choice1, choice2, choice3,
+                        choice4, rightChoice
+                );
+                questionTextArea.setText(null);
+                choice1Field.setText(null);
+                choice2Field.setText(null);
+                choice3Field.setText(null);
+                choice4Field.setText(null);
+                rightAnswerSpinner.setValue("A");
+                if (questionFormListener != null){
+                    questionFormListener.questionFormEventOccurred(event);
+                }
+            }
+        });
+
         setVisible(true);
-        setLocationRelativeTo(owner);
+    }
+
+    public void setQuestionFormListener(QuestionFormListener questionFormListener) {
+        this.questionFormListener = questionFormListener;
     }
 
     private void initialization() {
@@ -57,7 +90,14 @@ public class AddQuestionDialog extends JDialog {
         rightAnswerSpinner = new JSpinner(spinnerModel);
         rightAnswerSpinner.setEditor(new JSpinner.DefaultEditor(rightAnswerSpinner));
 
+        noteLabel = new JLabel("Question can't be blank");
+        noteLabel.setForeground(Color.red);
+        noteLabel.setVisible(false);
+
         confirmButton = new JButton("Confirm");
+        confirmButton.setFocusPainted(false);
+        confirmButton.setBackground(new Color(0xd3e0ea));
+        confirmButton.setForeground(new Color(0x276678));
     }
 
     private void setComponents() {
@@ -140,11 +180,15 @@ public class AddQuestionDialog extends JDialog {
         gbc.insets = new Insets(0,0,0,0);
         add(rightAnswerSpinner, gbc);
 
+        /*  Next Row */
+        gbc.gridy++;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        add(noteLabel, gbc);
+
         /* Last Row */
         gbc.gridy++;
         gbc.weighty = 4;
-        gbc.insets = new Insets(0,0,0,0);
-        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.anchor = GridBagConstraints.CENTER;
         add(confirmButton,gbc);
 
     }
