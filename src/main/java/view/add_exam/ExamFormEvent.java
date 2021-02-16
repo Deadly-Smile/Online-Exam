@@ -1,12 +1,13 @@
 package view.add_exam;
 
+import java.util.Date;
 import java.util.EventObject;
 
 public class ExamFormEvent extends EventObject {
     private String examName;
     private String examPass;
     private int examDuration;
-    private int startsIn;
+    private Date startDate;
 
     /**
      * Constructs a prototypical Event.
@@ -19,12 +20,12 @@ public class ExamFormEvent extends EventObject {
     }
 
     public ExamFormEvent(Object source, String examName, String examPass,
-                         int examDuration, int startsIn) {
+                         int examDuration, Date startDate) {
         super(source);
         this.examName = examName;
         this.examPass = examPass;
         this.examDuration = examDuration;
-        this.startsIn = startsIn;
+        this.startDate = startDate;
     }
 
     public String getExamName() {
@@ -51,11 +52,11 @@ public class ExamFormEvent extends EventObject {
         this.examDuration = examDuration;
     }
 
-    public int getStartsIn() {
-        return startsIn;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStartsIn(int startsIn) {
-        this.startsIn = startsIn;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 }

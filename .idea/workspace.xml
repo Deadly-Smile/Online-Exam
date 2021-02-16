@@ -4,27 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="History table working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionFormEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionFormListener.java" afterDir="false" />
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Adding exam is complete (only gui part), but need modification">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Exam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Exam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Exam.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel$Form.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel$Label.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel$Note.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +156,10 @@
       <workItem from="1613211270965" duration="8353000" />
       <workItem from="1613246972548" duration="8231000" />
       <workItem from="1613387442611" duration="1074000" />
+      <workItem from="1613389377460" duration="1070000" />
+      <workItem from="1613403460047" duration="3161000" />
+      <workItem from="1613454983612" duration="8966000" />
+      <workItem from="1613486971559" duration="3203000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -219,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613156340043</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Adding exam is complete (only gui part), but need modification">
+      <created>1613389557035</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1613389557035</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +252,8 @@
     <MESSAGE value="HomePage created" />
     <MESSAGE value="Log in, Sign In, Homepage is connected" />
     <MESSAGE value="History table working" />
-    <option name="LAST_COMMIT_MESSAGE" value="History table working" />
+    <MESSAGE value="Adding exam is complete (only gui part), but need modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding exam is complete (only gui part), but need modification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,21 +1,29 @@
 package view.add_exam;
 
 import javax.swing.*;
+
 import java.awt.*;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class FromPanel extends JPanel {
 
     private JPanel labelPanel;
     private JPanel formPanel;
     private JPanel notePanel;
+
     private JLabel examNameLabel;
     private JLabel examPassLabel;
     private JLabel durationLabel;
     private JLabel startTimeLabel;
-    private JLabel invalidLabel;
+    private JLabel dateLabel;
+    private JLabel invalidInfoLabel;
+    private JLabel invalidDateLabel;
+    private JLabel tooEarlyLabel;
     private JTextField examNameField;
     private JPasswordField examPassField;
     private JSpinner durationSpinner;
+    private JSpinner dateSpinner;
     private JSpinner startTimeSpinner;
     private JButton createButton;
     private ExamFormListener examFormListener;
@@ -29,23 +37,44 @@ public class FromPanel extends JPanel {
             char[] pass = examPassField.getPassword();
             String examPass = new String(pass);
             int examDuration = (int) durationSpinner.getValue();
-            int startsIn = (int) startTimeSpinner.getValue();
+            Date startDate = (Date) dateSpinner.getValue();
+            Date startsIn = (Date) startTimeSpinner.getValue();
 
-            if((examName.length() > 3 && examPass.length() > 4)
-                && ((examDuration >= 5) && (examDuration <= 180))
-                && ((startsIn >= 5) && (startsIn <= 1000)))
-            {
-                invalidLabel.setVisible(false);
+            // warning understood
+            startDate.setHours(startsIn.getHours());
+            startDate.setMinutes(startsIn.getMinutes());
+            startDate.setSeconds(0);
+
+            long diffInMiliSec = Math.abs(startDate.getTime() - new Date().getTime());
+            long diffInMinute = TimeUnit.MINUTES.convert(diffInMiliSec, TimeUnit.MILLISECONDS);
+            long diffInDay = TimeUnit.DAYS.convert(diffInMiliSec, TimeUnit.MILLISECONDS);
+
+
+            if (examName.length() <= 3 && examPass.length() <= 4){
+                invalidInfoLabel.setVisible(true);
+                invalidDateLabel.setVisible(false);
+                tooEarlyLabel.setVisible(false);
+            } else if (diffInDay > 15) {
+                invalidDateLabel.setVisible(true);
+                invalidInfoLabel.setVisible(false);
+                tooEarlyLabel.setVisible(false);
+            } else if(new Date().getTime() >= startDate.getTime()
+                    || diffInMinute < 10) {
+                tooEarlyLabel.setVisible(true);
+                invalidInfoLabel.setVisible(false);
+                invalidDateLabel.setVisible(false);
+            } else {
+                invalidInfoLabel.setVisible(false);
+                invalidDateLabel.setVisible(false);
+                tooEarlyLabel.setVisible(false);
                 ExamFormEvent event = new ExamFormEvent(
-                        this,examName,examPass,examDuration,startsIn
+                        this,examName,examPass,examDuration,startDate
                 );
                 examNameField.setText(null);
                 examPassField.setText(null);
                 if(examFormListener != null){
                     examFormListener.examFormEventOccurred(event);
                 }
-            } else {
-                invalidLabel.setVisible(true);
             }
         });
     }
@@ -60,10 +89,25 @@ public class FromPanel extends JPanel {
     }
 
     private void setNotePanel() {
-        JLabel note = new JLabel("Note : time is calculated by minutes.");
-        note.setForeground(new Color(0xec4646));
-        note.setLayout(new FlowLayout(FlowLayout.CENTER));
-        notePanel.add(note);
+        invalidInfoLabel = new JLabel("Too short exam name or password");
+        invalidInfoLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        invalidInfoLabel.setForeground(Color.RED);
+        invalidInfoLabel.setVisible(false);
+
+        invalidDateLabel = new JLabel("Please start the exam in 15 days");
+        invalidDateLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        invalidDateLabel.setForeground(Color.RED);
+        invalidDateLabel.setVisible(false);
+
+        tooEarlyLabel = new JLabel("At least give 10 minute to start the exam");
+        tooEarlyLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        tooEarlyLabel.setForeground(Color.RED);
+        tooEarlyLabel.setVisible(false);
+
+        notePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        notePanel.add(invalidDateLabel);
+        notePanel.add(invalidInfoLabel);
+        notePanel.add(tooEarlyLabel);
     }
 
     private void setLabelPanel() {
@@ -129,6 +173,18 @@ public class FromPanel extends JPanel {
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
+        formPanel.add(dateLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(0,0,0,0);
+        formPanel.add(dateSpinner, gbc);
+
+        /*  Next Row */
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,5);
         formPanel.add(startTimeLabel, gbc);
 
         gbc.gridx = 1;
@@ -136,19 +192,12 @@ public class FromPanel extends JPanel {
         gbc.insets = new Insets(0,0,0,0);
         formPanel.add(startTimeSpinner, gbc);
 
-        /*  Next Row */
-        gbc.gridx = 0;
-        gbc.gridy++;
-        gbc.anchor = GridBagConstraints.LINE_END;
-        gbc.insets = new Insets(0,0,0,5);
-        formPanel.add(invalidLabel, gbc);
-
         /* Last Row */
         gbc.gridx = 1;
         gbc.gridy++;
         gbc.weighty = 4;
         gbc.insets = new Insets(0,0,0,0);
-        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.anchor = GridBagConstraints.CENTER;
         formPanel.add(createButton,gbc);
     }
 
@@ -157,13 +206,11 @@ public class FromPanel extends JPanel {
 
         examPassLabel = new JLabel("Set Password :");
 
-        durationLabel = new JLabel("Set Duration :");
+        durationLabel = new JLabel("Set Duration(min) :");
+
+        dateLabel = new JLabel("Exam date :");
 
         startTimeLabel = new JLabel("Start Time :");
-
-        invalidLabel = new JLabel("Invalid information");
-        invalidLabel.setForeground(Color.RED);
-        invalidLabel.setVisible(false);
 
         examNameField = new JTextField(10);
 
@@ -172,10 +219,19 @@ public class FromPanel extends JPanel {
         SpinnerModel durationSinnerModel =
                 new SpinnerNumberModel(10,2,180,1);
         durationSpinner = new JSpinner(durationSinnerModel);
+        // disabling editable mod of duration spinner
+        JFormattedTextField spin = ((JSpinner.DefaultEditor)durationSpinner.getEditor()).getTextField();
+        spin.setEditable(false);
 
-        SpinnerModel timeSinnerModel =
-                new SpinnerNumberModel(10,5,1000,1);
-        startTimeSpinner = new JSpinner(timeSinnerModel);
+        dateSpinner = new JSpinner(new SpinnerDateModel());
+        JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dateSpinner, "EEE, d MMM yyyy");
+        dateSpinner.setEditor(dateEditor);
+        dateSpinner.setValue(new Date());
+
+        startTimeSpinner = new JSpinner(new SpinnerDateModel());
+        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(startTimeSpinner, "HH: mm");
+        startTimeSpinner.setEditor(timeEditor);
+        startTimeSpinner.setValue(new Date());
 
         createButton = new JButton("Create");
         createButton.setFocusPainted(false);

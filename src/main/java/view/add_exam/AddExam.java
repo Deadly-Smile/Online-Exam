@@ -2,11 +2,12 @@ package view.add_exam;
 
 import model.Exam;
 import model.MultipleChoiceQuestion;
+import org.bson.types.ObjectId;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AddExam extends JDialog {
@@ -15,10 +16,10 @@ public class AddExam extends JDialog {
     private QuestionTablePanel questionTablePanel;
     private AddQuestionDialog addQuestionDialog;
     private Exam newExam;
-    private MultipleChoiceQuestion mcq;
+    private ArrayList<MultipleChoiceQuestion> questionSet = new ArrayList<>();
     private int questionID = 0;
 
-    public AddExam(JFrame home ,String title, boolean model) {
+    public AddExam(JFrame home ,String title, boolean model, String handle) {
         super(home,title,model);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(new Dimension(750,450));
@@ -37,12 +38,10 @@ public class AddExam extends JDialog {
             String examName = event.getExamName();
             String examPass = event.getExamPass();
             int examDuration = event.getExamDuration();
-            int startsIn = event.getStartsIn();
-//            System.out.println("Exam Name : " + examName + "\n"
-//                               + "Exam Pass : " + examPass + "\n"
-//                                + "Duration : " + examDuration + "\n"
-//                                + "Stars In : " + startsIn
-//            );
+            Date startsDate = event.getStartDate();
+            newExam = new Exam(new ObjectId(), examName, handle,
+                    examPass, startsDate, questionSet, examDuration);
+            dispose();
         });
 
         setVisible(true);
@@ -80,8 +79,9 @@ public class AddExam extends JDialog {
                     System.err.println("Couldn't get right input from rightChoice spinner");
             }
             questionID++;
-            mcq = new MultipleChoiceQuestion(questionID, question, choices, index);
+            MultipleChoiceQuestion mcq = new MultipleChoiceQuestion(questionID, question, choices, index);
             questionTablePanel.addQuestion(mcq);
+            questionSet.add(mcq);
             addQuestionDialog.dispose();
         });
     }

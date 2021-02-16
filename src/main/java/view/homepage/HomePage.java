@@ -19,6 +19,8 @@ public class HomePage extends JFrame {
     private StatusPanel statusPanel;
     private JDialog addExam;
 
+    private String userHandle;
+
     public HomePage(String title) throws HeadlessException {
         super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -37,6 +39,7 @@ public class HomePage extends JFrame {
     }
 
     public void addHistoryTable(User user){
+        userHandle = user.getHandle();
         headerPanel = new HeaderPanel(user,this);
         add(headerPanel,BorderLayout.NORTH);
         historyTablePanel = new HistoryTablePanel(user);
@@ -45,6 +48,6 @@ public class HomePage extends JFrame {
     }
 
     public void startAddExam(){
-        addExam = new AddExam(this,"Add Exam", true);
+        addExam = new AddExam(this,"Add Exam", true, userHandle);
     }
 }

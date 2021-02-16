@@ -44,7 +44,7 @@ public class ExamTableModel extends AbstractTableModel {
             case 3:
                 return exam.getExamStartingTime();
             case 4:
-                return exam.getGivenTimeInMinutes();
+                return exam.getExamDuration();
         }
         return null;
     }

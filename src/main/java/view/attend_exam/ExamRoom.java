@@ -1,15 +1,9 @@
 package view.attend_exam;
 
-import controller.Controller;
 import model.Exam;
-import model.MultipleChoiceQuestion;
 
 import javax.swing.*;
 import java.awt.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ExamRoom extends JFrame {
     private TimerPanel timerPanel;
@@ -26,13 +20,14 @@ public class ExamRoom extends JFrame {
         setLayout(new BorderLayout());
         timerPanel = new TimerPanel();
         add(timerPanel,BorderLayout.NORTH);
-        initializeExam();
+//        initializeExam();
         questionFormPanel = new QuestionFormPanel(exam);
         add(new JScrollPane(questionFormPanel),BorderLayout.CENTER);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
+    /* testing
     public void initializeExam(){
         ArrayList<MultipleChoiceQuestion> question = new ArrayList<>();
         List<String> c1 = Arrays.asList("1", "2", "3", "4");
@@ -46,9 +41,10 @@ public class ExamRoom extends JFrame {
                 "Test Exam",
                 "Anik",
                 "12345",
-                LocalDateTime.now(),
+                Date.now(),
                 question,
                 5
         );
     }
+     */
 }

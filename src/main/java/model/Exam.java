@@ -1,16 +1,20 @@
 package model;
 
+import org.bson.types.ObjectId;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Exam {
-    private String id;
+    private ObjectId id;
     private String examName;
     private String examSetterHandle;
     private String examPassword;
-    private LocalDateTime examStartingTime;
+    private Date examStartingTime;
     private ArrayList<MultipleChoiceQuestion> questions;
-    private int givenTimeInMinutes;
+    private int examDuration;
 
     /* This is This is prototype
 //    private double marksPerQuestion;
@@ -32,7 +36,7 @@ public class Exam {
     public Exam() {
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
@@ -44,20 +48,24 @@ public class Exam {
         this.examSetterHandle = examSetterHandle;
     }
 
-    public Exam(String id, String examName, String examSetterHandle, String examPassword, LocalDateTime examStartingTime,
-                ArrayList<MultipleChoiceQuestion> questions, int givenTimeInMinutes) {
+    public Exam(ObjectId id, String examName, String examSetterHandle,
+                String examPassword, Date examStartingTime,
+                ArrayList<MultipleChoiceQuestion> questions,
+                int examDuration) {
         this.id = id;
         this.examName = examName;
         this.examSetterHandle = examSetterHandle;
         this.examPassword = examPassword;
         this.examStartingTime = examStartingTime;
         this.questions = questions;
-        this.givenTimeInMinutes = givenTimeInMinutes;
+        this.examDuration = examDuration;
     }
 
     public boolean isExamOver(){
-        LocalDateTime now = LocalDateTime.now();
-        return now.isAfter(this.examStartingTime);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(examStartingTime);
+        calendar.add(Calendar.MINUTE, examDuration);
+        return new Date().after(calendar.getTime());
     }
 
     public void addQuestion(MultipleChoiceQuestion anotherQuestion){
@@ -98,11 +106,11 @@ public class Exam {
         this.examPassword = examPassword;
     }
 
-    public LocalDateTime getExamStartingTime() {
+    public Date getExamStartingTime() {
         return examStartingTime;
     }
 
-    public void setExamStartingTime(LocalDateTime examStartingTime) {
+    public void setExamStartingTime(Date examStartingTime) {
         this.examStartingTime = examStartingTime;
     }
 
@@ -114,11 +122,24 @@ public class Exam {
         this.questions = questions;
     }
 
-    public int getGivenTimeInMinutes() {
-        return givenTimeInMinutes;
+    public int getExamDuration() {
+        return examDuration;
     }
 
-    public void setGivenTimeInMinutes(int givenTimeInMinutes) {
-        this.givenTimeInMinutes = givenTimeInMinutes;
+    public void setExamDuration(int examDuration) {
+        this.examDuration = examDuration;
+    }
+
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "id=" + id +
+                ", examName='" + examName + '\'' +
+                ", examSetterHandle='" + examSetterHandle + '\'' +
+                ", examPassword='" + examPassword + '\'' +
+                ", examStartingTime=" + examStartingTime +
+                ", questions=" + questions +
+                ", examDuration=" + examDuration +
+                '}';
     }
 }
