@@ -4,28 +4,30 @@ import model.User;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.net.URL;
 
 
 public class HeaderPanel extends JPanel {
     private JButton setAnExamButton;
-    private JLabel handleLabel;
     private JLabel searchLabel;
     private JTextField searchBarField;
     private JButton searchButton;
 
-    private String handle;
+    private JMenuBar handleBar;
+    private JMenu handleMenu;
+    private JMenuItem createdExamItem;
+    private JMenuItem logOutItem;
+
+    private final String handle;
+
+
 
     public HeaderPanel(User user, HomePage home) {
         handle = user.getHandle();
         initialiseComponent();
         setComponent();
 
-        setAnExamButton.addActionListener(e -> {
-            home.startAddExam();
-        });
+        setAnExamButton.addActionListener(e -> home.startAddExam());
     }
 
     private void setComponent() {
@@ -38,7 +40,7 @@ public class HeaderPanel extends JPanel {
                 .addComponent(searchLabel)
                 .addComponent(searchBarField)
                 .addComponent(searchButton)
-                .addComponent(handleLabel)
+                .addComponent(handleBar)
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -47,7 +49,7 @@ public class HeaderPanel extends JPanel {
                                 .addComponent(searchLabel)
                                 .addComponent(searchBarField)
                                 .addComponent(searchButton, GroupLayout.Alignment.CENTER)
-                                .addComponent(handleLabel))
+                                .addComponent(handleBar))
         );
 
         layout.setAutoCreateGaps(true);
@@ -64,8 +66,18 @@ public class HeaderPanel extends JPanel {
         setAnExamButton.setFocusPainted(false);
         setAnExamButton.setFont(new Font("Arial",Font.BOLD,18));
 
-        handleLabel = new JLabel(handle);
-        handleLabel.setFont(new Font("Arial",Font.BOLD,18));
+//        handleLabel = new JLabel(handle);
+//        handleLabel.setFont(new Font("Arial",Font.BOLD,18));
+        handleMenu = new JMenu(handle);
+
+        handleBar = new JMenuBar();
+
+        createdExamItem = new JMenuItem("Created exam");
+        logOutItem = new JMenuItem("Log out");
+
+        handleMenu.add(createdExamItem);
+        handleMenu.add(logOutItem);
+        handleBar.add(handleMenu);
 
         searchLabel = new JLabel("Search exam by ID :");
         searchLabel.setFont(new Font("Arial",Font.PLAIN,17));

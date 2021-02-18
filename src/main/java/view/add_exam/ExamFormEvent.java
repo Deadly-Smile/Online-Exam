@@ -6,6 +6,7 @@ import java.util.EventObject;
 public class ExamFormEvent extends EventObject {
     private String examName;
     private String examPass;
+    private int penalty;
     private int examDuration;
     private Date startDate;
 
@@ -20,10 +21,11 @@ public class ExamFormEvent extends EventObject {
     }
 
     public ExamFormEvent(Object source, String examName, String examPass,
-                         int examDuration, Date startDate) {
+                         int penalty, int examDuration, Date startDate) {
         super(source);
         this.examName = examName;
         this.examPass = examPass;
+        this.penalty = penalty;
         this.examDuration = examDuration;
         this.startDate = startDate;
     }
@@ -58,5 +60,13 @@ public class ExamFormEvent extends EventObject {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public int getPenalty() {
+        return penalty;
+    }
+
+    public void setPenalty(int penalty) {
+        this.penalty = penalty;
     }
 }

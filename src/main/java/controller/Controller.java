@@ -6,14 +6,13 @@ import view.homepage.HomePage;
 import view.register.LogIn;
 import view.register.SignIn;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Controller {
 
-    private static final UserDataBase dataBase = new UserDataBase();
+    private static final UserDataBase userDateBase = new UserDataBase();
     private static LogInInfoCollector userLog = null;
     public Controller(){
 
@@ -21,7 +20,8 @@ public class Controller {
 
     public boolean isLogInDefault() {
         userLog = getLogInData("src/main/resources/User Log In Info.txt");
-        return userLog != null;
+        if(userLog == null) return false;
+        return userDateBase.verifyUser(userLog.getHandle(),userLog.getPassword());
     }
 
     /* getting user info from the User Log In Info file */
@@ -58,7 +58,7 @@ public class Controller {
             if(handle.length() <= 3 || password.length() <= 5){
                 source.setMassage(true);
             }else{
-                if (dataBase.verifyUser(handle,password)){
+                if (userDateBase.verifyUser(handle,password)){
                     userLog = new LogInInfoCollector(handle,password);
                     if (isRemembered){
                         writeFile("src/main/resources/User Log In Info.txt");
@@ -75,7 +75,7 @@ public class Controller {
 
     public User getUser(){
         User user;
-        user = dataBase.getUser(userLog.getHandle());
+        user = userDateBase.getUser(userLog.getHandle());
         return user;
     }
 
@@ -87,7 +87,7 @@ public class Controller {
         else {
             User newUser = new User(name, handle, password);
             // this goes to database
-            if (dataBase.addUser(newUser)){
+            if (userDateBase.addUser(newUser)){
                 source.setSuccessVisible();
             } else {
                 source.setAlreadyVisible();

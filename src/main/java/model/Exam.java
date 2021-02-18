@@ -2,12 +2,16 @@ package model;
 
 import org.bson.types.ObjectId;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Exam {
+
+    public static final int OVER = 0;
+    public static final int RUNNING = 1;
+    public static final int HAS_NOT_STARTED_YET = 2;
+
     private ObjectId id;
     private String examName;
     private String examSetterHandle;
@@ -15,43 +19,12 @@ public class Exam {
     private Date examStartingTime;
     private ArrayList<MultipleChoiceQuestion> questions;
     private int examDuration;
-
-    /* This is This is prototype
-//    private double marksPerQuestion;
-//    private double penaltyPerMistake;
-//
-//    public Exam(String examName, String examPassword, LocalDateTime examStartingTime,
-//                ArrayList<MultipleChoiceQuestion> questions, int givenTimeInMinutes,
-//                double marksPerQuestion, double penaltyPerMistake) {
-//        this.examName = examName;
-//        this.examPassword = examPassword;
-//        this.examStartingTime = examStartingTime;
-//        this.questions = questions;
-//        this.givenTimeInMinutes = givenTimeInMinutes;
-//        this.marksPerQuestion = marksPerQuestion;
-//        this.penaltyPerMistake = penaltyPerMistake;
-//    }
-    */
-
-    public Exam() {
-    }
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public String getExamSetterHandle() {
-        return examSetterHandle;
-    }
-
-    public void setExamSetterHandle(String examSetterHandle) {
-        this.examSetterHandle = examSetterHandle;
-    }
+    private double penalty;
 
     public Exam(ObjectId id, String examName, String examSetterHandle,
                 String examPassword, Date examStartingTime,
                 ArrayList<MultipleChoiceQuestion> questions,
-                int examDuration) {
+                int examDuration, double penalty) {
         this.id = id;
         this.examName = examName;
         this.examSetterHandle = examSetterHandle;
@@ -59,36 +32,31 @@ public class Exam {
         this.examStartingTime = examStartingTime;
         this.questions = questions;
         this.examDuration = examDuration;
+        this.penalty = penalty;
     }
 
-    public boolean isExamOver(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(examStartingTime);
-        calendar.add(Calendar.MINUTE, examDuration);
-        return new Date().after(calendar.getTime());
+    public Exam() {
+
+    }
+
+    public int getStatus() {
+        if (examStartingTime.getTime() > new Date().getTime()) {
+            return HAS_NOT_STARTED_YET;
+        } else {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(examStartingTime);
+            calendar.add(Calendar.MINUTE, examDuration);
+            if(new Date().after(calendar.getTime())) {
+                return OVER;
+            } else {
+                return RUNNING;
+            }
+        }
     }
 
     public void addQuestion(MultipleChoiceQuestion anotherQuestion){
         questions.add(anotherQuestion);
     }
-
-    /* This is prototype
-    public double getMarksPerQuestion() {
-        return marksPerQuestion;
-    }
-
-    public void setMarksPerQuestion(double marksPerQuestion) {
-        this.marksPerQuestion = marksPerQuestion;
-    }
-
-    public double getPenaltyPerMistake() {
-        return penaltyPerMistake;
-    }
-
-    public void setPenaltyPerMistake(double penaltyPerMistake) {
-        this.penaltyPerMistake = penaltyPerMistake;
-    }
-    */
 
     public String getExamName() {
         return examName;
@@ -128,6 +96,34 @@ public class Exam {
 
     public void setExamDuration(int examDuration) {
         this.examDuration = examDuration;
+    }
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    public String getExamSetterHandle() {
+        return examSetterHandle;
+    }
+
+    public void setExamSetterHandle(String examSetterHandle) {
+        this.examSetterHandle = examSetterHandle;
+    }
+
+    public double getMaxMark(){
+        double maxMark = 0.00;
+        for (MultipleChoiceQuestion i:questions) {
+            maxMark += i.getMark();
+        }
+        return maxMark;
+    }
+
+    public double getPenalty() {
+        return penalty;
+    }
+
+    public void setPenalty(double penalty) {
+        this.penalty = penalty;
     }
 
     @Override

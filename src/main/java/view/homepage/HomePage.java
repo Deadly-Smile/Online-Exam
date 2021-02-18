@@ -6,10 +6,11 @@ import view.StatusPanel;
 import view.add_exam.AddExam;
 import view.attend_exam.ExamRoom;
 import view.register.LogIn;
-import view.register.SignIn;
+
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class HomePage extends JFrame {
 
@@ -33,7 +34,6 @@ public class HomePage extends JFrame {
     }
 
     private void setComponents() {
-        /* adding panels */
         statusPanel = new StatusPanel();
         add(statusPanel,BorderLayout.SOUTH);
     }

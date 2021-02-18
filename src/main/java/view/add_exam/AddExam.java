@@ -23,6 +23,7 @@ public class AddExam extends JDialog {
         super(home,title,model);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(new Dimension(750,450));
+        getContentPane().setBackground(Color.DARK_GRAY);
         setLocationRelativeTo(home);
 
         setLayout(new BorderLayout());
@@ -37,10 +38,11 @@ public class AddExam extends JDialog {
         fromPanel.setExamFormListener(event -> {
             String examName = event.getExamName();
             String examPass = event.getExamPass();
+            int penalty = event.getPenalty();
             int examDuration = event.getExamDuration();
             Date startsDate = event.getStartDate();
             newExam = new Exam(new ObjectId(), examName, handle,
-                    examPass, startsDate, questionSet, examDuration);
+                    examPass, startsDate, questionSet, examDuration, penalty);
             dispose();
         });
 
@@ -60,6 +62,7 @@ public class AddExam extends JDialog {
             choices.add(questionFormEvent.getChoice2());
             choices.add(questionFormEvent.getChoice3());
             choices.add(questionFormEvent.getChoice4());
+            double mark = questionFormEvent.getMark();
             String rightChoice = questionFormEvent.getRightChoice();
             int index = 0;
             switch (rightChoice){
@@ -79,7 +82,7 @@ public class AddExam extends JDialog {
                     System.err.println("Couldn't get right input from rightChoice spinner");
             }
             questionID++;
-            MultipleChoiceQuestion mcq = new MultipleChoiceQuestion(questionID, question, choices, index);
+            MultipleChoiceQuestion mcq = new MultipleChoiceQuestion(questionID, question, choices, index, mark);
             questionTablePanel.addQuestion(mcq);
             questionSet.add(mcq);
             addQuestionDialog.dispose();

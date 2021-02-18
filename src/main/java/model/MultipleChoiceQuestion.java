@@ -7,6 +7,7 @@ public class MultipleChoiceQuestion {
     private String question;
     private List<String> choices;
     private int rightIndex;
+    private double mark;
 
     public MultipleChoiceQuestion() {
     }
@@ -20,11 +21,12 @@ public class MultipleChoiceQuestion {
     }
 
     public MultipleChoiceQuestion(int id, String question, List<String> choices,
-                                  int rightIndex) {
+                                  int rightIndex, double mark) {
         this.id = id;
         this.question = question;
         this.choices = choices;
         this.rightIndex = rightIndex;
+        this.mark = mark;
     }
 
     public String getQuestion() {
@@ -49,6 +51,14 @@ public class MultipleChoiceQuestion {
 
     public void setRightIndex(int rightIndex) {
         this.rightIndex = rightIndex;
+    }
+
+    public double getMark() {
+        return mark;
+    }
+
+    public void setMark(double mark) {
+        this.mark = mark;
     }
 
     @Override

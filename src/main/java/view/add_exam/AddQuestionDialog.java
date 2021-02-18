@@ -18,12 +18,15 @@ public class AddQuestionDialog extends JDialog {
     private JTextField choice4Field;
     private JLabel rightAnswerLabel;
     private JSpinner rightAnswerSpinner;
+    private JLabel markLabel;
+    private JSpinner markSpinner;
     private JLabel noteLabel;
     private JButton confirmButton;
     private QuestionFormListener questionFormListener;
     public AddQuestionDialog(JDialog owner, String title, boolean model) {
         super(owner, title, model);
-        setSize(new Dimension(450,350));
+        setSize(new Dimension(500,380));
+        setResizable(false);
         setLocationRelativeTo(owner);
 
         initialization();
@@ -35,6 +38,7 @@ public class AddQuestionDialog extends JDialog {
             String choice2 = choice2Field.getText();
             String choice3 = choice3Field.getText();
             String choice4 = choice4Field.getText();
+            double mark = (double) markSpinner.getValue();
             String rightChoice = (String) rightAnswerSpinner.getValue();
             if(question.length() <= 1){
                 noteLabel.setVisible(true);
@@ -42,7 +46,7 @@ public class AddQuestionDialog extends JDialog {
                 noteLabel.setVisible(false);
                 QuestionFormEvent event = new QuestionFormEvent(
                         this, question, choice1, choice2, choice3,
-                        choice4, rightChoice
+                        choice4, mark, rightChoice
                 );
                 questionTextArea.setText(null);
                 choice1Field.setText(null);
@@ -67,21 +71,29 @@ public class AddQuestionDialog extends JDialog {
         questionLabel = new JLabel("Question :");
 
         questionTextArea = new JTextArea();
-        questionTextArea.setColumns(20);
+        questionTextArea.setColumns(25);
         questionTextArea.setRows(4);
         questionTextArea.setLineWrap(true);
 
         choice1Label = new JLabel("Choice A :");
-        choice1Field = new JTextField(20);
+        choice1Field = new JTextField(25);
 
         choice2Label = new JLabel("Choice B :");
-        choice2Field = new JTextField(20);
+        choice2Field = new JTextField(25);
 
         choice3Label = new JLabel("Choice C :");
-        choice3Field = new JTextField(20);
+        choice3Field = new JTextField(25);
 
         choice4Label = new JLabel("Choice D :");
-        choice4Field = new JTextField(20);
+        choice4Field = new JTextField(25);
+
+        markLabel =  new JLabel("Q. Mark :");
+
+        SpinnerModel markSpinnerModel = new SpinnerNumberModel(1.00,0.25,10.00,.25);
+        markSpinner = new JSpinner(markSpinnerModel);
+        // disabling editable mod
+        JFormattedTextField spin = ((JSpinner.DefaultEditor)markSpinner.getEditor()).getTextField();
+        spin.setEditable(false);
 
         rightAnswerLabel = new JLabel("Right one :");
 
@@ -167,6 +179,18 @@ public class AddQuestionDialog extends JDialog {
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(0,0,0,0);
         add(choice4Field, gbc);
+
+        /*  Next Row */
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,5);
+        add(markLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(0,0,0,0);
+        add(markSpinner, gbc);
 
         /*  Next Row */
         gbc.gridx = 0;

@@ -4,20 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Adding exam is complete (only gui part), but need modification">
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Adding exam is complete (only gui part), modified">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/ExamDataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/ExamInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Exam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MultipleChoiceQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UserDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/UserDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionFormEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionFormEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/Exam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Exam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MultipleChoiceQuestion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -159,7 +174,12 @@
       <workItem from="1613389377460" duration="1070000" />
       <workItem from="1613403460047" duration="3161000" />
       <workItem from="1613454983612" duration="8966000" />
-      <workItem from="1613486971559" duration="3203000" />
+      <workItem from="1613486971559" duration="5106000" />
+      <workItem from="1613502688154" duration="3684000" />
+      <workItem from="1613577270239" duration="6801000" />
+      <workItem from="1613663142337" duration="1547000" />
+      <workItem from="1613668230673" duration="7482000" />
+      <workItem from="1613680367399" duration="335000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -224,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613389557035</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding exam is complete (only gui part), modified">
+      <created>1613490272354</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1613490272355</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,15 +280,24 @@
     <MESSAGE value="Log in, Sign In, Homepage is connected" />
     <MESSAGE value="History table working" />
     <MESSAGE value="Adding exam is complete (only gui part), but need modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding exam is complete (only gui part), but need modification" />
+    <MESSAGE value="Adding exam is complete (only gui part), modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding exam is complete (only gui part), modified" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/UserDataBase.java</url>
-          <line>24</line>
+          <line>23</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java</url>
+          <line>69</line>
+          <properties class="view.add_exam.AddQuestionDialog" method="initialization">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

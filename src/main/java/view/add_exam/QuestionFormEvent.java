@@ -8,6 +8,7 @@ public class QuestionFormEvent extends EventObject {
     private String choice2;
     private String choice3;
     private String choice4;
+    private double mark;
     private String rightChoice;
 
     /**
@@ -23,13 +24,14 @@ public class QuestionFormEvent extends EventObject {
     public QuestionFormEvent(Object source, String question,
                              String choice1, String choice2,
                              String choice3, String choice4,
-                             String rightChoice) {
+                             double mark, String rightChoice) {
         super(source);
         this.question = question;
         this.choice1 = choice1;
         this.choice2 = choice2;
         this.choice3 = choice3;
         this.choice4 = choice4;
+        this.mark = mark;
         this.rightChoice = rightChoice;
     }
 
@@ -75,6 +77,14 @@ public class QuestionFormEvent extends EventObject {
 
     public String getRightChoice() {
         return rightChoice;
+    }
+
+    public double getMark() {
+        return mark;
+    }
+
+    public void setMark(double mark) {
+        this.mark = mark;
     }
 
     public void setRightChoice(String rightChoice) {

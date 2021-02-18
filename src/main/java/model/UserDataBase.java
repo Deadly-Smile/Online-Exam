@@ -5,7 +5,6 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class UserDataBase {
     private static MongoCollection<Document> userCollection;
@@ -41,15 +40,34 @@ public class UserDataBase {
     }
 
     public void addResultToUser(Result result, User user){
-        Document document = new Document("Exam Name",result.getExamName())
+        Document document = new Document(
+                "Exam Name",result.getExamName())
                 .append("Maximum Mark",result.getMaximumMark())
-                .append("Achieved Mark",result.getAchievedMark());
+                .append("Achieved Mark",result.getAchievedMark()
+                );
 
         FindIterable<Document> iterable = userCollection.find(
                 new Document("_id",user.getHandle())
         );
         for (Document i : iterable) {
-            userCollection.updateOne(i,new Document("$push",new Document("History",document)));
+            userCollection.updateOne(i,
+                    new Document("$push",new Document("History",document)));
+            break;
+        }
+    }
+
+    public void addExamToUser(ExamInfo createdExam, User user){
+        Document document = new Document(
+                "Exam Name",createdExam.getExamName())
+                .append("Exam Id",createdExam.getExamID())
+                .append("Starting Time",createdExam.getStartingTime()
+        );
+        FindIterable<Document> iterable = userCollection.find(
+                new Document("_id",user.getHandle())
+        );
+        for (Document i : iterable) {
+            userCollection.updateOne(i,
+                    new Document("$push",new Document("Created Exam",document)));
             break;
         }
     }
@@ -65,6 +83,7 @@ public class UserDataBase {
             user.setName(document.get("Name").toString());
             user.setPassword(document.get("Password").toString());
             user.setHistory(docsToHistory((List<Document>) document.get("History")));
+            user.setCreatedExams(docToExamInfo((List<Document>) document.get("Created Exam")));
             break;
         }
         if (!b) return null;
@@ -74,7 +93,9 @@ public class UserDataBase {
     private Document userToDoc(User user){
         Document doc = new Document("Name",user.getName())
                 .append("Password",user.getPassword())
-                .append("History",historyToDocs(user.getHistory()));
+                .append("History",historyToDocs(user.getHistory()))
+                .append("Created Exam",examInfoToDocs(user.getCreatedExams()));
+
         doc.put("_id",user.getHandle());
         return doc;
     }
@@ -89,14 +110,38 @@ public class UserDataBase {
         return docs;
     }
 
+    private List<Document> examInfoToDocs(List<ExamInfo> createdExam) {
+        List<Document> docs = new ArrayList<>();
+        for (ExamInfo i : createdExam) {
+            docs.add(new Document("Exam Name",i.getExamName())
+                    .append("Exam Id",i.getExamID())
+                    .append("Starting Time",i.getStartingTime()));
+        }
+        return docs;
+    }
+
     private List<Result> docsToHistory(List<Document> docs){
         List<Result> history = new ArrayList<>();
         for (Document i : docs) {
-            history.add(new Result(i.get("Exam Name"),
+            history.add(
+                    new Result(i.get("Exam Name"),
                     i.get("Maximum Mark"),
-                    i.get("Achieved Mark")));
+                    i.get("Achieved Mark"))
+            );
         }
         return history;
+    }
+
+    private List<ExamInfo> docToExamInfo(List<Document> docs) {
+        List<ExamInfo> createdExams = new ArrayList<>();
+        for (Document i : docs) {
+            createdExams.add(
+                    new ExamInfo(i.get("Exam Name"),
+                    i.get("Exam Id"),
+                    i.get("Starting Time"))
+            );
+        }
+        return createdExams;
     }
 
     public boolean verifyUser(String id,String password) {

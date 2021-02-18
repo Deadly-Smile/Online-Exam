@@ -20,8 +20,10 @@ public class FromPanel extends JPanel {
     private JLabel invalidInfoLabel;
     private JLabel invalidDateLabel;
     private JLabel tooEarlyLabel;
+    private JLabel penaltyLabel;
     private JTextField examNameField;
     private JPasswordField examPassField;
+    private JSpinner penaltySpinner;
     private JSpinner durationSpinner;
     private JSpinner dateSpinner;
     private JSpinner startTimeSpinner;
@@ -36,6 +38,7 @@ public class FromPanel extends JPanel {
             String examName = examNameField.getText();
             char[] pass = examPassField.getPassword();
             String examPass = new String(pass);
+            int penalty = (int) penaltySpinner.getValue();
             int examDuration = (int) durationSpinner.getValue();
             Date startDate = (Date) dateSpinner.getValue();
             Date startsIn = (Date) startTimeSpinner.getValue();
@@ -45,9 +48,9 @@ public class FromPanel extends JPanel {
             startDate.setMinutes(startsIn.getMinutes());
             startDate.setSeconds(0);
 
-            long diffInMiliSec = Math.abs(startDate.getTime() - new Date().getTime());
-            long diffInMinute = TimeUnit.MINUTES.convert(diffInMiliSec, TimeUnit.MILLISECONDS);
-            long diffInDay = TimeUnit.DAYS.convert(diffInMiliSec, TimeUnit.MILLISECONDS);
+            long diffInMiniSec = Math.abs(startDate.getTime() - new Date().getTime());
+            long diffInMinute = TimeUnit.MINUTES.convert(diffInMiniSec, TimeUnit.MILLISECONDS);
+            long diffInDay = TimeUnit.DAYS.convert(diffInMiniSec, TimeUnit.MILLISECONDS);
 
 
             if (examName.length() <= 3 && examPass.length() <= 4){
@@ -68,7 +71,7 @@ public class FromPanel extends JPanel {
                 invalidDateLabel.setVisible(false);
                 tooEarlyLabel.setVisible(false);
                 ExamFormEvent event = new ExamFormEvent(
-                        this,examName,examPass,examDuration,startDate
+                        this,examName,examPass, penalty, examDuration,startDate
                 );
                 examNameField.setText(null);
                 examPassField.setText(null);
@@ -161,6 +164,18 @@ public class FromPanel extends JPanel {
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
+        formPanel.add(penaltyLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(-10,0,-10,0);
+        formPanel.add(penaltySpinner, gbc);
+
+        /*  Next Row */
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,5);
         formPanel.add(durationLabel, gbc);
 
         gbc.gridx = 1;
@@ -212,6 +227,8 @@ public class FromPanel extends JPanel {
 
         startTimeLabel = new JLabel("Start Time :");
 
+        penaltyLabel = new JLabel("Penalty(%) :");
+
         examNameField = new JTextField(10);
 
         examPassField = new JPasswordField(10);
@@ -219,9 +236,17 @@ public class FromPanel extends JPanel {
         SpinnerModel durationSinnerModel =
                 new SpinnerNumberModel(10,2,180,1);
         durationSpinner = new JSpinner(durationSinnerModel);
-        // disabling editable mod of duration spinner
-        JFormattedTextField spin = ((JSpinner.DefaultEditor)durationSpinner.getEditor()).getTextField();
-        spin.setEditable(false);
+        // disabling editable mod
+        JFormattedTextField durationSpin = ((JSpinner.DefaultEditor)durationSpinner.getEditor()).getTextField();
+        durationSpin.setEditable(false);
+
+        SpinnerModel penaltySpinnerModel =
+                new SpinnerNumberModel(0,0,100,1);
+        penaltySpinner = new JSpinner(penaltySpinnerModel);
+        // disabling editable mod
+        JFormattedTextField penaltySpin = ((JSpinner.DefaultEditor)penaltySpinner.getEditor()).getTextField();
+        penaltySpin.setEditable(false);
+
 
         dateSpinner = new JSpinner(new SpinnerDateModel());
         JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dateSpinner, "EEE, d MMM yyyy");
