@@ -4,32 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Log in, Sign In, Homepage is connected">
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="ExamDataBase created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExamTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SignInInfoCollector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Exam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExamDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ExamDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExamInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ExamInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/UserDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/UserDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/StatusPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User Log In Info.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/SignInInfoCollector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Exam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Exam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/StatusPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/register/LogIn$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/register/LogIn$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" afterDir="false" />
     </list>
@@ -41,6 +53,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -104,7 +117,7 @@
       <module name="Online-Exam" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="view.homepage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,6 +174,27 @@
       <workItem from="1612960387324" duration="3281000" />
       <workItem from="1613031578447" duration="608000" />
       <workItem from="1613060431528" duration="12059000" />
+      <workItem from="1613146842791" duration="3307000" />
+      <workItem from="1613151564971" duration="4352000" />
+      <workItem from="1613172176306" duration="4157000" />
+      <workItem from="1613210791741" duration="260000" />
+      <workItem from="1613211270965" duration="8353000" />
+      <workItem from="1613246972548" duration="8231000" />
+      <workItem from="1613387442611" duration="1074000" />
+      <workItem from="1613389377460" duration="1070000" />
+      <workItem from="1613403460047" duration="3161000" />
+      <workItem from="1613454983612" duration="8966000" />
+      <workItem from="1613486971559" duration="5106000" />
+      <workItem from="1613502688154" duration="3684000" />
+      <workItem from="1613577270239" duration="6801000" />
+      <workItem from="1613663142337" duration="1547000" />
+      <workItem from="1613668230673" duration="7482000" />
+      <workItem from="1613680367399" duration="704000" />
+      <workItem from="1613721675577" duration="3074000" />
+      <workItem from="1613726574543" duration="7460000" />
+      <workItem from="1613736852144" duration="733000" />
+      <workItem from="1613748886450" duration="16209000" />
+      <workItem from="1613906014157" duration="2650000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -211,7 +245,35 @@
       <option name="project" value="LOCAL" />
       <updated>1612633510105</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="History table working">
+      <created>1613156340043</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1613156340043</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adding exam is complete (only gui part), but need modification">
+      <created>1613389557035</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1613389557035</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Adding exam is complete (only gui part), modified">
+      <created>1613490272354</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1613490272355</updated>
+    </task>
+    <task id="LOCAL-00011" summary="ExamDataBase created">
+      <created>1613681051493</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1613681051493</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,14 +300,18 @@
     <MESSAGE value="LogIn and SignIn class modified" />
     <MESSAGE value="HomePage created" />
     <MESSAGE value="Log in, Sign In, Homepage is connected" />
-    <option name="LAST_COMMIT_MESSAGE" value="Log in, Sign In, Homepage is connected" />
+    <MESSAGE value="History table working" />
+    <MESSAGE value="Adding exam is complete (only gui part), but need modification" />
+    <MESSAGE value="Adding exam is complete (only gui part), modified" />
+    <MESSAGE value="ExamDataBase created" />
+    <option name="LAST_COMMIT_MESSAGE" value="ExamDataBase created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/UserDataBase.java</url>
-          <line>24</line>
+          <line>23</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

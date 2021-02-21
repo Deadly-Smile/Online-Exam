@@ -8,6 +8,7 @@ public class User {
     private String handle;
     private String password;
     private List<Result> history;
+    private List<ExamInfo> createdExams;
 
     public User() {
     }
@@ -17,6 +18,7 @@ public class User {
         this.handle = handle;
         this.password = password;
         history = new ArrayList<>();
+        createdExams = new ArrayList<>();
     }
 
     public String getName() {
@@ -49,6 +51,18 @@ public class User {
 
     public void addResult(Result latestResult) {
         history.add(latestResult);
+    }
+
+    public void addExam(ExamInfo examInfo) {
+        createdExams.add(examInfo);
+    }
+
+    public void setCreatedExams(List<ExamInfo> createdExams) {
+        this.createdExams = createdExams;
+    }
+
+    public List<ExamInfo> getCreatedExams() {
+        return createdExams;
     }
 
     public void setHistory(List<Result> history) {

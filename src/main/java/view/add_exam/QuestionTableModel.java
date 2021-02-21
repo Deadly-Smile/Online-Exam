@@ -3,6 +3,7 @@ package view.add_exam;
 import model.MultipleChoiceQuestion;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class QuestionTableModel extends AbstractTableModel {
     private final List<String> fieldName = Arrays.asList("No.", "Question Name");
 
     public QuestionTableModel() {
+        questions = new ArrayList<>();
     }
 
     @Override
@@ -20,8 +22,8 @@ public class QuestionTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-//        return mcq.size();
-        return 0;
+        return questions.size();
+//        return 0;
     }
 
     @Override
@@ -31,12 +33,11 @@ public class QuestionTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        MultipleChoiceQuestion mcq = questions.get(rowIndex);
         switch (columnIndex){
             case 0:
-                return mcq.getId();
+                return questions.get(rowIndex).getId();
             case 1:
-                return mcq.getQuestion();
+                return questions.get(rowIndex).getQuestion();
             default:
                 return null;
         }
@@ -44,5 +45,9 @@ public class QuestionTableModel extends AbstractTableModel {
 
     public void setData(List<MultipleChoiceQuestion> questions) {
         this.questions = questions;
+    }
+
+    public void addQuestion(MultipleChoiceQuestion mcq){
+        questions.add(mcq);
     }
 }

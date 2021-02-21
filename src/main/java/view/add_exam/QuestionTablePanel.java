@@ -23,6 +23,11 @@ public class QuestionTablePanel extends JPanel {
         tableModel.setData(questions);
     }
 
+    public void addQuestion(MultipleChoiceQuestion mcq){
+        tableModel.addQuestion(mcq);
+        refresh();
+    }
+
     public void refresh() {
         tableModel.fireTableDataChanged();
     }

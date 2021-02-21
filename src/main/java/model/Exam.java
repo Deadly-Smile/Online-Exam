@@ -1,86 +1,63 @@
 package model;
 
-import java.time.LocalDateTime;
+import org.bson.types.ObjectId;
+
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Exam {
+
+    public static final int OVER = 0;
+    public static final int RUNNING = 1;
+    public static final int HAS_NOT_STARTED_YET = 2;
+
     private String id;
     private String examName;
     private String examSetterHandle;
     private String examPassword;
-    private LocalDateTime examStartingTime;
+    private Date examStartingTime;
     private ArrayList<MultipleChoiceQuestion> questions;
-    private int givenTimeInMinutes;
+    private int examDuration;
+    private double penalty;
 
-    /* This is This is prototype
-//    private double marksPerQuestion;
-//    private double penaltyPerMistake;
-//
-//    public Exam(String examName, String examPassword, LocalDateTime examStartingTime,
-//                ArrayList<MultipleChoiceQuestion> questions, int givenTimeInMinutes,
-//                double marksPerQuestion, double penaltyPerMistake) {
-//        this.examName = examName;
-//        this.examPassword = examPassword;
-//        this.examStartingTime = examStartingTime;
-//        this.questions = questions;
-//        this.givenTimeInMinutes = givenTimeInMinutes;
-//        this.marksPerQuestion = marksPerQuestion;
-//        this.penaltyPerMistake = penaltyPerMistake;
-//    }
-    */
-
-    public Exam() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getExamSetterHandle() {
-        return examSetterHandle;
-    }
-
-    public void setExamSetterHandle(String examSetterHandle) {
-        this.examSetterHandle = examSetterHandle;
-    }
-
-    public Exam(String id, String examName, String examSetterHandle, String examPassword, LocalDateTime examStartingTime,
-                ArrayList<MultipleChoiceQuestion> questions, int givenTimeInMinutes) {
-        this.id = id;
+    public Exam(String examName, String examSetterHandle,
+                String examPassword, Date examStartingTime,
+                ArrayList<MultipleChoiceQuestion> questions,
+                int examDuration, double penalty)
+    {
+        this.id = new ObjectId().toString();
         this.examName = examName;
         this.examSetterHandle = examSetterHandle;
         this.examPassword = examPassword;
         this.examStartingTime = examStartingTime;
         this.questions = questions;
-        this.givenTimeInMinutes = givenTimeInMinutes;
+        this.examDuration = examDuration;
+        this.penalty = penalty;
     }
 
-    public boolean isExamOver(){
-        LocalDateTime now = LocalDateTime.now();
-        return now.isAfter(this.examStartingTime);
+    public Exam() {
+
+    }
+
+    public int getStatus() {
+        if (examStartingTime.getTime() > new Date().getTime()) {
+            return HAS_NOT_STARTED_YET;
+        } else {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(examStartingTime);
+            calendar.add(Calendar.MINUTE, examDuration);
+            if(new Date().after(calendar.getTime())) {
+                return OVER;
+            } else {
+                return RUNNING;
+            }
+        }
     }
 
     public void addQuestion(MultipleChoiceQuestion anotherQuestion){
         questions.add(anotherQuestion);
     }
-
-    /* This is prototype
-    public double getMarksPerQuestion() {
-        return marksPerQuestion;
-    }
-
-    public void setMarksPerQuestion(double marksPerQuestion) {
-        this.marksPerQuestion = marksPerQuestion;
-    }
-
-    public double getPenaltyPerMistake() {
-        return penaltyPerMistake;
-    }
-
-    public void setPenaltyPerMistake(double penaltyPerMistake) {
-        this.penaltyPerMistake = penaltyPerMistake;
-    }
-    */
 
     public String getExamName() {
         return examName;
@@ -98,11 +75,11 @@ public class Exam {
         this.examPassword = examPassword;
     }
 
-    public LocalDateTime getExamStartingTime() {
+    public Date getExamStartingTime() {
         return examStartingTime;
     }
 
-    public void setExamStartingTime(LocalDateTime examStartingTime) {
+    public void setExamStartingTime(Date examStartingTime) {
         this.examStartingTime = examStartingTime;
     }
 
@@ -114,11 +91,56 @@ public class Exam {
         this.questions = questions;
     }
 
-    public int getGivenTimeInMinutes() {
-        return givenTimeInMinutes;
+    public int getExamDuration() {
+        return examDuration;
     }
 
-    public void setGivenTimeInMinutes(int givenTimeInMinutes) {
-        this.givenTimeInMinutes = givenTimeInMinutes;
+    public void setExamDuration(int examDuration) {
+        this.examDuration = examDuration;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getExamSetterHandle() {
+        return examSetterHandle;
+    }
+
+    public void setExamSetterHandle(String examSetterHandle) {
+        this.examSetterHandle = examSetterHandle;
+    }
+
+    public double getMaxMark(){
+        double maxMark = 0.00;
+        for (MultipleChoiceQuestion i:questions) {
+            maxMark += i.getMark();
+        }
+        return maxMark;
+    }
+
+    public double getPenalty() {
+        return penalty;
+    }
+
+    public void setPenalty(double penalty) {
+        this.penalty = penalty;
+    }
+
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "id=" + id +
+                ", examName='" + examName + '\'' +
+                ", examSetterHandle='" + examSetterHandle + '\'' +
+                ", examPassword='" + examPassword + '\'' +
+                ", examStartingTime=" + examStartingTime +
+                ", questions=" + questions +
+                ", examDuration=" + examDuration +
+                '}';
     }
 }

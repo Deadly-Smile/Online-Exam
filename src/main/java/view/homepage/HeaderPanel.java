@@ -1,20 +1,36 @@
 package view.homepage;
 
+import model.User;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 
 public class HeaderPanel extends JPanel {
-    private JButton setAExamButton;
-    private JLabel handleLabel;
+    private JButton setAnExamButton;
     private JLabel searchLabel;
     private JTextField searchBarField;
     private JButton searchButton;
 
-    public HeaderPanel() {
+    private JMenuBar handleBar;
+    private JMenu handleMenu;
+    private JMenuItem createdExamItem;
+    private JMenuItem logOutItem;
+
+    User user;
+
+    public HeaderPanel(User user, HomePage home) {
+        this.user = user;
         initialiseComponent();
         setComponent();
+
+        setAnExamButton.addActionListener(e -> home.startAddExam());
+        createdExamItem.addActionListener(e -> home.callCreatedExamDialog());
+        logOutItem.addActionListener(e -> home.logOut());
+
     }
 
     private void setComponent() {
@@ -23,20 +39,20 @@ public class HeaderPanel extends JPanel {
 
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
-                .addComponent(setAExamButton)
+                .addComponent(setAnExamButton)
                 .addComponent(searchLabel)
                 .addComponent(searchBarField)
                 .addComponent(searchButton)
-                .addComponent(handleLabel)
+                .addComponent(handleBar)
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(setAExamButton)
+                                .addComponent(setAnExamButton)
                                 .addComponent(searchLabel)
                                 .addComponent(searchBarField)
                                 .addComponent(searchButton, GroupLayout.Alignment.CENTER)
-                                .addComponent(handleLabel))
+                                .addComponent(handleBar))
         );
 
         layout.setAutoCreateGaps(true);
@@ -47,11 +63,21 @@ public class HeaderPanel extends JPanel {
 
         setBorder(BorderFactory.createMatteBorder(1,1,1,1,new Color(0x726a95)));
 
-        setAExamButton = new JButton("Set a Exam");
-        setAExamButton.setFont(new Font("Arial",Font.BOLD,18));
+        setAnExamButton = new JButton("Set an Exam");
+        setAnExamButton.setForeground(new Color(0x91091e));
+        setAnExamButton.setBackground(new Color(0xa4ebf3));
+        setAnExamButton.setFocusPainted(false);
+        setAnExamButton.setFont(new Font("Arial",Font.BOLD,18));
 
-        handleLabel = new JLabel("Handle");
-        handleLabel.setFont(new Font("Arial",Font.BOLD,18));
+        handleMenu = new JMenu(user.getHandle());
+        handleBar = new JMenuBar();
+
+        createdExamItem = new JMenuItem("Created exam");
+        logOutItem = new JMenuItem("Log out");
+
+        handleMenu.add(createdExamItem);
+        handleMenu.add(logOutItem);
+        handleBar.add(handleMenu);
 
         searchLabel = new JLabel("Search exam by ID :");
         searchLabel.setFont(new Font("Arial",Font.PLAIN,17));
@@ -60,6 +86,8 @@ public class HeaderPanel extends JPanel {
         searchBarField.setFont(new Font("Arial",Font.PLAIN,18));
 
         searchButton = new JButton();
+        searchButton.setFocusPainted(false);
+        searchButton.setBackground(new Color(0xfaf3e0));
         searchButton.setIcon(createIcon("src/main/resources/Search Icon resized.png"));
     }
 
