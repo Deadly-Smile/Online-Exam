@@ -2,7 +2,6 @@ package view.homepage;
 
 import model.Exam;
 
-import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -59,6 +58,8 @@ public class ExamTableModel extends AbstractTableModel {
                         return "Running";
                     case 2:
                         return "Hasn't started";
+                    case 3:
+                        return "Finished long age";
                 }
             case 6:
                 return exam.getExamDuration();

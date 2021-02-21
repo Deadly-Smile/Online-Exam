@@ -1,10 +1,7 @@
 package model;
 
 import com.mongodb.client.*;
-import model.Exam;
-import model.MultipleChoiceQuestion;
 import org.bson.Document;
-import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,7 +38,7 @@ public class ExamDataBase {
                 .append("Questions", questionToDocs(exam.getQuestions()))
                 .append("Duration", exam.getExamDuration())
                 .append("Penalty", exam.getPenalty());
-        doc.put("_id", exam.getId().toString());
+        doc.put("_id", exam.getId());
         return doc;
     }
 
@@ -83,18 +80,22 @@ public class ExamDataBase {
         Exam exam = new Exam();
         for (Document document : iterable){
             b = true;
-            exam.setId(document.get("_id").toString());
-            exam.setExamName(document.get("Exam Name").toString());
-            exam.setExamSetterHandle(document.get("Setter").toString());
-            exam.setExamPassword(document.get("Password").toString());
-            exam.setExamStartingTime((Date) document.get("Starting Time"));
-            exam.setQuestions(docsToQuestion((List<Document>) document.get("Questions")));
-            exam.setExamDuration((Integer) document.get("Duration"));
-            exam.setPenalty((Double) document.get("Penalty"));
+            docToExam(exam, document);
             break;
         }
         if (!b) return null;
         else return exam;
+    }
+
+    private void docToExam(Exam exam, Document doc) {
+        exam.setId(doc.get("_id").toString());
+        exam.setExamName(doc.get("Exam Name").toString());
+        exam.setExamSetterHandle(doc.get("Setter").toString());
+        exam.setExamPassword(doc.get("Password").toString());
+        exam.setExamStartingTime((Date) doc.get("Starting Time"));
+        exam.setQuestions(docsToQuestion((List<Document>) doc.get("Questions")));
+        exam.setExamDuration((Integer) doc.get("Duration"));
+        exam.setPenalty((Double) doc.get("Penalty"));
     }
 
     public List<Exam> getAllExams(){
@@ -102,15 +103,12 @@ public class ExamDataBase {
         FindIterable<Document> documents = examCollection.find();
         for (Document document : documents){
             Exam exam = new Exam();
-            exam.setId(document.get("_id").toString());
-            exam.setExamName(document.get("Exam Name").toString());
-            exam.setExamSetterHandle(document.get("Setter").toString());
-            exam.setExamPassword(document.get("Password").toString());
-            exam.setExamStartingTime((Date) document.get("Starting Time"));
-            exam.setQuestions(docsToQuestion((List<Document>) document.get("Questions")));
-            exam.setExamDuration((Integer) document.get("Duration"));
-            exam.setPenalty((Double) document.get("Penalty"));
-            examList.add(exam);
+            docToExam(exam,document);
+            if (exam.getStatus() == 4) {
+                deleteExam(exam.getId());
+            } else {
+                examList.add(exam);
+            }
         }
         return examList;
     }
@@ -148,5 +146,32 @@ public class ExamDataBase {
     public void deleteExam (String id) {
         Document doc = new Document("_id",id);
         examCollection.deleteOne(doc);
+    }
+
+    public List<Exam> getSearchedExam(String key) {
+        List<Exam> exams = new ArrayList<>();
+        Exam exam = getExam(key);
+        if(exam == null){
+            Document doc = new Document("Exam Name",key);
+            FindIterable<Document> iterable = examCollection.find(doc);
+            boolean b = false;
+            for (Document document : iterable){
+                if (!b) {
+                    b = true;
+                }
+                Exam newExam = new Exam();
+                docToExam(newExam, document);
+                exams.add(newExam);
+            }
+            if (!b) {
+                return null;
+            }
+            else {
+                return exams;
+            }
+        } else {
+            exams.add(exam);
+            return exams;
+        }
     }
 }

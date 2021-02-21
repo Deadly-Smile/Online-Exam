@@ -26,6 +26,7 @@ public class CreatedExam extends JDialog {
 
         initialization(examInfoList);
         setComponents();
+        stylingTable();
         setVisible(true);
     }
 
@@ -47,6 +48,14 @@ public class CreatedExam extends JDialog {
         label.setBorder(BorderFactory.createEmptyBorder(3,3,3,3));
         labelPanel.add(label);
     }
+
+    private void stylingTable() {
+        table.setRowSelectionAllowed(true);
+        table.setGridColor(Color.gray);
+        table.setSelectionBackground(new Color(0x94ebcd));
+        table.setSelectionForeground(new Color(0xE61548));
+    }
+
 
     public void refresh(){
         tableModel.setExamInfoList(examInfoList);
