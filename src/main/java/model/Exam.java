@@ -11,6 +11,7 @@ public class Exam {
     public static final int OVER = 0;
     public static final int RUNNING = 1;
     public static final int HAS_NOT_STARTED_YET = 2;
+    public static final int OVER_LONG_AGO = 3;
 
     private String id;
     private String examName;
@@ -48,7 +49,12 @@ public class Exam {
             calendar.setTime(examStartingTime);
             calendar.add(Calendar.MINUTE, examDuration);
             if(new Date().after(calendar.getTime())) {
-                return OVER;
+                calendar.add(Calendar.HOUR,24);
+                if(new Date().after(Calendar.getInstance().getTime())){
+                    return OVER_LONG_AGO;
+                }else{
+                    return OVER;
+                }
             } else {
                 return RUNNING;
             }

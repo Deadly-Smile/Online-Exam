@@ -52,6 +52,8 @@ public class CreatedExamTableModel extends AbstractTableModel {
                         return "Running";
                     case 2:
                         return "Hasn't started";
+                    case 3:
+                        return "Finished long age";
                 }
         }
         return null;

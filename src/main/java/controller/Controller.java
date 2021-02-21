@@ -127,4 +127,8 @@ public class Controller {
     public User getCurrentUser() {
         return getUser(userLog.getHandle());
     }
+
+    public List<Exam> getSearchedExam(String key) {
+        return examDataBase.getSearchedExam(key);
+    }
 }
