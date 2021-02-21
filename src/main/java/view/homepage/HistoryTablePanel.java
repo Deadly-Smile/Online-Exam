@@ -1,16 +1,20 @@
 package view.homepage;
 
-import model.User;
+import model.Result;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class HistoryTablePanel extends JPanel {
     private JTable historyTable;
     private HistoryTableModel historyTableModel;
 
-    public HistoryTablePanel(User user) {
-        historyTableModel = new HistoryTableModel(user);
+    private List<Result> history;
+
+    public HistoryTablePanel(List<Result> history) {
+        this.history = history;
+        historyTableModel = new HistoryTableModel(history);
         historyTable = new JTable(historyTableModel);
         setLayout(new BorderLayout());
         add(new JScrollPane(historyTable),BorderLayout.CENTER);
@@ -25,4 +29,7 @@ public class HistoryTablePanel extends JPanel {
         historyTableModel.fireTableDataChanged();
     }
 
+    public void setHistory(List<Result> history) {
+        this.history = history;
+    }
 }

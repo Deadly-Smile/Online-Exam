@@ -2,7 +2,7 @@ package view.add_exam;
 
 import model.Exam;
 import model.MultipleChoiceQuestion;
-import org.bson.types.ObjectId;
+import view.homepage.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,13 +19,27 @@ public class AddExam extends JDialog {
     private ArrayList<MultipleChoiceQuestion> questionSet = new ArrayList<>();
     private int questionID = 0;
 
-    public AddExam(JFrame home ,String title, boolean model, String handle) {
+    public AddExam(HomePage home , String title, boolean model, String handle) {
         super(home,title,model);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(new Dimension(750,450));
-        getContentPane().setBackground(Color.DARK_GRAY);
         setLocationRelativeTo(home);
+        setComponents();
 
+        fromPanel.setExamFormListener(event -> {
+            String examName = event.getExamName();
+            String examPass = event.getExamPass();
+            int penalty = event.getPenalty();
+            int examDuration = event.getExamDuration();
+            Date startsDate = event.getStartDate();
+            newExam = new Exam(examName, handle, examPass, startsDate,
+                    questionSet, examDuration, penalty);
+            home.createExam(newExam);
+        });
+        setVisible(true);
+    }
+
+    private void setComponents() {
         setLayout(new BorderLayout());
         toolBarPanel = new ToolBarPanel();
         toolBarPanel.setAddExam(this);
@@ -34,19 +48,6 @@ public class AddExam extends JDialog {
         add(fromPanel,BorderLayout.WEST);
         questionTablePanel = new QuestionTablePanel();
         add(questionTablePanel,BorderLayout.CENTER);
-
-        fromPanel.setExamFormListener(event -> {
-            String examName = event.getExamName();
-            String examPass = event.getExamPass();
-            int penalty = event.getPenalty();
-            int examDuration = event.getExamDuration();
-            Date startsDate = event.getStartDate();
-            newExam = new Exam(new ObjectId(), examName, handle,
-                    examPass, startsDate, questionSet, examDuration, penalty);
-            dispose();
-        });
-
-        setVisible(true);
     }
 
     public void backOperationOfToolbar(){

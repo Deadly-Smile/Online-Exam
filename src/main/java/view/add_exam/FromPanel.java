@@ -28,6 +28,7 @@ public class FromPanel extends JPanel {
     private JSpinner dateSpinner;
     private JSpinner startTimeSpinner;
     private JButton createButton;
+
     private ExamFormListener examFormListener;
 
     public FromPanel() {
@@ -73,8 +74,7 @@ public class FromPanel extends JPanel {
                 ExamFormEvent event = new ExamFormEvent(
                         this,examName,examPass, penalty, examDuration,startDate
                 );
-                examNameField.setText(null);
-                examPassField.setText(null);
+
                 if(examFormListener != null){
                     examFormListener.examFormEventOccurred(event);
                 }

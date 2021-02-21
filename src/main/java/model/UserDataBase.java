@@ -60,7 +60,8 @@ public class UserDataBase {
         Document document = new Document(
                 "Exam Name",createdExam.getExamName())
                 .append("Exam Id",createdExam.getExamID())
-                .append("Starting Time",createdExam.getStartingTime()
+                .append("Starting Time",createdExam.getStartingTime())
+                .append("Duration",createdExam.getExamDuration()
         );
         FindIterable<Document> iterable = userCollection.find(
                 new Document("_id",user.getHandle())
@@ -115,7 +116,8 @@ public class UserDataBase {
         for (ExamInfo i : createdExam) {
             docs.add(new Document("Exam Name",i.getExamName())
                     .append("Exam Id",i.getExamID())
-                    .append("Starting Time",i.getStartingTime()));
+                    .append("Starting Time",i.getStartingTime())
+                    .append("Duration",i.getExamDuration()));
         }
         return docs;
     }
@@ -138,7 +140,8 @@ public class UserDataBase {
             createdExams.add(
                     new ExamInfo(i.get("Exam Name"),
                     i.get("Exam Id"),
-                    i.get("Starting Time"))
+                    i.get("Starting Time"),
+                    i.get("Duration"))
             );
         }
         return createdExams;

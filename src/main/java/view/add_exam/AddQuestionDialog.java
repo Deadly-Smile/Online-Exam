@@ -48,12 +48,6 @@ public class AddQuestionDialog extends JDialog {
                         this, question, choice1, choice2, choice3,
                         choice4, mark, rightChoice
                 );
-                questionTextArea.setText(null);
-                choice1Field.setText(null);
-                choice2Field.setText(null);
-                choice3Field.setText(null);
-                choice4Field.setText(null);
-                rightAnswerSpinner.setValue("A");
                 if (questionFormListener != null){
                     questionFormListener.questionFormEventOccurred(event);
                 }

@@ -8,8 +8,6 @@ import java.awt.*;
 import java.io.IOException;
 
 public class LogIn extends JFrame {
-    public static boolean isVisual = true;
-
     private JLabel passwordLabel;
     private JLabel handleLabel;
     private JTextField handleField;
@@ -22,20 +20,31 @@ public class LogIn extends JFrame {
 
     private final Controller controller;
 
-    public LogIn(HomePage caller, String title) throws HeadlessException {
+    public LogIn(HomePage homePage, String title, boolean isStart) throws HeadlessException {
         super(title);
         controller = new Controller();
-        /* checking userinfo is in the file or not
-        * if it is there then direct to homepage
-        * if not then login to enter */
-        isVisual = !controller.isLogInDefault();
-        caller.setVisible(!isVisual);
-        if (!isVisual){
-            caller.addHistoryTable(controller.getUser());
-        }
 
         initializeComponents();
         setComponents();
+
+        /* checking userinfo is in the file or not
+        * if it is there then direct to homepage
+        * if not then login to enter */
+        if(isStart) {
+            boolean isVisual = !controller.isLogInDefault();
+            homePage.setVisible(!isVisual);
+            if (!isVisual){
+                homePage.setExams(controller.getExams());
+                homePage.setUser(controller.getCurrentUser());
+                homePage.lateSetting();
+            }
+            setVisible(isVisual);
+        } else {
+            controller.forgetLogInData();
+            homePage.dispose();
+            setVisible(true);
+        }
+
         LogIn source = this;
 
         logInButton.addActionListener(e -> {
@@ -45,7 +54,7 @@ public class LogIn extends JFrame {
                 String password = new String(pass);
 
                 boolean isRemembered = rememberMeCheck.isSelected();
-                controller.setLogInDataUI(handle, password, isRemembered, caller, source);
+                controller.setLogInDataUI(handle, password, isRemembered, homePage, source, isStart);
             } catch (NullPointerException | IOException ignored){}
         });
 
@@ -118,7 +127,6 @@ public class LogIn extends JFrame {
 
         setLayout(null);
         setBounds(400,200,400,300);
-        setVisible(isVisual);
         setResizable(false);
     }
 

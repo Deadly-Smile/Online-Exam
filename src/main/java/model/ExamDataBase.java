@@ -83,6 +83,7 @@ public class ExamDataBase {
         Exam exam = new Exam();
         for (Document document : iterable){
             b = true;
+            exam.setId(document.get("_id").toString());
             exam.setExamName(document.get("Exam Name").toString());
             exam.setExamSetterHandle(document.get("Setter").toString());
             exam.setExamPassword(document.get("Password").toString());
@@ -94,6 +95,24 @@ public class ExamDataBase {
         }
         if (!b) return null;
         else return exam;
+    }
+
+    public List<Exam> getAllExams(){
+        List<Exam> examList = new ArrayList<>();
+        FindIterable<Document> documents = examCollection.find();
+        for (Document document : documents){
+            Exam exam = new Exam();
+            exam.setId(document.get("_id").toString());
+            exam.setExamName(document.get("Exam Name").toString());
+            exam.setExamSetterHandle(document.get("Setter").toString());
+            exam.setExamPassword(document.get("Password").toString());
+            exam.setExamStartingTime((Date) document.get("Starting Time"));
+            exam.setQuestions(docsToQuestion((List<Document>) document.get("Questions")));
+            exam.setExamDuration((Integer) document.get("Duration"));
+            exam.setPenalty((Double) document.get("Penalty"));
+            examList.add(exam);
+        }
+        return examList;
     }
 
     private ArrayList<MultipleChoiceQuestion> docsToQuestion(List<Document> documents) {

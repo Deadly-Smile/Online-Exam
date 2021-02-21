@@ -43,7 +43,7 @@ public class SignIn extends JFrame {
         });
 
         logInButton.addActionListener(e ->  {
-            source.setVisible(false);
+            source.dispose();
             logIn.setVisible(true);
         });
     }

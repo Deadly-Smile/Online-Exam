@@ -4,6 +4,8 @@ import model.User;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 
@@ -18,16 +20,17 @@ public class HeaderPanel extends JPanel {
     private JMenuItem createdExamItem;
     private JMenuItem logOutItem;
 
-    private final String handle;
-
-
+    User user;
 
     public HeaderPanel(User user, HomePage home) {
-        handle = user.getHandle();
+        this.user = user;
         initialiseComponent();
         setComponent();
 
         setAnExamButton.addActionListener(e -> home.startAddExam());
+        createdExamItem.addActionListener(e -> home.callCreatedExamDialog());
+        logOutItem.addActionListener(e -> home.logOut());
+
     }
 
     private void setComponent() {
@@ -66,10 +69,7 @@ public class HeaderPanel extends JPanel {
         setAnExamButton.setFocusPainted(false);
         setAnExamButton.setFont(new Font("Arial",Font.BOLD,18));
 
-//        handleLabel = new JLabel(handle);
-//        handleLabel.setFont(new Font("Arial",Font.BOLD,18));
-        handleMenu = new JMenu(handle);
-
+        handleMenu = new JMenu(user.getHandle());
         handleBar = new JMenuBar();
 
         createdExamItem = new JMenuItem("Created exam");

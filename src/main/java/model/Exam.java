@@ -12,7 +12,7 @@ public class Exam {
     public static final int RUNNING = 1;
     public static final int HAS_NOT_STARTED_YET = 2;
 
-    private ObjectId id;
+    private String id;
     private String examName;
     private String examSetterHandle;
     private String examPassword;
@@ -21,11 +21,12 @@ public class Exam {
     private int examDuration;
     private double penalty;
 
-    public Exam(ObjectId id, String examName, String examSetterHandle,
+    public Exam(String examName, String examSetterHandle,
                 String examPassword, Date examStartingTime,
                 ArrayList<MultipleChoiceQuestion> questions,
-                int examDuration, double penalty) {
-        this.id = id;
+                int examDuration, double penalty)
+    {
+        this.id = new ObjectId().toString();
         this.examName = examName;
         this.examSetterHandle = examSetterHandle;
         this.examPassword = examPassword;
@@ -98,8 +99,12 @@ public class Exam {
         this.examDuration = examDuration;
     }
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getExamSetterHandle() {

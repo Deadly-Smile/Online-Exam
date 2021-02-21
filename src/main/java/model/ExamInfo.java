@@ -1,24 +1,53 @@
 package model;
 
-import org.bson.types.ObjectId;
-
+import java.util.Calendar;
 import java.util.Date;
 
 public class ExamInfo {
-    private String examName;
-    private ObjectId examID;
-    private Date startingTime;
+    public static final int OVER = 0;
+    public static final int RUNNING = 1;
+    public static final int HAS_NOT_STARTED_YET = 2;
 
-    public ExamInfo(String examName, ObjectId examID, Date startingTime) {
+    private String examName;
+    private String examID;
+    private Date startingTime;
+    private int examDuration;
+
+    public ExamInfo(String examName, String examID, Date startingTime, int examDuration) {
         this.examName = examName;
         this.examID = examID;
         this.startingTime = startingTime;
+        this.examDuration = examDuration;
     }
 
-    public ExamInfo(Object exam_name, Object exam_id, Object starting_time) {
+    public ExamInfo(Object exam_name, Object exam_id, Object starting_time, Object exam_duration) {
         examName = (String) exam_name;
-        examID = (ObjectId) exam_id;
+        examID = (String) exam_id;
         startingTime = (Date) starting_time;
+        examDuration = (int) exam_duration;
+    }
+
+    public int getStatus() {
+        if (startingTime.getTime() > new Date().getTime()) {
+            return HAS_NOT_STARTED_YET;
+        } else {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(startingTime);
+            calendar.add(Calendar.MINUTE, examDuration);
+            if(new Date().after(calendar.getTime())) {
+                return OVER;
+            } else {
+                return RUNNING;
+            }
+        }
+    }
+
+    public int getExamDuration() {
+        return examDuration;
+    }
+
+    public void setExamDuration(int examDuration) {
+        this.examDuration = examDuration;
     }
 
     public String getExamName() {
@@ -29,11 +58,11 @@ public class ExamInfo {
         this.examName = examName;
     }
 
-    public ObjectId getExamID() {
+    public String getExamID() {
         return examID;
     }
 
-    public void setExamID(ObjectId examID) {
+    public void setExamID(String examID) {
         this.examID = examID;
     }
 
