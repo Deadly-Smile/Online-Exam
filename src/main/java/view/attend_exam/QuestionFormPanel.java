@@ -3,23 +3,30 @@ package view.attend_exam;
 import model.Exam;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionFormPanel extends JPanel {
     private Exam exam;
     private JTextArea questionArea;
-    private JPanel answerPanel;
-    private JLabel choseLabel;
-    private JSpinner answerSpinner;
+    private List<AnswerPanel> OMRList = new ArrayList<>();
     private JButton submitButton;
 
 
     public QuestionFormPanel(Exam exam) {
         this.exam = exam;
 
+        Border outside = BorderFactory.createMatteBorder(1,1,1,1,new Color(0x28527a));
+        Border inside = BorderFactory.createEmptyBorder(5,5,10,5);
+
+        setBorder(BorderFactory.createCompoundBorder(outside, inside));
+
         submitButton = new JButton("Submit");
+        submitButton.setFocusPainted(false);
+        submitButton.setBackground(new Color(0xa7c5eb));
+        submitButton.setForeground(new Color(0x413c69));
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -33,24 +40,27 @@ public class QuestionFormPanel extends JPanel {
             questionArea.setRows(7);
             questionArea.setLineWrap(true);
             questionArea.setEditable(false);
+            questionArea.setFont(new Font("FUTURA",Font.PLAIN,14));
             questionArea.setText(        /* Pretty hard coded area :( */
+                    "  " +
                     exam.getQuestions().get(i).getId() + ". "
                     + exam.getQuestions().get(i).getQuestion()
-                    + "\nA. " + exam.getQuestions().get(i).getChoices().get(0)
-                    + "\nB. " + exam.getQuestions().get(i).getChoices().get(1)
-                    + "\nC. " + exam.getQuestions().get(i).getChoices().get(2)
-                    + "\nD. " + exam.getQuestions().get(i).getChoices().get(3)
+                    + "\n  A. " + exam.getQuestions().get(i).getChoices().get(0)
+                    + "\n  B. " + exam.getQuestions().get(i).getChoices().get(1)
+                    + "\n  C. " + exam.getQuestions().get(i).getChoices().get(2)
+                    + "\n  D. " + exam.getQuestions().get(i).getChoices().get(3)
+                    + "\n  Question mark : " + exam.getQuestions().get(i).getMark()
             );
 
-            answerPanel = new JPanel();
-            setAnswerPanel();
+            AnswerPanel answerPanel = new AnswerPanel();
+            OMRList.add(answerPanel);
 
             gbc.anchor = GridBagConstraints.LINE_START;
             gbc.gridy = j;
             gbc.fill = GridBagConstraints.BOTH;
             add(new JScrollPane(questionArea),gbc);
 
-            gbc.anchor = GridBagConstraints.CENTER;
+            gbc.anchor = GridBagConstraints.LINE_START;
             gbc.gridy = j+1;
             gbc.fill = GridBagConstraints.NONE;
             add(answerPanel,gbc);
@@ -58,28 +68,5 @@ public class QuestionFormPanel extends JPanel {
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.gridy = j+1;
         add(submitButton,gbc);
-    }
-
-    private void setAnswerPanel() {
-        choseLabel = new JLabel("Choose your answer : ");
-        List<String> options = Arrays.asList("A", "B", "C", "D");
-        SpinnerModel spinnerModel = new SpinnerListModel(options);
-        answerSpinner = new JSpinner(spinnerModel);
-        answerSpinner.setSize(answerSpinner.getWidth() * 2, answerSpinner.getHeight());
-        answerSpinner.setEditor(new JSpinner.DefaultEditor(answerSpinner));
-
-        GroupLayout layout = new GroupLayout(answerPanel);
-        answerPanel.setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createSequentialGroup()
-                        .addComponent(choseLabel)
-                        .addComponent(answerSpinner)
-        );
-        layout.setVerticalGroup(
-                layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(choseLabel)
-                                .addComponent(answerSpinner))
-        );
     }
 }

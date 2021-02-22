@@ -12,7 +12,7 @@ public class ExamTableModel extends AbstractTableModel {
     private List<Exam> examList;
     private final List<String> tableFields =
             Arrays.asList("Exam ID","Name","Setter","Starts in",
-                    "Start date","Status","Duration(min)","Penalty");
+                    "Start date","Status","Duration(min)","Penalty(%)");
 
     public ExamTableModel(List<Exam> exams) {
         examList = exams;

@@ -90,6 +90,10 @@ public class Controller {
         return examDataBase.getAllExams();
     }
 
+    public Exam getExam(String id) {
+        return examDataBase.getExam(id);
+    }
+
     /* Attempting to create new user */
     public void createUser(String name, String handle, String password, SignIn source) {
         if(handle.length() <= 3 || password.length() <= 5){
@@ -130,5 +134,9 @@ public class Controller {
 
     public List<Exam> getSearchedExam(String key) {
         return examDataBase.getSearchedExam(key);
+    }
+
+    public boolean verifyExam(String id, String pass) {
+        return examDataBase.verifyPass(id,pass);
     }
 }

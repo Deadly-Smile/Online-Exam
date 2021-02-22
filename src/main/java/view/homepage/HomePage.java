@@ -4,6 +4,7 @@ import controller.Controller;
 import model.Exam;
 import model.User;
 import view.add_exam.AddExam;
+import view.attend_exam.ExamRoom;
 import view.register.LogIn;
 
 
@@ -20,6 +21,7 @@ public class HomePage extends JFrame {
     private StatusPanel statusPanel;
     private CreatedExam createdExam;
     private AddExam addExam;
+    private ExamRoom myExamRoom;
 
     private List<Exam> exams = new ArrayList<>();
     private User user = null;
@@ -103,7 +105,24 @@ public class HomePage extends JFrame {
 
     public void attemptToGoExamRoom(String examId) {
         String enteredPass = JOptionPane.showInputDialog(this, "Enter password to enter the exam :");
-        System.out.println(enteredPass); // now it is doing nothing
+        if(enteredPass != null) {
+            if (controller.verifyExam(examId,enteredPass)) {
+                Exam exam = controller.getExam(examId);
+                if (exam.getStatus() == Exam.OVER) {
+                    JLabel message = new JLabel("Sorry, the exam is over");
+                    message.setForeground(new Color(0xaa2b1d));
+                    message.setFont(new Font("FUTURA",Font.PLAIN,15));
+                    JOptionPane.showMessageDialog(this,message, "Message",JOptionPane.WARNING_MESSAGE);
+                } else {
+                    myExamRoom = new ExamRoom(this,exam.getExamName(),exam,true);
+                }
+            } else {
+                JLabel message = new JLabel("Wrong password, try again");
+                message.setForeground(Color.red);
+                message.setFont(new Font("FUTURA",Font.PLAIN,15));
+                JOptionPane.showMessageDialog(this,message, "Message",JOptionPane.WARNING_MESSAGE);
+            }
+        }
     }
 
     public void searchExam(String key) {

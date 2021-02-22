@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="ExamDataBase created">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/refresh_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/AnswerPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamTimerThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExamDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ExamDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExamTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExamTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/TimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/TimerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/QuestionFormPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/QuestionFormPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/TimerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/TimerPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/StatusPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/ExamDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/ExamDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/ExamRoom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/QuestionFormPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/QuestionFormPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/TimerPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/TimerPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +104,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -174,6 +189,8 @@
       <workItem from="1613906014157" duration="2650000" />
       <workItem from="1613914518156" duration="12699000" />
       <workItem from="1613931285072" duration="5050000" />
+      <workItem from="1613937470984" duration="7896000" />
+      <workItem from="1613983587108" duration="7975000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -292,6 +309,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/model/UserDataBase.java</url>
           <line>23</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

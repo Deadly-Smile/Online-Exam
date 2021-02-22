@@ -1,50 +1,48 @@
 package view.attend_exam;
 
 import model.Exam;
+import view.homepage.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class ExamRoom extends JFrame {
+public class ExamRoom extends JDialog {
     private TimerPanel timerPanel;
     private QuestionFormPanel questionFormPanel;
     private Exam exam;
 
-    public ExamRoom(String title) throws HeadlessException {
-        super(title);
+    public ExamRoom(HomePage home, String title, Exam exam, boolean model) throws HeadlessException {
+        super(home,title,model);
+        this.exam = exam;
+
         setSize(new Dimension(900,550));
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Image logo = Toolkit.getDefaultToolkit().getImage("src/main/resources/Free Stolen Logo.png");
         setIconImage(logo);
 
         setLayout(new BorderLayout());
-        timerPanel = new TimerPanel();
+        timerPanel = new TimerPanel(this, exam.getExamName(), exam.getExamDuration());
         add(timerPanel,BorderLayout.NORTH);
-//        initializeExam();
+
         questionFormPanel = new QuestionFormPanel(exam);
         add(new JScrollPane(questionFormPanel),BorderLayout.CENTER);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                timerPanel.invokeClosingExam();
+                submit();
+                super.windowClosing(e);
+            }
+        });
+
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
-    /* testing
-    public void initializeExam(){
-        ArrayList<MultipleChoiceQuestion> question = new ArrayList<>();
-        List<String> c1 = Arrays.asList("1", "2", "3", "4");
-
-        question.add(new MultipleChoiceQuestion(1,"What is 2 + 2 ?",c1,3));
-        question.add(new MultipleChoiceQuestion(2,"What is 1 + 2 ?",c1,2));
-        question.add(new MultipleChoiceQuestion(3,"What is 1 + 1 ?",c1,1));
-
-        exam = new Exam(
-                "13254684",
-                "Test Exam",
-                "Anik",
-                "12345",
-                Date.now(),
-                question,
-                5
-        );
+    public void submit() {
+        // submitting answer
     }
-     */
 }
