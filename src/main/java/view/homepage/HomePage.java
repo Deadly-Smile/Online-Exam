@@ -39,6 +39,9 @@ public class HomePage extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
+        ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
+        setIconImage(icon.getImage());
+
         if(isStart){
             new LogIn(this, "Log In", true); /* calling login frame */
         }
@@ -118,7 +121,7 @@ public class HomePage extends JFrame {
                     "Message",JOptionPane.WARNING_MESSAGE);
         } else {
             String enteredPass = JOptionPane.showInputDialog(this,
-                    "Enter password to enter the exam :");
+                    "Enter password to enter the exam :","Password",JOptionPane.QUESTION_MESSAGE);
             if(enteredPass != null) {
                 if (controller.verifyExam(examId, enteredPass)) {
                     Exam exam = controller.getExam(examId);

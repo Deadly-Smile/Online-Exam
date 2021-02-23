@@ -7,8 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ExamRoom extends JDialog {
     private examRoomHeaderPanel examRoomHeaderPanel;
@@ -16,7 +14,6 @@ public class ExamRoom extends JDialog {
     private Exam exam;
     private ExamRoom examRoom;
     private HomePage home;
-    private List<AnswerPanel> omrList = new ArrayList<>();
 
     public ExamRoom() {}
 
@@ -27,8 +24,8 @@ public class ExamRoom extends JDialog {
 
         setSize(new Dimension(900,550));
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        Image logo = Toolkit.getDefaultToolkit().getImage("src/main/resources/Free Stolen Logo.png");
-        setIconImage(logo);
+        ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
+        setIconImage(icon.getImage());
 
         setLayout(new BorderLayout());
         examRoomHeaderPanel = new examRoomHeaderPanel(this,

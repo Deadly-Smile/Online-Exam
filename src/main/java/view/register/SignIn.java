@@ -24,6 +24,8 @@ public class SignIn extends JFrame {
     public SignIn(LogIn logIn, String title, boolean b) throws HeadlessException {
         super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
+        setIconImage(icon.getImage());
 
         logIn.setVisible(b);
         SignIn source = this;
