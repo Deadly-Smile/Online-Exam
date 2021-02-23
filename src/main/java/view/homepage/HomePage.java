@@ -2,15 +2,19 @@ package view.homepage;
 
 import controller.Controller;
 import model.Exam;
+import model.Result;
 import model.User;
 import view.add_exam.AddExam;
+import view.attend_exam.AnswerPanel;
 import view.attend_exam.ExamRoom;
+import view.attend_exam.WaitingRoom;
 import view.register.LogIn;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class HomePage extends JFrame {
@@ -21,7 +25,8 @@ public class HomePage extends JFrame {
     private StatusPanel statusPanel;
     private CreatedExam createdExam;
     private AddExam addExam;
-    private ExamRoom myExamRoom;
+    private ExamRoom myExamRoom = new ExamRoom();
+    private WaitingRoom waitingRoom = new WaitingRoom();
 
     private List<Exam> exams = new ArrayList<>();
     private User user = null;
@@ -104,25 +109,84 @@ public class HomePage extends JFrame {
     }
 
     public void attemptToGoExamRoom(String examId) {
-        String enteredPass = JOptionPane.showInputDialog(this, "Enter password to enter the exam :");
-        if(enteredPass != null) {
-            if (controller.verifyExam(examId,enteredPass)) {
-                Exam exam = controller.getExam(examId);
-                if (exam.getStatus() == Exam.OVER) {
-                    JLabel message = new JLabel("Sorry, the exam is over");
-                    message.setForeground(new Color(0xaa2b1d));
-                    message.setFont(new Font("FUTURA",Font.PLAIN,15));
-                    JOptionPane.showMessageDialog(this,message, "Message",JOptionPane.WARNING_MESSAGE);
+        if (isExamIsAlreadyGiven(examId)) {
+            JLabel message = new JLabel("Sorry, you already attended the exam.");
+            message.setForeground(new Color(0xaa2b1d));
+            message.setFont(new Font("FUTURA",Font.PLAIN,15));
+
+            JOptionPane.showMessageDialog(this,message,
+                    "Message",JOptionPane.WARNING_MESSAGE);
+        } else {
+            String enteredPass = JOptionPane.showInputDialog(this,
+                    "Enter password to enter the exam :");
+            if(enteredPass != null) {
+                if (controller.verifyExam(examId, enteredPass)) {
+                    Exam exam = controller.getExam(examId);
+                    if (exam.getStatus() == Exam.OVER) {
+                        JLabel message = new JLabel("Sorry, the exam is over");
+                        message.setForeground(new Color(0xaa2b1d));
+                        message.setFont(new Font("FUTURA", Font.PLAIN, 15));
+                        JOptionPane.showMessageDialog(this, message, "Message",
+                                JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        if ((exam.getExamStartingTime().getTime() - new Date().getTime()) > 500) {
+                            waitingRoom = new WaitingRoom(this, false, exam);
+                        } else {
+                            goToExamRoom(exam);
+                        }
+                    }
                 } else {
-                    myExamRoom = new ExamRoom(this,exam.getExamName(),exam,true);
+                    JLabel message = new JLabel("Wrong password, try again");
+                    message.setForeground(Color.red);
+                    message.setFont(new Font("FUTURA", Font.PLAIN, 15));
+                    JOptionPane.showMessageDialog(this, message, "Message", JOptionPane.WARNING_MESSAGE);
                 }
-            } else {
-                JLabel message = new JLabel("Wrong password, try again");
-                message.setForeground(Color.red);
-                message.setFont(new Font("FUTURA",Font.PLAIN,15));
-                JOptionPane.showMessageDialog(this,message, "Message",JOptionPane.WARNING_MESSAGE);
             }
         }
+    }
+
+    private boolean isExamIsAlreadyGiven(String examId) {
+        List<Result> results = controller.getCurrentUser().getHistory();
+
+        for (Result i : results) {
+            if(i.getExamId().equals(examId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void goToExamRoom(Exam exam) {
+        waitingRoom.dispose();
+        myExamRoom = new ExamRoom(this,exam.getExamName(),exam,true);
+    }
+
+    public void submitOMRList(List<AnswerPanel> omrList,Exam exam) {
+        myExamRoom.dispose();
+        Result result;
+        double mark = 0.00;
+        for (int i = 0; i < omrList.size(); i++) {
+            boolean isWronged = false;
+            for (int j = 0; j < omrList.get(i).getChoiceButtons().size(); j++) {
+                if(omrList.get(i).getChoiceButtons().get(j).isSelected()){
+                    if (j == exam.getQuestions().get(i).getRightIndex()) {
+                        mark += exam.getQuestions().get(i).getMark();
+                    } else {
+                        isWronged = true;
+                    }
+                }
+            }
+            if (isWronged) {
+                mark = mark - (exam.getQuestions().get(i).getMark() * (exam.getPenalty() / 100));
+            }
+        }
+        result = new Result(exam.getId(), exam.getExamName(), exam.getMaxMark(), mark);
+        controller.addResult(result);
+        refreshHistory(controller.getCurrentUser().getHistory());
+    }
+
+    private void refreshHistory(List<Result> history) {
+        historyTablePanel.setHistory(history);
     }
 
     public void searchExam(String key) {

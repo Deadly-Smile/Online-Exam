@@ -1,42 +1,39 @@
 package view.attend_exam;
 
 import javax.swing.*;
-import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExamTimerThread extends Thread{
+public class WaitingTimerThread extends Thread{
     private boolean isRunning;
     private final JLabel timeLabel;
     private long timeLeft;
-    private final examRoomHeaderPanel source;
+    private final WaitingRoom waitingRoom;
 
-    public ExamTimerThread(examRoomHeaderPanel source, JLabel label, int duration, Date examStartingTime) {
-        timeLabel = label;
+    public WaitingTimerThread(WaitingRoom source, Date startingTime, JLabel timeLabel) {
+        this.timeLabel = timeLabel;
         isRunning = true;
-        timeLeft = new Date().getTime() - examStartingTime.getTime();
+        waitingRoom = source;
+        timeLeft = startingTime.getTime() - new Date().getTime();
         timeLeft /= 1000L;
-        timeLeft = ((60L * duration) - timeLeft);
-        this.source = source;
     }
 
     @Override
     public void run() {
-        while (isRunning) {
+        while (isRunning){
             SwingUtilities.invokeLater(() -> {
-                int minute = (int) (timeLeft / 60);
+                int hour = (int) (timeLeft / (60 * 60));
+                int minute = (int) (timeLeft % (60 * 60));
+                minute /= 60;
                 int second = (int) (timeLeft % 60);
                 timeLabel.setText(
-                        minute + ": " + second
+                    hour + ": " + minute + ": " + second
                 );
-                if(timeLeft == 60) {
-                    timeLabel.setForeground(Color.RED);
-                }
-                if(timeLeft <= 0) {
+                if (timeLeft == 0){
                     setRunning(false);
-                    source.endExam();
+                    waitingRoom.waitingIsOver();
                 }
             });
-
             try {
                 sleep(1000);
             } catch (InterruptedException e) {
@@ -44,6 +41,11 @@ public class ExamTimerThread extends Thread{
             }
             timeLeft--;
         }
+
+    }
+
+    public boolean isRunning() {
+        return isRunning;
     }
 
     public void setRunning(boolean running) {

@@ -1,58 +1,58 @@
 package view.attend_exam;
 
+import model.MultipleChoiceQuestion;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnswerPanel extends JPanel {
-    private JLabel choseLabel;
-    private final List<String> options = Arrays.asList("A", "B", "C", "D");
-    private JSpinner answerSpinner;
-    private JCheckBox answeredCheckBox;
+    private List<JRadioButton> choiceButtons;
+    private ButtonGroup choiceGroup;
+    private MultipleChoiceQuestion mcq;
 
-    public AnswerPanel() {
+    public AnswerPanel(MultipleChoiceQuestion mcq) {
+        this.mcq = mcq;
         initialization();
         setComponents();
     }
 
-    private void setComponents() {
-        JPanel spinnerPanel = new JPanel();
-        spinnerPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        spinnerPanel.add(choseLabel);
-        spinnerPanel.add(answerSpinner);
+    private void initialization() {
+        choiceButtons = new ArrayList<>();
+        choiceGroup = new ButtonGroup();
 
-        this.setLayout(new GridBagLayout());
+        for (int i = 0; i < mcq.getChoices().size(); i++) {
+            JRadioButton tempButton = new JRadioButton(mcq.getChoices().get(i));
+            tempButton.setFont(new Font("Arial",Font.PLAIN,16));
+            choiceButtons.add(tempButton);
+            choiceGroup.add(choiceButtons.get(i));
+        }
+
+    }
+
+    private void setComponents() {
+        setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+        setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 10;
         gbc.weighty = 1;
-        gbc.fill = GridBagConstraints.NONE;
         gbc.gridx = 0;
-
-        // First Row
-        gbc.anchor = GridBagConstraints.LINE_START;
-        gbc.insets = new Insets(0,8,0,0);
         gbc.gridy = 0;
-        this.add(answeredCheckBox, gbc);
-
-        // Second Row
+        gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.LINE_START;
-        gbc.insets = new Insets(0,8,0,0);
-        gbc.gridy = 1;
-        this.add(spinnerPanel, gbc);
+
+        for (int i = 0; i < mcq.getChoices().size(); i++) {
+            add(choiceButtons.get(i),gbc);
+            gbc.gridy++;
+        }
     }
 
-    private void initialization() {
-        choseLabel = new JLabel("Chose your answer : ");
-        choseLabel.setForeground(new Color(0x413c69));
-        choseLabel.setFont(new Font("FUTURA",Font.PLAIN,14));
+    public List<JRadioButton> getChoiceButtons() {
+        return choiceButtons;
+    }
 
-        answerSpinner = new JSpinner(new SpinnerListModel(options));
-        answerSpinner.setSize(answerSpinner.getWidth() * 2, answerSpinner.getHeight());
-        answerSpinner.setEditor(new JSpinner.DefaultEditor(answerSpinner));
-
-        answeredCheckBox = new JCheckBox("Mark as answered");
-        answeredCheckBox.setForeground(new Color(0x6b011f));
-        answeredCheckBox.setFont(new Font("FUTURA",Font.PLAIN,14));
+    public ButtonGroup getChoiceGroup() {
+        return choiceGroup;
     }
 }

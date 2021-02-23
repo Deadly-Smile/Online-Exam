@@ -139,4 +139,8 @@ public class Controller {
     public boolean verifyExam(String id, String pass) {
         return examDataBase.verifyPass(id,pass);
     }
+
+    public void addResult(Result result) {
+        userDateBase.addResultToUser(result,getCurrentUser());
+    }
 }

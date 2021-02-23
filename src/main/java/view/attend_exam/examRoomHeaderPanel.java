@@ -3,17 +3,19 @@ package view.attend_exam;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.util.Date;
 
-public class TimerPanel extends JPanel {
+public class examRoomHeaderPanel extends JPanel {
     private JButton submitButton;
     private JLabel timerLabel;
     private JLabel examNameLabel;
-    private ExamRoom source;
+    private final ExamRoom source;
     ExamTimerThread examTimerThread;
-    public TimerPanel(ExamRoom source, String examName, int examDuration) {
+    public examRoomHeaderPanel(ExamRoom source, String examName, int examDuration, Date startingTime) {
         this.source = source;
         initializer(examName);
-        setComponent(examDuration);
+        setComponent(examDuration, startingTime);
+        submitButton.addActionListener(e -> source.submit(false));
     }
 
     private void initializer(String examName) {
@@ -31,7 +33,7 @@ public class TimerPanel extends JPanel {
         examNameLabel.setForeground(new Color(0x290149));
     }
 
-    private void setComponent(int examDuration) {
+    private void setComponent(int examDuration, Date examStartingTime) {
         Border insideBorder = BorderFactory.createEmptyBorder(5,5,5,5);
         Border outsideBorder = BorderFactory.createMatteBorder(1,1,1,1,
                 new Color(0x0a043c));
@@ -61,12 +63,12 @@ public class TimerPanel extends JPanel {
         gbc.anchor = GridBagConstraints.LINE_END;
         add(timerLabel, gbc);
 
-        examTimerThread = new ExamTimerThread(this,timerLabel,examDuration);
+        examTimerThread = new ExamTimerThread(this,timerLabel,examDuration,examStartingTime);
         examTimerThread.start();
     }
 
     public void endExam() {
-        source.submit();
+        source.submit(true);
     }
 
     public void invokeClosingExam() {

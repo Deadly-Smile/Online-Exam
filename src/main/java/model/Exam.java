@@ -50,7 +50,7 @@ public class Exam {
             calendar.add(Calendar.MINUTE, examDuration);
             if(new Date().after(calendar.getTime())) {
                 calendar.add(Calendar.HOUR,24);
-                if(new Date().after(Calendar.getInstance().getTime())){
+                if(new Date().after(calendar.getTime())){
                     return OVER_LONG_AGO;
                 }else{
                     return OVER;
