@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Found and added logo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" afterDir="false" />
-    </list>
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Database can be access by anyone" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,6 +181,7 @@
       <workItem from="1614097820576" duration="7700000" />
       <workItem from="1614114697939" duration="8756000" />
       <workItem from="1614166348663" duration="705000" />
+      <workItem from="1614178513518" duration="156000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -283,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614123597465</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Database can be access by anyone">
+      <created>1614178662957</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1614178662957</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +322,8 @@
     <MESSAGE value="Exam timer is complete." />
     <MESSAGE value="Attending exam is now functional" />
     <MESSAGE value="Found and added logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Found and added logo" />
+    <MESSAGE value="Database can be access by anyone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database can be access by anyone" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
