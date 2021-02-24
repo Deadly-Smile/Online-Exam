@@ -9,9 +9,10 @@ import java.util.List;
 public class UserDataBase {
     private static MongoCollection<Document> userCollection;
 
-    private static void connect(){
+    private static void connect() {
         MongoClient mongoClient = MongoClients.create(
-                "mongodb+srv://Anik:190115@cluster0.y43ax.mongodb.net/Online-Exam?retryWrites=true&w=majority");
+                "mongodb+srv://Anik:190115@cluster0.y43ax.mongodb.net" +
+                        "/Online-Exam?retryWrites=true&w=majority");
         MongoDatabase database = mongoClient.getDatabase("Online-Exam");
         userCollection = database.getCollection("User");
     }
