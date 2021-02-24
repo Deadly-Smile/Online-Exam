@@ -104,7 +104,7 @@ public class ExamDataBase {
         for (Document document : documents){
             Exam exam = new Exam();
             docToExam(exam,document);
-            if (exam.getStatus() == 4) {
+            if (exam.getStatus() == 3) {
                 deleteExam(exam.getId());
             } else {
                 examList.add(exam);

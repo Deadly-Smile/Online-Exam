@@ -24,12 +24,11 @@ public class HistoryTableModel extends AbstractTableModel {
     @Override
     public int getRowCount() {
         return history.size();
-//        return 0;
     }
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return fieldNames.size();
     }
 
     @Override

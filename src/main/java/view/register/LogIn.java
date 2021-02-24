@@ -23,6 +23,8 @@ public class LogIn extends JFrame {
     public LogIn(HomePage homePage, String title, boolean isStart) throws HeadlessException {
         super(title);
         controller = new Controller();
+        ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
+        setIconImage(icon.getImage());
 
         initializeComponents();
         setComponents();

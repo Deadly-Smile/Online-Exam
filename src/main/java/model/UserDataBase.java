@@ -9,9 +9,10 @@ import java.util.List;
 public class UserDataBase {
     private static MongoCollection<Document> userCollection;
 
-    private static void connect(){
+    private static void connect() {
         MongoClient mongoClient = MongoClients.create(
-                "mongodb+srv://Anik:190115@cluster0.y43ax.mongodb.net/Online-Exam?retryWrites=true&w=majority");
+                "mongodb+srv://Anik:190115@cluster0.y43ax.mongodb.net" +
+                        "/Online-Exam?retryWrites=true&w=majority");
         MongoDatabase database = mongoClient.getDatabase("Online-Exam");
         userCollection = database.getCollection("User");
     }
@@ -41,7 +42,8 @@ public class UserDataBase {
 
     public void addResultToUser(Result result, User user){
         Document document = new Document(
-                "Exam Name",result.getExamName())
+                "Exam Id",result.getExamId())
+                .append("Exam Name",result.getExamName())
                 .append("Maximum Mark",result.getMaximumMark())
                 .append("Achieved Mark",result.getAchievedMark()
                 );
@@ -104,9 +106,11 @@ public class UserDataBase {
     private List<Document> historyToDocs(List<Result> history){
         List<Document> docs = new ArrayList<>();
         for (Result i : history) {
-            docs.add(new Document("Exam Name",i.getExamName())
+            docs.add(new Document("Exam Id",i.getExamId())
+                    .append("Exam Name",i.getExamName())
                     .append("Maximum Mark",i.getMaximumMark())
-                    .append("Achieved Mark",i.getAchievedMark()));
+                    .append("Achieved Mark",i.getAchievedMark())
+            );
         }
         return docs;
     }
@@ -126,7 +130,8 @@ public class UserDataBase {
         List<Result> history = new ArrayList<>();
         for (Document i : docs) {
             history.add(
-                    new Result(i.get("Exam Name"),
+                    new Result(i.get("Exam Id"),
+                    i.get("Exam Name"),
                     i.get("Maximum Mark"),
                     i.get("Achieved Mark"))
             );

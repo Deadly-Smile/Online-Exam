@@ -1,50 +1,89 @@
 package view.attend_exam;
 
 import model.Exam;
+import view.homepage.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class ExamRoom extends JFrame {
-    private TimerPanel timerPanel;
+public class ExamRoom extends JDialog {
+    private examRoomHeaderPanel examRoomHeaderPanel;
     private QuestionFormPanel questionFormPanel;
     private Exam exam;
+    private ExamRoom examRoom;
+    private HomePage home;
 
-    public ExamRoom(String title) throws HeadlessException {
-        super(title);
+    public ExamRoom() {}
+
+    public ExamRoom(HomePage home, String title, Exam exam, boolean model) throws HeadlessException {
+        super(home,title,model);
+        this.exam = exam;
+        this.home = home;
+
         setSize(new Dimension(900,550));
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        Image logo = Toolkit.getDefaultToolkit().getImage("src/main/resources/Free Stolen Logo.png");
-        setIconImage(logo);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
+        setIconImage(icon.getImage());
 
         setLayout(new BorderLayout());
-        timerPanel = new TimerPanel();
-        add(timerPanel,BorderLayout.NORTH);
-//        initializeExam();
-        questionFormPanel = new QuestionFormPanel(exam);
-        add(new JScrollPane(questionFormPanel),BorderLayout.CENTER);
+        examRoomHeaderPanel = new examRoomHeaderPanel(this,
+                exam.getExamName(),
+                exam.getExamDuration(),
+                exam.getExamStartingTime());
+        add(examRoomHeaderPanel,BorderLayout.NORTH);
+
+        questionFormPanel = new QuestionFormPanel(this,exam);
+
+        JScrollPane jScrollPane = new JScrollPane(questionFormPanel);
+        // This will increase scrolling speed
+        jScrollPane.getVerticalScrollBar().setUnitIncrement(28);
+
+        add(jScrollPane,BorderLayout.CENTER);
+
+        examRoom = this;
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                JLabel label = new JLabel("If you quit, it will not submit. Do you still want to proceed ?");
+                label.setForeground(new Color(0x1a508b));
+                label.setFont(new Font("Arial",Font.PLAIN,16));
+                int userChoice = JOptionPane.showConfirmDialog(
+                        examRoom,
+                        label,"Confirm",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE
+                );
+                if(userChoice == JOptionPane.YES_OPTION) {
+                    examRoomHeaderPanel.invokeClosingExam();
+                    examRoom.dispose();
+                }
+            }
+        });
+
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
-    /* testing
-    public void initializeExam(){
-        ArrayList<MultipleChoiceQuestion> question = new ArrayList<>();
-        List<String> c1 = Arrays.asList("1", "2", "3", "4");
-
-        question.add(new MultipleChoiceQuestion(1,"What is 2 + 2 ?",c1,3));
-        question.add(new MultipleChoiceQuestion(2,"What is 1 + 2 ?",c1,2));
-        question.add(new MultipleChoiceQuestion(3,"What is 1 + 1 ?",c1,1));
-
-        exam = new Exam(
-                "13254684",
-                "Test Exam",
-                "Anik",
-                "12345",
-                Date.now(),
-                question,
-                5
-        );
+    public void submit(boolean isForceful) {
+        if(!isForceful){
+            JLabel label = new JLabel("Are you sure, you want to submit ?");
+            label.setForeground(new Color(0x1a508b));
+            label.setFont(new Font("Arial",Font.PLAIN,16));
+            int userChoice = JOptionPane.showConfirmDialog(
+                    examRoom,
+                    label,"Confirm",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+            );
+            if(userChoice == JOptionPane.YES_OPTION) {
+                submit(true);
+            }
+        } else {
+            home.submitOMRList(questionFormPanel.getOmrList(),exam);
+            examRoom.dispose();
+        }
     }
-     */
 }

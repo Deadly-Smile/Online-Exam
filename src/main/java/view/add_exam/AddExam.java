@@ -16,7 +16,7 @@ public class AddExam extends JDialog {
     private QuestionTablePanel questionTablePanel;
     private AddQuestionDialog addQuestionDialog;
     private Exam newExam;
-    private ArrayList<MultipleChoiceQuestion> questionSet = new ArrayList<>();
+    private final ArrayList<MultipleChoiceQuestion> questionSet = new ArrayList<>();
     private int questionID = 0;
 
     public AddExam(HomePage home , String title, boolean model, String handle) {
@@ -24,6 +24,8 @@ public class AddExam extends JDialog {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(new Dimension(750,450));
         setLocationRelativeTo(home);
+        ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
+        setIconImage(icon.getImage());
         setComponents();
 
         fromPanel.setExamFormListener(event -> {

@@ -1,4 +1,4 @@
-package view;
+package view.homepage;
 
 import javax.swing.*;
 import java.text.SimpleDateFormat;
@@ -9,7 +9,7 @@ import static java.lang.Thread.sleep;
 
 public class TimerThread extends Thread{
     private boolean isRunning;
-    private JLabel timeLabel;
+    private final JLabel timeLabel;
 
     private final SimpleDateFormat timeFormat =
             new SimpleDateFormat("h:mm:ss a");
@@ -22,13 +22,10 @@ public class TimerThread extends Thread{
     @Override
     public void run() {
         while (isRunning) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    Calendar currentCalendar = Calendar.getInstance();
-                    Date currentTime = currentCalendar.getTime();
-                    timeLabel.setText(timeFormat.format(currentTime));
-                }
+            SwingUtilities.invokeLater(() -> {
+                Calendar currentCalendar = Calendar.getInstance();
+                Date currentTime = currentCalendar.getTime();
+                timeLabel.setText(timeFormat.format(currentTime));
             });
 
             try {

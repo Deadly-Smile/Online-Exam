@@ -7,17 +7,16 @@ import java.awt.*;
 import java.util.List;
 
 public class HistoryTablePanel extends JPanel {
-    private JTable historyTable;
-    private HistoryTableModel historyTableModel;
-
-    private List<Result> history;
+    private final JTable historyTable;
+    private final HistoryTableModel historyTableModel;
 
     public HistoryTablePanel(List<Result> history) {
-        this.history = history;
         historyTableModel = new HistoryTableModel(history);
         historyTable = new JTable(historyTableModel);
         setLayout(new BorderLayout());
         add(new JScrollPane(historyTable),BorderLayout.CENTER);
+
+        stylingTable();
 
         Dimension dimension = getPreferredSize();
         dimension.width = 250;
@@ -30,6 +29,14 @@ public class HistoryTablePanel extends JPanel {
     }
 
     public void setHistory(List<Result> history) {
-        this.history = history;
+        historyTableModel.setHistory(history);
+        refresh();
+    }
+
+    private void stylingTable() {
+        historyTable.setRowSelectionAllowed(true);
+        historyTable.setGridColor(Color.gray);
+        historyTable.setSelectionBackground(new Color(0x94ebcd));
+        historyTable.setSelectionForeground(new Color(0xE61548));
     }
 }

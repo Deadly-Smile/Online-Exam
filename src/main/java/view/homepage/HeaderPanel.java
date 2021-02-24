@@ -37,6 +37,7 @@ public class HeaderPanel extends JPanel {
     }
 
     private void setComponent() {
+
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
 
