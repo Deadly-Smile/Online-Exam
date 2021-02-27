@@ -9,7 +9,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Database can be access by anyone" />
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Database can be access by anyone">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TableStyle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/add-people-interface-symbol-of-black-person-close-up-with-plus-sign-in-small-circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/login_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sign in .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sign-up-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/QuestionFormPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/QuestionFormPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/examRoomHeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/examRoomHeaderPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/LogIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Search Icon resized.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Search Icon resized.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/refresh_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/refresh_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User Log In Info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/QuestionTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/QuestionTablePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/CreatedExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/CreatedExam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTablePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/LogIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,6 +218,10 @@
       <workItem from="1614114697939" duration="8756000" />
       <workItem from="1614166348663" duration="705000" />
       <workItem from="1614178513518" duration="156000" />
+      <workItem from="1614272941392" duration="10080000" />
+      <workItem from="1614339445739" duration="6276000" />
+      <workItem from="1614356267430" duration="12019000" />
+      <workItem from="1614425636062" duration="10000000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>

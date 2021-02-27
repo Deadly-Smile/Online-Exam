@@ -1,8 +1,10 @@
 package view.homepage;
 
 import model.Exam;
+import view.TableStyle;
 
 import javax.swing.*;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -23,7 +25,8 @@ public class ExamTablePanel extends JPanel{
         add(new JScrollPane(examTable),BorderLayout.CENTER);
         setBorder(BorderFactory.createMatteBorder(1,1,1,1,new Color(0x726a95)));
 
-        stylingTable();
+        TableStyle tableStyle = new TableStyle(examTable);
+        tableStyle.StyleTheTable();
 
         examTable.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent mouseEvent) {
@@ -37,13 +40,6 @@ public class ExamTablePanel extends JPanel{
 
 
         refresh();
-    }
-
-    private void stylingTable() {
-        examTable.setRowSelectionAllowed(true);
-        examTable.setGridColor(Color.gray);
-        examTable.setSelectionBackground(new Color(0x94ebcd));
-        examTable.setSelectionForeground(new Color(0xE61548));
     }
 
     public void refresh() {

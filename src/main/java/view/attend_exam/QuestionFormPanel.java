@@ -50,33 +50,45 @@ public class QuestionFormPanel extends JPanel {
 
         submitButton = new JButton("Submit");
         submitButton.setFocusPainted(false);
-        submitButton.setBackground(new Color(0xa7c5eb));
-        submitButton.setForeground(new Color(0x413c69));
+        submitButton.setBackground(new Color(0x276678));
+        submitButton.setForeground(Color.WHITE);
     }
 
     private void setComponents() {
-        setLayout(new GridBagLayout());
+        setLayout(new BorderLayout());
+
+        JPanel examForm = new JPanel();
+        examForm.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 1;
         gbc.weighty = 1;
         gbc.gridx = 0;
         gbc.gridy = -1;
 
+        JPanel examNote = new JPanel();
+        examNote.setBorder(BorderFactory.createEmptyBorder(10,0,10,0));
+        examNote.setLayout(new GridBagLayout());
+        GridBagConstraints subGBC = new GridBagConstraints();
+        subGBC.gridx = 0;
+        subGBC.gridy = -1;
+        subGBC.weightx = 1;
+        subGBC.weighty = 1;
+
         // Adding setterLabel
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.gridy++;
-        gbc.fill = GridBagConstraints.NONE;
-        add(setterLabel,gbc);
+        subGBC.anchor = GridBagConstraints.CENTER;
+        subGBC.gridy++;
+        subGBC.fill = GridBagConstraints.NONE;
+        examNote.add(setterLabel,subGBC);
 
         // Adding fullMarkLabel
-        gbc.insets = new Insets(2,0,2,0);
-        gbc.gridy++;
-        add(fullMarkLabel,gbc);
+        subGBC.insets = new Insets(2,0,2,0);
+        subGBC.gridy++;
+        examNote.add(fullMarkLabel,subGBC);
 
         // Adding setterLabel
-        gbc.insets = new Insets(2,0,7,0);
-        gbc.gridy++;
-        add(noteLabel,gbc);
+        subGBC.insets = new Insets(2,0,7,0);
+        subGBC.gridy++;
+        examNote.add(noteLabel,subGBC);
 
         for(int i = 0; i < exam.getQuestions().size(); i++){
 
@@ -88,23 +100,27 @@ public class QuestionFormPanel extends JPanel {
             gbc.anchor = GridBagConstraints.LINE_START;
             gbc.gridy++;
             gbc.fill = GridBagConstraints.BOTH;
-            add(new JScrollPane(questionArea),gbc);
+            examForm.add(new JScrollPane(questionArea),gbc);
 
             // Adding markLabel
             gbc.anchor = GridBagConstraints.LINE_END;
             gbc.gridy++;
             gbc.fill = GridBagConstraints.NONE;
-            add(markLabel,gbc);
+            examForm.add(markLabel,gbc);
 
             // Adding answerPanel
             gbc.anchor = GridBagConstraints.LINE_START;
             gbc.gridy++;
-            add(newAnswerPanel,gbc);
+            examForm.add(newAnswerPanel,gbc);
         }
-        // Adding submitButton
-        gbc.anchor = GridBagConstraints.LINE_END;
-        gbc.gridy++;
-        add(submitButton,gbc);
+
+        JPanel footerPanel = new JPanel();
+        footerPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        footerPanel.add(submitButton);
+
+        add(examNote, BorderLayout.NORTH);
+        add(examForm, BorderLayout.CENTER);
+        add(footerPanel, BorderLayout.SOUTH);
     }
 
     private void temporaryInitialization(int i) {
