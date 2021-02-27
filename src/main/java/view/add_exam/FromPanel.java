@@ -30,6 +30,7 @@ public class FromPanel extends JPanel {
     private JButton createButton;
 
     private ExamFormListener examFormListener;
+    private static final Font SMALL_FONT = new Font("FUTURA",Font.BOLD,12);
 
     public FromPanel() {
         initializeComponent();
@@ -93,17 +94,17 @@ public class FromPanel extends JPanel {
 
     private void setNotePanel() {
         invalidInfoLabel = new JLabel("Too short exam name or password");
-        invalidInfoLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        invalidInfoLabel.setFont(SMALL_FONT);
         invalidInfoLabel.setForeground(Color.RED);
         invalidInfoLabel.setVisible(false);
 
         invalidDateLabel = new JLabel("Please start the exam in 15 days");
-        invalidDateLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        invalidDateLabel.setFont(SMALL_FONT);
         invalidDateLabel.setForeground(Color.RED);
         invalidDateLabel.setVisible(false);
 
         tooEarlyLabel = new JLabel("At least give 10 minute to start the exam");
-        tooEarlyLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        tooEarlyLabel.setFont(SMALL_FONT);
         tooEarlyLabel.setForeground(Color.RED);
         tooEarlyLabel.setVisible(false);
 
@@ -115,7 +116,7 @@ public class FromPanel extends JPanel {
 
     private void setLabelPanel() {
         JLabel requestLabel = new JLabel("Please Fill the form");
-        requestLabel.setForeground(new Color(0x350b40));
+        requestLabel.setForeground(new Color(0xFFAA1455, true));
         requestLabel.setFont(new Font("Arial",Font.BOLD,20));
 
         labelPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -219,19 +220,19 @@ public class FromPanel extends JPanel {
     private void initializeFormComponent() {
         examNameLabel = new JLabel("Exam Name :");
 
-        examPassLabel = new JLabel("Set Password :");
+        examPassLabel = new JLabel("Password  :");
 
-        durationLabel = new JLabel("Set Duration(min) :");
+        durationLabel = new JLabel("Time (min) :");
 
-        dateLabel = new JLabel("Exam date :");
+        dateLabel = new JLabel("Exam Date :");
 
         startTimeLabel = new JLabel("Start Time :");
 
-        penaltyLabel = new JLabel("Penalty(%) :");
+        penaltyLabel = new JLabel("Penalty (%) :");
 
-        examNameField = new JTextField(10);
+        examNameField = new JTextField(12);
 
-        examPassField = new JPasswordField(10);
+        examPassField = new JPasswordField(12);
 
         SpinnerModel durationSinnerModel =
                 new SpinnerNumberModel(10,2,180,1);
@@ -247,7 +248,6 @@ public class FromPanel extends JPanel {
         JFormattedTextField penaltySpin = ((JSpinner.DefaultEditor)penaltySpinner.getEditor()).getTextField();
         penaltySpin.setEditable(false);
 
-
         dateSpinner = new JSpinner(new SpinnerDateModel());
         JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dateSpinner, "EEE, d MMM yyyy");
         dateSpinner.setEditor(dateEditor);
@@ -259,9 +259,10 @@ public class FromPanel extends JPanel {
         startTimeSpinner.setValue(new Date());
 
         createButton = new JButton("Create");
+        createButton.setFont(new Font("Arial",Font.PLAIN,15));
         createButton.setFocusPainted(false);
-        createButton.setBackground(new Color(0xeabf9f));
-        createButton.setForeground(new Color(0x383e56));
+        createButton.setBackground(new Color(0x0f4c75));
+        createButton.setForeground(Color.WHITE);
     }
 
     public void setExamFormListener(ExamFormListener examFormListener) {

@@ -1,6 +1,7 @@
 package view.homepage;
 
 import model.Result;
+import view.TableStyle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,10 +14,12 @@ public class HistoryTablePanel extends JPanel {
     public HistoryTablePanel(List<Result> history) {
         historyTableModel = new HistoryTableModel(history);
         historyTable = new JTable(historyTableModel);
+
         setLayout(new BorderLayout());
         add(new JScrollPane(historyTable),BorderLayout.CENTER);
 
-        stylingTable();
+        TableStyle tableStyle = new TableStyle(historyTable);
+        tableStyle.StyleTheTable();
 
         Dimension dimension = getPreferredSize();
         dimension.width = 250;
@@ -31,12 +34,5 @@ public class HistoryTablePanel extends JPanel {
     public void setHistory(List<Result> history) {
         historyTableModel.setHistory(history);
         refresh();
-    }
-
-    private void stylingTable() {
-        historyTable.setRowSelectionAllowed(true);
-        historyTable.setGridColor(Color.gray);
-        historyTable.setSelectionBackground(new Color(0x94ebcd));
-        historyTable.setSelectionForeground(new Color(0xE61548));
     }
 }

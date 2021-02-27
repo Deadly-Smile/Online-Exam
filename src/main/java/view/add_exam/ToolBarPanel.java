@@ -22,13 +22,14 @@ public class ToolBarPanel extends JPanel implements ActionListener {
 
         backButton = new JButton("Abort");
         backButton.setFocusPainted(false);
-        backButton.setBackground(new Color(0xa4ebf3));
-        backButton.setForeground(new Color(0x91091e));
+        backButton.setBackground(new Color(0x276678));
+        backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Arial",Font.BOLD,14));
 
         addQuestionButton = new JButton("Add Question");
         addQuestionButton.setFocusPainted(false);
-        addQuestionButton.setBackground(new Color(0xa4ebf3));
+        addQuestionButton.setForeground(Color.WHITE);
+        addQuestionButton.setBackground(new Color(0x276678));
         addQuestionButton.setFont(new Font("Arial",Font.BOLD,14));
     }
 

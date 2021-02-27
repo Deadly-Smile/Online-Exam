@@ -50,10 +50,10 @@ public class WaitingRoom extends JDialog {
 
     private void initialization() {
         timerLabel = new JLabel("hhh: mm: ss");
-        timerLabel.setFont(new Font("Arial",Font.BOLD,24));
+        timerLabel.setFont(new Font("Arial",Font.BOLD,28));
 
         setterLabel = new JLabel("Exam created by " + exam.getExamSetterHandle());
-        setterLabel.setForeground(new Color(0x2c061f));
+        setterLabel.setForeground(new Color(0x276678));
         setterLabel.setFont(new Font("Arial",Font.BOLD,15));
 
         durationLabel = new JLabel("Duration " + exam.getExamDuration() + " minutes");
@@ -74,7 +74,7 @@ public class WaitingRoom extends JDialog {
 
         noteLabel = new JLabel("Exam hasn't started yet, please wait");
         noteLabel.setFont(new Font("FUTURA", Font.BOLD, 20));
-        noteLabel.setForeground(new Color(0x860909));
+        noteLabel.setForeground(new Color(0xBF1010));
     }
 
     private void setComponents() {

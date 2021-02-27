@@ -18,8 +18,11 @@ public class SignIn extends JFrame {
     private JLabel tooShortLabel;
     private JLabel alreadyLabel;
     private JLabel successLabel;
+    private JLabel imageLabel;
 
     private final Controller controller;
+    private static final Font REGULAR_FONT = new Font("Arial",Font.PLAIN,15);
+    private static final Font SMALL_FONT = new Font("FUTURA",Font.BOLD,12);
 
     public SignIn(LogIn logIn, String title, boolean b) throws HeadlessException {
         super(title);
@@ -49,90 +52,155 @@ public class SignIn extends JFrame {
             logIn.setVisible(true);
         });
     }
-/*  all components are initialized in this method, all styling should be done here  */
+
+    //  all components are initialized in this method, all styling should be done here
     private void initialize(){
-        nameLabel = new JLabel("Name");
+        nameLabel = new JLabel("Name :");
+        nameLabel.setFont(REGULAR_FONT);
 
-        handleLabel = new JLabel("Handle");
+        handleLabel = new JLabel("Handle :");
+        handleLabel.setFont(REGULAR_FONT);
 
-        passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel("Password :");
+        passwordLabel.setFont(REGULAR_FONT);
 
         accountLabel = new JLabel("Already have an account?");
-        accountLabel.setForeground(new Color(0xeb5e0b));
+        accountLabel.setFont(SMALL_FONT);
 
         tooShortLabel = new JLabel("Too short handle or password*");
         tooShortLabel.setForeground(Color.RED);
-        tooShortLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        tooShortLabel.setFont(SMALL_FONT);
         tooShortLabel.setVisible(false);
 
         alreadyLabel = new JLabel("Try another handle*");
         alreadyLabel.setForeground(Color.RED);
-        alreadyLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        alreadyLabel.setFont(SMALL_FONT);
         alreadyLabel.setVisible(false);
 
-        successLabel = new JLabel("Account is successfully created, try logging in");
+        imageLabel = new JLabel(new ImageIcon("src/main/resources/sign in .png"));
+
+        successLabel = new JLabel("Sign in complete, now log in");
         successLabel.setForeground(new Color(0x21452B));
-        successLabel.setFont(new Font("FUTURA",Font.PLAIN,12));
+        successLabel.setFont(SMALL_FONT);
         successLabel.setVisible(false);
 
-        nameTextField = new JTextField();
+        nameTextField = new JTextField(12);
+        nameTextField.setFont(REGULAR_FONT);
 
-        handleField = new JTextField();
+        handleField = new JTextField(12);
+        handleField.setFont(REGULAR_FONT);
 
-        passwordField =new JPasswordField();
+        passwordField = new JPasswordField(12);
+        passwordField.setFont(REGULAR_FONT);
 
-        signInButton =new JButton("Sign In");
-        signInButton.setBackground(new Color(0xa3ddcb));
-        signInButton.setForeground(Color.BLACK);
+        signInButton = new JButton("Sign In");
+        signInButton.setBackground(new Color(0x0f4c75));
+        signInButton.setForeground(Color.WHITE);
         signInButton.setFocusPainted(false);
 
-        logInButton =new JButton("Log In");
-        logInButton.setBackground(new Color(0x276678));
+        logInButton = new JButton("Log In");
+        logInButton.setBackground(Color.WHITE);
         logInButton.setForeground(Color.BLACK);
         logInButton.setFocusPainted(false);
     }
-/* setting components in position is done in this method */
+
+    // setting components in position is done in this method
     private void setComponents() {
-        nameLabel.setBounds(100,55,60,20);
-        add(nameLabel);
+        setSize(new Dimension(420,350));
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
 
-        handleLabel.setBounds(100,85,60,20);
-        add(handleLabel);
+        JPanel signInFormPanel = new JPanel();
+        setSignInForm(signInFormPanel);
 
-        passwordLabel.setBounds(100,115,60,20);
-        add(passwordLabel);
+        JPanel imagePanel = new JPanel();
+        imagePanel.setBorder(BorderFactory.createEmptyBorder(30,0,5,0));
+        imagePanel.setLayout(new BorderLayout());
+        imagePanel.add(imageLabel, BorderLayout.CENTER);
 
-        accountLabel.setBounds(93,215,150,20);
-        add(accountLabel);
+        JPanel footerPanel = new JPanel();
+        footerPanel.setBorder(BorderFactory.createEmptyBorder(15,0,10,0));
+        footerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        footerPanel.add(accountLabel);
+        footerPanel.add(logInButton);
 
-        nameTextField.setBounds(190,55,130,20);
-        add(nameTextField);
+        add(imagePanel, BorderLayout.NORTH);
+        add(signInFormPanel, BorderLayout.CENTER);
+        add(footerPanel, BorderLayout.SOUTH);
 
-        handleField.setBounds(190,85,130,20);
-        add(handleField);
-
-        passwordField.setBounds(190,115,130,20);
-        add(passwordField);
-
-        tooShortLabel.setBounds(100,140,220,20);
-        add(tooShortLabel);
-
-        successLabel.setBounds(100,140,250,20);
-        add(successLabel);
-
-        alreadyLabel.setBounds(100,140,220,20);
-        add(alreadyLabel);
-
-        signInButton.setBounds(233,170,75,20);
-        add(signInButton);
-
-        logInButton.setBounds(243,215,70,20);
-        add(logInButton);
-
-        setLayout(null);
-        setBounds(400,200,400,300);
-        setVisible(true);
         setResizable(false);
+        setVisible(true);
+    }
+
+    private void setSignInForm(JPanel signInFormPanel) {
+        signInFormPanel.setLayout(new GridBagLayout());
+        signInFormPanel.setBorder(BorderFactory.createEmptyBorder(5,50,5,50));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.weightx = 8;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.NONE;
+
+        // First Row
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,5);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        signInFormPanel.add(nameLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(0,0,0,0);
+        signInFormPanel.add(nameTextField, gbc);
+
+        // Next Row
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,5);
+        gbc.gridx = 0;
+        gbc.gridy++;
+        signInFormPanel.add(handleLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(0,0,0,0);
+        signInFormPanel.add(handleField, gbc);
+
+        // Next Row
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,5);
+        gbc.gridx = 0;
+        gbc.gridy++;
+        signInFormPanel.add(passwordLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(0,0,0,0);
+        signInFormPanel.add(passwordField, gbc);
+
+        // Next Row
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.insets = new Insets(0,0,0,-93);
+        signInFormPanel.add(successLabel, gbc);
+
+        // Next Row
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.gridx = 0;
+        gbc.gridy++;
+        signInFormPanel.add(tooShortLabel, gbc);
+
+        // Next Row
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.gridx = 0;
+        gbc.gridy++;
+        signInFormPanel.add(alreadyLabel, gbc);
+
+        // Next Row
+        gbc.gridx = 1;
+        gbc.insets = new Insets(0,0,0,33);
+        gbc.anchor = GridBagConstraints.LINE_END;
+        signInFormPanel.add(signInButton, gbc);
     }
 
     public void setTooShortVisible(){

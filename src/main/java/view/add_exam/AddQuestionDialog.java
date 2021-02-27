@@ -25,7 +25,7 @@ public class AddQuestionDialog extends JDialog {
     private QuestionFormListener questionFormListener;
     public AddQuestionDialog(JDialog owner, String title, boolean model) {
         super(owner, title, model);
-        setSize(new Dimension(500,380));
+        setSize(new Dimension(550,420));
         setResizable(false);
         setLocationRelativeTo(owner);
 
@@ -101,14 +101,19 @@ public class AddQuestionDialog extends JDialog {
         noteLabel.setVisible(false);
 
         confirmButton = new JButton("Confirm");
+        confirmButton.setFont(new Font("Arial",Font.PLAIN,15));
         confirmButton.setFocusPainted(false);
-        confirmButton.setBackground(new Color(0xd3e0ea));
-        confirmButton.setForeground(new Color(0x276678));
+        confirmButton.setBackground(new Color(0x0f4c75));
+        confirmButton.setForeground(Color.WHITE);
     }
 
     private void setComponents() {
+
+        JPanel formPanel = new JPanel();
+        formPanel.setBorder(BorderFactory.createEmptyBorder(8,0,5,0));
+
         /*  Initialization  */
-        setLayout(new GridBagLayout());
+        formPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 10;
         gbc.weighty = 1;
@@ -119,95 +124,98 @@ public class AddQuestionDialog extends JDialog {
         gbc.insets = new Insets(0,0,0,5);
         gbc.gridx = 0;
         gbc.gridy = 0;
-        add(questionLabel, gbc);
+        formPanel.add(questionLabel, gbc);
 
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(0,0,0,0);
-        add(new JScrollPane(questionTextArea), gbc);
+        formPanel.add(new JScrollPane(questionTextArea), gbc);
 
         /*  Next Row */
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
-        add(choice1Label, gbc);
+        formPanel.add(choice1Label, gbc);
 
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(-10,0,-10,0);
-        add(choice1Field, gbc);
+        formPanel.add(choice1Field, gbc);
 
         /*  Next Row */
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
-        add(choice2Label, gbc);
+        formPanel.add(choice2Label, gbc);
 
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(0,0,0,0);
-        add(choice2Field, gbc);
+        formPanel.add(choice2Field, gbc);
 
         /*  Next Row */
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
-        add(choice3Label, gbc);
+        formPanel.add(choice3Label, gbc);
 
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(0,0,0,0);
-        add(choice3Field, gbc);
+        formPanel.add(choice3Field, gbc);
 
         /*  Next Row */
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
-        add(choice4Label, gbc);
+        formPanel.add(choice4Label, gbc);
 
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(0,0,0,0);
-        add(choice4Field, gbc);
+        formPanel.add(choice4Field, gbc);
 
         /*  Next Row */
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
-        add(markLabel, gbc);
+        formPanel.add(markLabel, gbc);
 
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(0,0,0,0);
-        add(markSpinner, gbc);
+        formPanel.add(markSpinner, gbc);
 
         /*  Next Row */
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
-        add(rightAnswerLabel, gbc);
+        formPanel.add(rightAnswerLabel, gbc);
 
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(0,0,0,0);
-        add(rightAnswerSpinner, gbc);
+        formPanel.add(rightAnswerSpinner, gbc);
 
         /*  Next Row */
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_START;
-        add(noteLabel, gbc);
+        formPanel.add(noteLabel, gbc);
 
         /* Last Row */
         gbc.gridy++;
-        gbc.weighty = 4;
-        gbc.anchor = GridBagConstraints.CENTER;
-        add(confirmButton,gbc);
+        gbc.weighty = 3;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,98);
+        formPanel.add(confirmButton,gbc);
 
+        setLayout(new BorderLayout());
+        add(formPanel,BorderLayout.CENTER);
     }
 }

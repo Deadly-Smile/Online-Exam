@@ -8,7 +8,6 @@ import java.util.Date;
 public class examRoomHeaderPanel extends JPanel {
     private JButton submitButton;
     private JLabel timerLabel;
-    private JLabel examNameLabel;
     private final ExamRoom source;
     ExamTimerThread examTimerThread;
     public examRoomHeaderPanel(ExamRoom source, String examName, int examDuration, Date startingTime) {
@@ -21,16 +20,12 @@ public class examRoomHeaderPanel extends JPanel {
     private void initializer(String examName) {
         submitButton = new JButton("Submit");
         submitButton.setFocusPainted(false);
-        submitButton.setBackground(new Color(0xa7c5eb));
-        submitButton.setForeground(new Color(0x413c69));
+        submitButton.setBackground(new Color(0x276678));
+        submitButton.setForeground(Color.WHITE);
         submitButton.setFont(new Font("Arial",Font.PLAIN,16));
 
         timerLabel = new JLabel("Timer Label");
         timerLabel.setFont(new Font("Arial",Font.BOLD,18));
-
-        examNameLabel = new JLabel(examName);
-        examNameLabel.setFont(new Font("Arial",Font.BOLD,18));
-        examNameLabel.setForeground(new Color(0x290149));
     }
 
     private void setComponent(int examDuration, Date examStartingTime) {
@@ -51,12 +46,6 @@ public class examRoomHeaderPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(submitButton, gbc);
-
-        /* Next Column */
-
-        gbc.gridx++;
-        gbc.anchor = GridBagConstraints.CENTER;
-        add(examNameLabel, gbc);
 
         /*  Last Column */
         gbc.gridx++;

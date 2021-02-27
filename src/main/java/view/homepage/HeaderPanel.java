@@ -56,8 +56,8 @@ public class HeaderPanel extends JPanel {
                                 .addComponent(setAnExamButton)
                                 .addComponent(searchLabel)
                                 .addComponent(searchBarField)
-                                .addComponent(searchButton, GroupLayout.Alignment.CENTER)
-                                .addComponent(refreshButton, GroupLayout.Alignment.CENTER)
+                                .addComponent(searchButton)
+                                .addComponent(refreshButton)
                                 .addComponent(handleBar))
         );
 
@@ -70,8 +70,8 @@ public class HeaderPanel extends JPanel {
         setBorder(BorderFactory.createMatteBorder(1,1,1,1,new Color(0x726a95)));
 
         setAnExamButton = new JButton("Set an Exam");
-        setAnExamButton.setForeground(new Color(0x91091e));
-        setAnExamButton.setBackground(new Color(0xa4ebf3));
+        setAnExamButton.setForeground(Color.WHITE);
+        setAnExamButton.setBackground(new Color(0x276678));
         setAnExamButton.setFocusPainted(false);
         setAnExamButton.setFont(new Font("Arial",Font.BOLD,18));
 
@@ -86,19 +86,23 @@ public class HeaderPanel extends JPanel {
         handleBar.add(handleMenu);
 
         searchLabel = new JLabel("Search exam :");
-        searchLabel.setFont(new Font("FUTURA",Font.PLAIN,17));
+        searchLabel.setFont(new Font("Arial",Font.BOLD,16));
 
         searchBarField = new JTextField(15);
-        searchBarField.setFont(new Font("Arial",Font.PLAIN,18));
+        searchBarField.setFont(new Font("FUTURA",Font.PLAIN,18));
 
-        searchButton = new JButton();
+        searchButton = new JButton("Go");
+        searchButton.setFont(new Font("Arial",Font.BOLD,16));
         searchButton.setFocusPainted(false);
-        searchButton.setBackground(new Color(0xfaf3e0));
+        searchButton.setForeground(Color.WHITE);
+        searchButton.setBackground(new Color(0x276678));
         searchButton.setIcon(new ImageIcon("src/main/resources/Search Icon resized.png"));
 
         refreshButton = new JButton("Refresh");
+        refreshButton.setFont(new Font("Arial",Font.BOLD,16));
         refreshButton.setFocusPainted(false);
-        refreshButton.setBackground(new Color(0xfaf3e0));
+        refreshButton.setForeground(Color.WHITE);
+        refreshButton.setBackground(new Color(0x276678));
         refreshButton.setIcon(new ImageIcon("src/main/resources/refresh_small.png"));
     }
 }
