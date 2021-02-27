@@ -21,9 +21,11 @@ public class FromPanel extends JPanel {
     private JLabel invalidDateLabel;
     private JLabel tooEarlyLabel;
     private JLabel penaltyLabel;
+    private JLabel passingLabel;
     private JTextField examNameField;
     private JPasswordField examPassField;
     private JSpinner penaltySpinner;
+    private JSpinner passingSpinner;
     private JSpinner durationSpinner;
     private JSpinner dateSpinner;
     private JSpinner startTimeSpinner;
@@ -40,6 +42,7 @@ public class FromPanel extends JPanel {
             String examName = examNameField.getText();
             char[] pass = examPassField.getPassword();
             String examPass = new String(pass);
+            int passPercent = (int) passingSpinner.getValue();
             int penalty = (int) penaltySpinner.getValue();
             int examDuration = (int) durationSpinner.getValue();
             Date startDate = (Date) dateSpinner.getValue();
@@ -73,7 +76,7 @@ public class FromPanel extends JPanel {
                 invalidDateLabel.setVisible(false);
                 tooEarlyLabel.setVisible(false);
                 ExamFormEvent event = new ExamFormEvent(
-                        this,examName,examPass, penalty, examDuration,startDate
+                        this,examName,examPass,penalty,passPercent,examDuration,startDate
                 );
 
                 if(examFormListener != null){
@@ -165,6 +168,18 @@ public class FromPanel extends JPanel {
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.insets = new Insets(0,0,0,5);
+        formPanel.add(passingLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(-10,0,-10,0);
+        formPanel.add(passingSpinner, gbc);
+
+        /*  Next Row */
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(0,0,0,5);
         formPanel.add(penaltyLabel, gbc);
 
         gbc.gridx = 1;
@@ -230,6 +245,8 @@ public class FromPanel extends JPanel {
 
         penaltyLabel = new JLabel("Penalty (%) :");
 
+        passingLabel = new JLabel("Pass at (%) :");
+
         examNameField = new JTextField(12);
 
         examPassField = new JPasswordField(12);
@@ -247,6 +264,13 @@ public class FromPanel extends JPanel {
         // disabling editable mod
         JFormattedTextField penaltySpin = ((JSpinner.DefaultEditor)penaltySpinner.getEditor()).getTextField();
         penaltySpin.setEditable(false);
+
+        SpinnerModel passingSpinnerModel =
+                new SpinnerNumberModel(0,0,100,1);
+        passingSpinner = new JSpinner(passingSpinnerModel);
+        // disabling editable mod
+        JFormattedTextField passingSpin = ((JSpinner.DefaultEditor)passingSpinner.getEditor()).getTextField();
+        passingSpin.setEditable(false);
 
         dateSpinner = new JSpinner(new SpinnerDateModel());
         JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dateSpinner, "EEE, d MMM yyyy");

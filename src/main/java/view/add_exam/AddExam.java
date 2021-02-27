@@ -31,11 +31,13 @@ public class AddExam extends JDialog {
         fromPanel.setExamFormListener(event -> {
             String examName = event.getExamName();
             String examPass = event.getExamPass();
+            int passingPercent = event.getPassPercent();
             int penalty = event.getPenalty();
             int examDuration = event.getExamDuration();
             Date startsDate = event.getStartDate();
             newExam = new Exam(examName, handle, examPass, startsDate,
-                    questionSet, examDuration, penalty);
+                    questionSet, examDuration, penalty, passingPercent);
+            System.out.println(newExam);
             home.createExam(newExam);
         });
         setVisible(true);

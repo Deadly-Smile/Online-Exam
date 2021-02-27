@@ -12,7 +12,7 @@ public class ExamTableModel extends AbstractTableModel {
     private List<Exam> examList;
     private final List<String> tableFields =
             Arrays.asList("Exam ID","Name","Setter","Starts in",
-                    "Start date","Status","Duration(min)","Penalty(%)");
+                    "Start date","Status","Duration(min)","Penalty(%)","Total mark","Pass(%)");
 
     public ExamTableModel(List<Exam> exams) {
         examList = exams;
@@ -35,7 +35,7 @@ public class ExamTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Exam exam = examList.get(rowIndex);
+        Exam exam = examList.get(examList.size() - (rowIndex + 1));
         SimpleDateFormat dateFormat;
         switch (columnIndex){
             case 0:
@@ -67,6 +67,8 @@ public class ExamTableModel extends AbstractTableModel {
                 return exam.getPenalty();
             case 8:
                 return exam.getMaxMark();
+            case 9:
+                return exam.getPassingPercent();
         }
         return null;
     }

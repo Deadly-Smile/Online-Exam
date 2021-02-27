@@ -10,7 +10,7 @@ import java.util.List;
 
 public class HistoryTableModel extends AbstractTableModel {
     private List<Result> history;
-    private final List<String> fieldNames = Arrays.asList("Exam name", "Scored", "Out of");
+    private final List<String> fieldNames = Arrays.asList("Exam name", "Scored", "Out of", "Is passed");
 
     public HistoryTableModel(List<Result> history) {
         this.history = history;
@@ -33,7 +33,7 @@ public class HistoryTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Result result = history.get(rowIndex);
+        Result result = history.get(history.size() - (rowIndex + 1));
         switch (columnIndex){
             case 0:
                 return result.getExamName();
@@ -41,6 +41,8 @@ public class HistoryTableModel extends AbstractTableModel {
                 return result.getAchievedMark();
             case 2:
                 return result.getMaximumMark();
+            case 3:
+                return result.isPassed() ? "Passed" : "Failed";
         }
         return null;
     }

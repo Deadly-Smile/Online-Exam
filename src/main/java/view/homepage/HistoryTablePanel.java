@@ -5,6 +5,7 @@ import view.TableStyle;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryTablePanel extends JPanel {
@@ -22,7 +23,7 @@ public class HistoryTablePanel extends JPanel {
         tableStyle.StyleTheTable();
 
         Dimension dimension = getPreferredSize();
-        dimension.width = 250;
+        dimension.width = 300;
         setPreferredSize(dimension);
         setBorder(BorderFactory.createMatteBorder(1,1,1,1,new Color(0x726a95)));
         refresh();

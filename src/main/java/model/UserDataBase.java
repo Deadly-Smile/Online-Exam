@@ -4,6 +4,7 @@ import com.mongodb.client.*;
 import org.bson.Document;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserDataBase {
@@ -41,13 +42,7 @@ public class UserDataBase {
     }
 
     public void addResultToUser(Result result, User user){
-        Document document = new Document(
-                "Exam Id",result.getExamId())
-                .append("Exam Name",result.getExamName())
-                .append("Maximum Mark",result.getMaximumMark())
-                .append("Achieved Mark",result.getAchievedMark()
-                );
-
+        Document document = resultToDoc(result);
         FindIterable<Document> iterable = userCollection.find(
                 new Document("_id",user.getHandle())
         );
@@ -56,6 +51,24 @@ public class UserDataBase {
                     new Document("$push",new Document("History",document)));
             break;
         }
+    }
+
+    private Document resultToDoc(Result result) {
+        return new Document(
+                "Exam Id",result.getExamId())
+                .append("Exam Name",result.getExamName())
+                .append("Maximum Mark",result.getMaximumMark())
+                .append("Achieved Mark",result.getAchievedMark())
+                .append("Penalty",result.getPenalty())
+                .append("Exam Start Time",result.getExamStartTime())
+                .append("Exam Setter",result.getExamSetter())
+                .append("Number Of Question",result.getNumberOfQuestion())
+                .append("Exam Duration",result.getExamDuration())
+                .append("Is Passed",result.isPassed())
+                .append("Right Answered",result.getRightAnswered())
+                .append("Wrong Answered",result.getWrongAnswered())
+                .append("Not Answered",result.getNotAnswered()
+                );
     }
 
     public void addExamToUser(ExamInfo createdExam, User user){
@@ -106,11 +119,7 @@ public class UserDataBase {
     private List<Document> historyToDocs(List<Result> history){
         List<Document> docs = new ArrayList<>();
         for (Result i : history) {
-            docs.add(new Document("Exam Id",i.getExamId())
-                    .append("Exam Name",i.getExamName())
-                    .append("Maximum Mark",i.getMaximumMark())
-                    .append("Achieved Mark",i.getAchievedMark())
-            );
+            docs.add(resultToDoc(i));
         }
         return docs;
     }
@@ -130,10 +139,19 @@ public class UserDataBase {
         List<Result> history = new ArrayList<>();
         for (Document i : docs) {
             history.add(
-                    new Result(i.get("Exam Id"),
-                    i.get("Exam Name"),
-                    i.get("Maximum Mark"),
-                    i.get("Achieved Mark"))
+                    new Result((String)i.get("Exam Id"),
+                            (String)i.get("Exam Name"),
+                            (double)i.get("Maximum Mark"),
+                            (double)i.get("Achieved Mark"),
+                            (int)i.get("Penalty"),
+                            (Date)i.get("Exam Start Time"),
+                            (String)i.get("Exam Setter"),
+                            (int)i.get("Number Of Question"),
+                            (int)i.get("Exam Duration"),
+                            (boolean)i.get("Is Passed"),
+                            (int)i.get("Right Answered"),
+                            (int)i.get("Wrong Answered"),
+                            (int)i.get("Not Answered"))
             );
         }
         return history;

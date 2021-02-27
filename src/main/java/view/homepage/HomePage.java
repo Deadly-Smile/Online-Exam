@@ -168,22 +168,31 @@ public class HomePage extends JFrame {
         myExamRoom.dispose();
         Result result;
         double mark = 0.00;
+        int rightAnswered = 0;
+        int wrongAnswered = 0;
         for (int i = 0; i < omrList.size(); i++) {
             boolean isWronged = false;
             for (int j = 0; j < omrList.get(i).getChoiceButtons().size(); j++) {
                 if(omrList.get(i).getChoiceButtons().get(j).isSelected()){
                     if (j == exam.getQuestions().get(i).getRightIndex()) {
                         mark += exam.getQuestions().get(i).getMark();
+                        rightAnswered++;
                     } else {
+                        wrongAnswered++;
                         isWronged = true;
                     }
                 }
             }
             if (isWronged) {
-                mark = mark - (exam.getQuestions().get(i).getMark() * (exam.getPenalty() / 100));
+                mark = mark - (exam.getQuestions().get(i).getMark() * (double)(exam.getPenalty() / 100));
             }
         }
-        result = new Result(exam.getId(), exam.getExamName(), exam.getMaxMark(), mark);
+        boolean isPassed = ((mark / exam.getMaxMark()) * 100) >= exam.getPassingPercent();
+
+        result = new Result(exam.getId(), exam.getExamName(), exam.getMaxMark(),
+                mark, exam.getPenalty(), exam.getExamStartingTime(), exam.getExamSetterHandle(),
+                exam.getQuestions().size(), exam.getExamDuration(), isPassed, rightAnswered,
+                wrongAnswered, exam.getQuestions().size() - (rightAnswered+wrongAnswered));
         controller.addResult(result);
         refreshHistory(controller.getCurrentUser().getHistory());
     }
