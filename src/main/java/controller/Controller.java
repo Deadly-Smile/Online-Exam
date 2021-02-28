@@ -140,7 +140,15 @@ public class Controller {
         return examDataBase.verifyPass(id,pass);
     }
 
+    public static String getCurrentHandle() {
+        return userLog.getHandle();
+    }
+
     public void addResult(Result result) {
         userDateBase.addResultToUser(result,getCurrentUser());
+    }
+
+    public void deleteExam(String id) {
+        examDataBase.deleteExam(id);
     }
 }

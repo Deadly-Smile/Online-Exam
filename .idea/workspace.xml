@@ -9,21 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Database can be access by anyone">
+    <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Passing and failing feature added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExamDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ExamDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Result.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/UserDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/UserDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ExamFormEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/SetExam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/AddQuestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/setQuestionDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ExamTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/QuestionTablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/ToolBarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingTimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingTimerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HeaderPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/register/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/User Log In Info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/add-people-interface-symbol-of-black-person-close-up-with-plus-sign-in-small-circle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Exam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Exam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/ExamDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/ExamDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/UserDataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sign-up-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddExam.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/AddQuestionDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/ExamFormEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/ExamFormEvent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/FromPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/QuestionTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/QuestionTablePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/add_exam/ToolBarPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/QuestionFormPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/QuestionFormPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/WaitingRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/WaitingRoom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/CreatedExamTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/CreatedExamTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ExamTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/register/SignIn.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +210,8 @@
       <workItem from="1614339445739" duration="6276000" />
       <workItem from="1614356267430" duration="12019000" />
       <workItem from="1614425636062" duration="10000000" />
-      <workItem from="1614447316433" duration="8888000" />
+      <workItem from="1614447316433" duration="15557000" />
+      <workItem from="1614527048913" duration="20076000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>
@@ -297,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614178662957</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Passing and failing feature added">
+      <created>1614456549150</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1614456549150</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +360,8 @@
     <MESSAGE value="Attending exam is now functional" />
     <MESSAGE value="Found and added logo" />
     <MESSAGE value="Database can be access by anyone" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database can be access by anyone" />
+    <MESSAGE value="Passing and failing feature added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Passing and failing feature added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

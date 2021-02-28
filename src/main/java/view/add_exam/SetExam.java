@@ -10,23 +10,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AddExam extends JDialog {
+public class SetExam extends JDialog {
     private ToolBarPanel toolBarPanel;
     private FromPanel fromPanel;
     private QuestionTablePanel questionTablePanel;
-    private AddQuestionDialog addQuestionDialog;
+    private setQuestionDialog setQuestionDialog;
     private Exam newExam;
-    private final ArrayList<MultipleChoiceQuestion> questionSet = new ArrayList<>();
-    private int questionID = 0;
+    private ArrayList<MultipleChoiceQuestion> questionSet = new ArrayList<>();
+    private int questionID;
 
-    public AddExam(HomePage home , String title, boolean model, String handle) {
+    public SetExam(HomePage home , String title, boolean model, String handle, Exam exam) {
         super(home,title,model);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(new Dimension(750,450));
         setLocationRelativeTo(home);
         ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
         setIconImage(icon.getImage());
-        setComponents();
+        setComponents(exam);
+
+        questionID = 0;
+
+        if(exam != null) {
+            questionID = exam.getQuestions().size();
+            fromPanel.setFields(exam);
+            questionSet = exam.getQuestions();
+        }
 
         fromPanel.setExamFormListener(event -> {
             String examName = event.getExamName();
@@ -35,22 +43,28 @@ public class AddExam extends JDialog {
             int penalty = event.getPenalty();
             int examDuration = event.getExamDuration();
             Date startsDate = event.getStartDate();
-            newExam = new Exam(examName, handle, examPass, startsDate,
-                    questionSet, examDuration, penalty, passingPercent);
-            System.out.println(newExam);
-            home.createExam(newExam);
+            if(exam != null) {
+                newExam = new Exam(exam.getId(), examName, handle, examPass, startsDate,
+                        questionSet, examDuration, penalty, passingPercent);
+                home.createExam(newExam, true, exam.getExamStartingTime());
+            } else {
+                newExam = new Exam(examName, handle, examPass, startsDate,
+                        questionSet, examDuration, penalty, passingPercent);
+                home.createExam(newExam, false, null);
+            }
+
         });
         setVisible(true);
     }
 
-    private void setComponents() {
+    private void setComponents(Exam exam) {
         setLayout(new BorderLayout());
         toolBarPanel = new ToolBarPanel();
         toolBarPanel.setAddExam(this);
         add(toolBarPanel,BorderLayout.NORTH);
         fromPanel = new FromPanel();
         add(fromPanel,BorderLayout.WEST);
-        questionTablePanel = new QuestionTablePanel();
+        questionTablePanel = new QuestionTablePanel(this, exam);
         add(questionTablePanel,BorderLayout.CENTER);
     }
 
@@ -58,9 +72,9 @@ public class AddExam extends JDialog {
         this.dispose();
     }
 
-    public void addQuestionOfToolbar(){
-        addQuestionDialog = new AddQuestionDialog(this,"Add Question",false);
-        addQuestionDialog.setQuestionFormListener(questionFormEvent -> {
+    public void setQuestion(MultipleChoiceQuestion initialQuestion){
+        setQuestionDialog = new setQuestionDialog(this,"Set Question",false,initialQuestion);
+        setQuestionDialog.setQuestionFormListener(questionFormEvent -> {
             String question = questionFormEvent.getQuestion();
             List<String> choices = new ArrayList<>();
             choices.add(questionFormEvent.getChoice1());
@@ -86,11 +100,21 @@ public class AddExam extends JDialog {
                 default:
                     System.err.println("Couldn't get right input from rightChoice spinner");
             }
-            questionID++;
-            MultipleChoiceQuestion mcq = new MultipleChoiceQuestion(questionID, question, choices, index, mark);
-            questionTablePanel.addQuestion(mcq);
-            questionSet.add(mcq);
-            addQuestionDialog.dispose();
+            if (initialQuestion == null) {
+                questionID++;
+                MultipleChoiceQuestion mcq = new MultipleChoiceQuestion(questionID, question, choices, index, mark);
+                questionSet.add(mcq);
+                questionTablePanel.setData(questionSet);
+            } else {
+                MultipleChoiceQuestion mcq = new MultipleChoiceQuestion(initialQuestion.getId(), question, choices, index, mark);
+                questionSet.set(initialQuestion.getId() - 1,mcq);
+                questionTablePanel.setData(questionSet);
+            }
+            setQuestionDialog.dispose();
         });
+    }
+
+    public void editQuestion(int id) {
+        setQuestion(questionSet.get(id-1));
     }
 }

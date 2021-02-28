@@ -4,7 +4,7 @@ import controller.Controller;
 import model.Exam;
 import model.Result;
 import model.User;
-import view.add_exam.AddExam;
+import view.add_exam.SetExam;
 import view.attend_exam.AnswerPanel;
 import view.attend_exam.ExamRoom;
 import view.attend_exam.WaitingRoom;
@@ -14,6 +14,7 @@ import view.register.LogIn;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class HomePage extends JFrame {
     private ExamTablePanel examTablePanel;
     private StatusPanel statusPanel;
     private CreatedExam createdExam;
-    private AddExam addExam;
+    private SetExam setExam;
     private ExamRoom myExamRoom = new ExamRoom();
     private WaitingRoom waitingRoom = new WaitingRoom();
 
@@ -35,7 +36,7 @@ public class HomePage extends JFrame {
     public HomePage(String title, boolean isStart) throws HeadlessException {
         super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(new Dimension(800,500));
+        setSize(new Dimension(950,580));
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
@@ -70,8 +71,8 @@ public class HomePage extends JFrame {
         add(new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,historyTablePanel,examTablePanel),BorderLayout.CENTER);
     }
 
-    public void startAddExam(){
-        addExam = new AddExam(this, "Add Exam", true, user.getHandle());
+    public void startSettingExam(){
+        setExam = new SetExam(this, "Set Exam", true, user.getHandle(), null);
     }
 
     public void callCreatedExamDialog() {
@@ -82,10 +83,26 @@ public class HomePage extends JFrame {
         new LogIn(this, "Log In", false); /* calling login frame */
     }
 
-    public void createExam(Exam newExam) {
+    public void createExam(Exam newExam, boolean isEdit, Date oldStartTime) {
         int type;
         JLabel message = new JLabel();
-        message.setFont(new Font("FUTURA",Font.BOLD,13));
+        message.setFont(new Font("FUTURA",Font.BOLD,15));
+        if(isEdit) {
+            Calendar examTime = Calendar.getInstance();
+            examTime.setTime(oldStartTime);
+            Calendar now = Calendar.getInstance();
+            now.add(Calendar.MINUTE,4);
+            if(examTime.after(now)) {
+                controller.deleteExam(newExam.getId());
+            } else {
+                message = new JLabel("Exam is going to start soon, you can't edit now.");
+                message.setForeground(new Color(0xaa2b1d));
+                message.setFont(new Font("FUTURA",Font.PLAIN,15));
+                JOptionPane.showMessageDialog(this,message,
+                        "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
         try {
             if (controller.createANewExam(newExam)){
                 message.setText("Exam created Successfully");
@@ -103,6 +120,7 @@ public class HomePage extends JFrame {
             message.setForeground(Color.RED);
             throw new NullPointerException("addExam is null");
         }
+
         JOptionPane.showMessageDialog(this, message, "Message", type);
     }
 
@@ -112,37 +130,58 @@ public class HomePage extends JFrame {
     }
 
     public void attemptToGoExamRoom(String examId) {
-        if (isExamIsAlreadyGiven(examId)) {
+        Exam exam = controller.getExam(examId);
+        if (exam.getStatus() == Exam.OVER) {
+            JLabel message = new JLabel("Sorry, the exam is over");
+            message.setForeground(new Color(0xaa2b1d));
+            message.setFont(new Font("FUTURA", Font.PLAIN, 15));
+            JOptionPane.showMessageDialog(this, message, "Message",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if(exam.getExamSetterHandle().equals(Controller.getCurrentHandle())){
+            if (exam.getStatus() == Exam.RUNNING) {
+                JLabel message = new JLabel("Too late to edit now");
+                message.setForeground(new Color(0xaa2b1d));
+                message.setFont(new Font("FUTURA", Font.PLAIN, 15));
+                JOptionPane.showMessageDialog(this, message, "Message",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            Calendar examTime = Calendar.getInstance();
+            examTime.setTime(exam.getExamStartingTime());
+            Calendar now = Calendar.getInstance();
+            now.add(Calendar.MINUTE,5);
+            if(examTime.after(now)) {
+                setExam = new SetExam(this,"Set Exam", true, user.getHandle(), exam);
+            } else {
+                JLabel message = new JLabel("Exam is going to start soon, you can't edit now.");
+                message.setForeground(new Color(0xaa2b1d));
+                message.setFont(new Font("FUTURA",Font.PLAIN,15));
+                JOptionPane.showMessageDialog(this,message,
+                        "Warning",JOptionPane.WARNING_MESSAGE);
+            }
+
+        } else if (isExamIsAlreadyGiven(examId)) {
             JLabel message = new JLabel("Sorry, you already attended the exam.");
             message.setForeground(new Color(0xaa2b1d));
             message.setFont(new Font("FUTURA",Font.PLAIN,15));
 
             JOptionPane.showMessageDialog(this,message,
-                    "Message",JOptionPane.WARNING_MESSAGE);
+                    "Warning",JOptionPane.WARNING_MESSAGE);
         } else {
             String enteredPass = JOptionPane.showInputDialog(this,
                     "Enter password to enter the exam :","Password",JOptionPane.QUESTION_MESSAGE);
             if(enteredPass != null) {
-                if (controller.verifyExam(examId, enteredPass)) {
-                    Exam exam = controller.getExam(examId);
-                    if (exam.getStatus() == Exam.OVER) {
-                        JLabel message = new JLabel("Sorry, the exam is over");
-                        message.setForeground(new Color(0xaa2b1d));
-                        message.setFont(new Font("FUTURA", Font.PLAIN, 15));
-                        JOptionPane.showMessageDialog(this, message, "Message",
-                                JOptionPane.WARNING_MESSAGE);
+                if (exam.getExamPassword().equals(enteredPass)) {
+                    if ((exam.getExamStartingTime().getTime() - new Date().getTime()) > 500) {
+                        waitingRoom = new WaitingRoom(this, false, exam);
                     } else {
-                        if ((exam.getExamStartingTime().getTime() - new Date().getTime()) > 500) {
-                            waitingRoom = new WaitingRoom(this, false, exam);
-                        } else {
-                            goToExamRoom(exam);
-                        }
+                        goToExamRoom(exam);
                     }
                 } else {
                     JLabel message = new JLabel("Wrong password, try again");
                     message.setForeground(Color.red);
                     message.setFont(new Font("FUTURA", Font.PLAIN, 15));
-                    JOptionPane.showMessageDialog(this, message, "Message", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

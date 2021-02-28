@@ -43,6 +43,18 @@ public class Exam {
 
     }
 
+    public Exam(String id, String examName, String handle, String examPass, Date startsDate, ArrayList<MultipleChoiceQuestion> questionSet, int examDuration, int penalty, int passingPercent) {
+        this.passingPercent = passingPercent;
+        this.id = id;
+        this.examName = examName;
+        this.examSetterHandle = handle;
+        this.examPassword = examPass;
+        this.examStartingTime = startsDate;
+        this.questions = questionSet;
+        this.examDuration = examDuration;
+        this.penalty = penalty;
+    }
+
     public int getStatus() {
         if (examStartingTime.getTime() > new Date().getTime()) {
             return HAS_NOT_STARTED_YET;

@@ -1,8 +1,10 @@
 package model;
 
 import com.mongodb.client.*;
+import com.mongodb.client.model.UpdateOptions;
 import org.bson.Document;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,6 +74,7 @@ public class UserDataBase {
     }
 
     public void addExamToUser(ExamInfo createdExam, User user){
+        Document findDoc = new Document("Exam Id",createdExam.getExamID());
         Document document = new Document(
                 "Exam Name",createdExam.getExamName())
                 .append("Exam Id",createdExam.getExamID())
@@ -81,6 +84,12 @@ public class UserDataBase {
         FindIterable<Document> iterable = userCollection.find(
                 new Document("_id",user.getHandle())
         );
+        for (Document i : iterable) {
+            userCollection.updateOne(i,
+                    new Document("$pull",new Document("Created Exam",findDoc)));
+            break;
+        }
+
         for (Document i : iterable) {
             userCollection.updateOne(i,
                     new Document("$push",new Document("Created Exam",document)));

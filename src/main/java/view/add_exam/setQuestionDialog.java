@@ -1,11 +1,13 @@
 package view.add_exam;
 
+import model.MultipleChoiceQuestion;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddQuestionDialog extends JDialog {
+public class setQuestionDialog extends JDialog {
     private JLabel questionLabel;
     private JTextArea questionTextArea;
     private JLabel choice1Label;
@@ -23,13 +25,14 @@ public class AddQuestionDialog extends JDialog {
     private JLabel noteLabel;
     private JButton confirmButton;
     private QuestionFormListener questionFormListener;
-    public AddQuestionDialog(JDialog owner, String title, boolean model) {
+
+    public setQuestionDialog(JDialog owner, String title, boolean model, MultipleChoiceQuestion initialQuestion) {
         super(owner, title, model);
         setSize(new Dimension(550,420));
         setResizable(false);
         setLocationRelativeTo(owner);
 
-        initialization();
+        initialization(initialQuestion);
         setComponents();
 
         confirmButton.addActionListener(e -> {
@@ -61,7 +64,7 @@ public class AddQuestionDialog extends JDialog {
         this.questionFormListener = questionFormListener;
     }
 
-    private void initialization() {
+    private void initialization(MultipleChoiceQuestion initialQuestion) {
         questionLabel = new JLabel("Question :");
 
         questionTextArea = new JTextArea();
@@ -105,6 +108,16 @@ public class AddQuestionDialog extends JDialog {
         confirmButton.setFocusPainted(false);
         confirmButton.setBackground(new Color(0x0f4c75));
         confirmButton.setForeground(Color.WHITE);
+
+        if(initialQuestion != null) {
+            questionTextArea.setText(initialQuestion.getQuestion());
+            choice1Field.setText(initialQuestion.getChoices().get(0));
+            choice2Field.setText(initialQuestion.getChoices().get(1));
+            choice3Field.setText(initialQuestion.getChoices().get(2));
+            choice4Field.setText(initialQuestion.getChoices().get(3));
+            markSpinner.setValue(initialQuestion.getMark());
+            rightAnswerSpinner.setValue(options.get(initialQuestion.getRightIndex()));
+        }
     }
 
     private void setComponents() {

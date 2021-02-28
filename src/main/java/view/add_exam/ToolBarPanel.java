@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class ToolBarPanel extends JPanel implements ActionListener {
     private JButton backButton;
     private JButton addQuestionButton;
-    private AddExam addExam;
+    private SetExam setExam;
 
     public ToolBarPanel() {
         initialiseComponent();
@@ -39,17 +39,17 @@ public class ToolBarPanel extends JPanel implements ActionListener {
         add(addQuestionButton);
     }
 
-    public void setAddExam(AddExam addExam) {
-        this.addExam = addExam;
+    public void setAddExam(SetExam setExam) {
+        this.setExam = setExam;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == backButton){
-            addExam.backOperationOfToolbar();
+            setExam.backOperationOfToolbar();
         }
         if(e.getSource() == addQuestionButton){
-            addExam.addQuestionOfToolbar();
+            setExam.setQuestion(null);
         }
     }
 }

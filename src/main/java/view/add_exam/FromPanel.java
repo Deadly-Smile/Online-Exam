@@ -1,8 +1,11 @@
 package view.add_exam;
 
+import model.Exam;
+
 import javax.swing.*;
 
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +26,7 @@ public class FromPanel extends JPanel {
     private JLabel penaltyLabel;
     private JLabel passingLabel;
     private JTextField examNameField;
-    private JPasswordField examPassField;
+    private JTextField examPassField;
     private JSpinner penaltySpinner;
     private JSpinner passingSpinner;
     private JSpinner durationSpinner;
@@ -40,8 +43,7 @@ public class FromPanel extends JPanel {
 
         createButton.addActionListener(e -> {
             String examName = examNameField.getText();
-            char[] pass = examPassField.getPassword();
-            String examPass = new String(pass);
+            String examPass = examPassField.getText();
             int passPercent = (int) passingSpinner.getValue();
             int penalty = (int) penaltySpinner.getValue();
             int examDuration = (int) durationSpinner.getValue();
@@ -249,7 +251,7 @@ public class FromPanel extends JPanel {
 
         examNameField = new JTextField(12);
 
-        examPassField = new JPasswordField(12);
+        examPassField = new JTextField(12);
 
         SpinnerModel durationSinnerModel =
                 new SpinnerNumberModel(10,2,180,1);
@@ -275,7 +277,7 @@ public class FromPanel extends JPanel {
         dateSpinner = new JSpinner(new SpinnerDateModel());
         JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dateSpinner, "EEE, d MMM yyyy");
         dateSpinner.setEditor(dateEditor);
-        dateSpinner.setValue(new Date());
+        dateSpinner.setValue(new Date()); // Now
 
         startTimeSpinner = new JSpinner(new SpinnerDateModel());
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(startTimeSpinner, "HH: mm");
@@ -308,4 +310,14 @@ public class FromPanel extends JPanel {
         this.add(notePanel,BorderLayout.SOUTH);
     }
 
+    public void setFields(Exam exam) {
+        examNameField.setText(exam.getExamName());
+        examPassField.setText(exam.getExamPassword());
+        durationSpinner.setValue(exam.getExamDuration());
+        penaltySpinner.setValue(exam.getPenalty());
+        passingSpinner.setValue(exam.getPassingPercent());
+        startTimeSpinner.setValue(exam.getExamStartingTime());
+        dateSpinner.setValue(exam.getExamStartingTime());
+        createButton.setText("Confirm");
+    }
 }
