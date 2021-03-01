@@ -1,6 +1,7 @@
 package view.attend_exam;
 
 import javax.swing.*;
+import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -29,6 +30,9 @@ public class WaitingTimerThread extends Thread{
                 timeLabel.setText(
                     hour + ": " + minute + ": " + second
                 );
+                if(timeLeft <= 60) {
+                    timeLabel.setForeground(new Color(0xFFAA1455, true));
+                }
                 if (timeLeft == 0){
                     setRunning(false);
                     waitingRoom.waitingIsOver();

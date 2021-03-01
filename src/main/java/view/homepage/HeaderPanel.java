@@ -3,8 +3,6 @@ package view.homepage;
 import model.User;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class HeaderPanel extends JPanel {
     private JButton setAnExamButton;
@@ -24,7 +22,7 @@ public class HeaderPanel extends JPanel {
         initialiseComponent();
         setComponent();
 
-        setAnExamButton.addActionListener(e -> home.startAddExam());
+        setAnExamButton.addActionListener(e -> home.startSettingExam());
         createdExamItem.addActionListener(e -> home.callCreatedExamDialog());
         logOutItem.addActionListener(e -> home.logOut());
         refreshButton.addActionListener(e -> home.examTableRefresh());

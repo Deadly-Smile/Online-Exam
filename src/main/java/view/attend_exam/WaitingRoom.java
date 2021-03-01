@@ -21,11 +21,14 @@ public class WaitingRoom extends JDialog {
     private HomePage home;
 
     public WaitingRoom(HomePage home, boolean model, Exam exam) {
-        super(home, exam.getExamName(), model);
+        super((Dialog) null, exam.getExamName(), model);
         setSize(new Dimension(400,320));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(home);
+
+        ImageIcon icon = new ImageIcon("src/main/resources/Free Stolen Logo.png");
+        setIconImage(icon.getImage());
 
         this.exam = exam;
         this.home = home;

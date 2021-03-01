@@ -7,6 +7,7 @@ public class ExamFormEvent extends EventObject {
     private String examName;
     private String examPass;
     private int penalty;
+    private int passPercent;
     private int examDuration;
     private Date startDate;
 
@@ -21,13 +22,22 @@ public class ExamFormEvent extends EventObject {
     }
 
     public ExamFormEvent(Object source, String examName, String examPass,
-                         int penalty, int examDuration, Date startDate) {
+                         int penalty, int passPercent, int examDuration, Date startDate) {
         super(source);
         this.examName = examName;
         this.examPass = examPass;
         this.penalty = penalty;
+        this.passPercent = passPercent;
         this.examDuration = examDuration;
         this.startDate = startDate;
+    }
+
+    public int getPassPercent() {
+        return passPercent;
+    }
+
+    public void setPassPercent(int passPercent) {
+        this.passPercent = passPercent;
     }
 
     public String getExamName() {
@@ -68,5 +78,17 @@ public class ExamFormEvent extends EventObject {
 
     public void setPenalty(int penalty) {
         this.penalty = penalty;
+    }
+
+    @Override
+    public String toString() {
+        return "ExamFormEvent{" +
+                "examName='" + examName + '\'' +
+                ", examPass='" + examPass + '\'' +
+                ", penalty=" + penalty +
+                ", passPercent=" + passPercent +
+                ", examDuration=" + examDuration +
+                ", startDate=" + startDate +
+                '}';
     }
 }

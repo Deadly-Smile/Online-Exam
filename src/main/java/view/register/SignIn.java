@@ -114,7 +114,7 @@ public class SignIn extends JFrame {
         setSignInForm(signInFormPanel);
 
         JPanel imagePanel = new JPanel();
-        imagePanel.setBorder(BorderFactory.createEmptyBorder(30,0,5,0));
+        imagePanel.setBorder(BorderFactory.createEmptyBorder(25,0,5,0));
         imagePanel.setLayout(new BorderLayout());
         imagePanel.add(imageLabel, BorderLayout.CENTER);
 
@@ -181,23 +181,26 @@ public class SignIn extends JFrame {
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.gridx = 0;
         gbc.gridy++;
-        gbc.insets = new Insets(0,0,0,-93);
+        gbc.insets = new Insets(0,0,0,-76);
         signInFormPanel.add(successLabel, gbc);
 
         // Next Row
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.gridx = 0;
         gbc.gridy++;
+        gbc.insets = new Insets(0,0,0,-95);
         signInFormPanel.add(tooShortLabel, gbc);
 
         // Next Row
         gbc.anchor = GridBagConstraints.LINE_END;
         gbc.gridx = 0;
         gbc.gridy++;
+        gbc.insets = new Insets(0,0,0,-32);
         signInFormPanel.add(alreadyLabel, gbc);
 
         // Next Row
         gbc.gridx = 1;
+        gbc.gridy++;
         gbc.insets = new Insets(0,0,0,33);
         gbc.anchor = GridBagConstraints.LINE_END;
         signInFormPanel.add(signInButton, gbc);

@@ -20,13 +20,15 @@ public class Exam {
     private Date examStartingTime;
     private ArrayList<MultipleChoiceQuestion> questions;
     private int examDuration;
-    private double penalty;
+    private int penalty;
+    private int passingPercent;
 
     public Exam(String examName, String examSetterHandle,
                 String examPassword, Date examStartingTime,
                 ArrayList<MultipleChoiceQuestion> questions,
-                int examDuration, double penalty)
+                int examDuration, int penalty, int passingPercent)
     {
+        this.passingPercent = passingPercent;
         this.id = new ObjectId().toString();
         this.examName = examName;
         this.examSetterHandle = examSetterHandle;
@@ -39,6 +41,18 @@ public class Exam {
 
     public Exam() {
 
+    }
+
+    public Exam(String id, String examName, String handle, String examPass, Date startsDate, ArrayList<MultipleChoiceQuestion> questionSet, int examDuration, int penalty, int passingPercent) {
+        this.passingPercent = passingPercent;
+        this.id = id;
+        this.examName = examName;
+        this.examSetterHandle = handle;
+        this.examPassword = examPass;
+        this.examStartingTime = startsDate;
+        this.questions = questionSet;
+        this.examDuration = examDuration;
+        this.penalty = penalty;
     }
 
     public int getStatus() {
@@ -61,8 +75,12 @@ public class Exam {
         }
     }
 
-    public void addQuestion(MultipleChoiceQuestion anotherQuestion){
-        questions.add(anotherQuestion);
+    public int getPassingPercent() {
+        return passingPercent;
+    }
+
+    public void setPassingPercent(int passingPercent) {
+        this.passingPercent = passingPercent;
     }
 
     public String getExamName() {
@@ -129,24 +147,26 @@ public class Exam {
         return maxMark;
     }
 
-    public double getPenalty() {
+    public int getPenalty() {
         return penalty;
     }
 
-    public void setPenalty(double penalty) {
+    public void setPenalty(int penalty) {
         this.penalty = penalty;
     }
 
     @Override
     public String toString() {
         return "Exam{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", examName='" + examName + '\'' +
                 ", examSetterHandle='" + examSetterHandle + '\'' +
                 ", examPassword='" + examPassword + '\'' +
                 ", examStartingTime=" + examStartingTime +
                 ", questions=" + questions +
                 ", examDuration=" + examDuration +
+                ", penalty=" + penalty +
+                ", passingPercent=" + passingPercent +
                 '}';
     }
 }

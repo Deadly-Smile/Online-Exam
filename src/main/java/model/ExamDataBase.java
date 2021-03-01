@@ -37,7 +37,8 @@ public class ExamDataBase {
                 .append("Starting Time", exam.getExamStartingTime())
                 .append("Questions", questionToDocs(exam.getQuestions()))
                 .append("Duration", exam.getExamDuration())
-                .append("Penalty", exam.getPenalty());
+                .append("Penalty", exam.getPenalty())
+                .append("Passing Percent", exam.getPassingPercent());
         doc.put("_id", exam.getId());
         return doc;
     }
@@ -95,7 +96,8 @@ public class ExamDataBase {
         exam.setExamStartingTime((Date) doc.get("Starting Time"));
         exam.setQuestions(docsToQuestion((List<Document>) doc.get("Questions")));
         exam.setExamDuration((Integer) doc.get("Duration"));
-        exam.setPenalty((Double) doc.get("Penalty"));
+        exam.setPenalty((int) doc.get("Penalty"));
+        exam.setPassingPercent((Integer) doc.get("Passing Percent"));
     }
 
     public List<Exam> getAllExams(){

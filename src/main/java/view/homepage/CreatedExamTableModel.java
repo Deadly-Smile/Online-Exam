@@ -34,7 +34,7 @@ public class CreatedExamTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        ExamInfo examInfo = examInfoList.get(rowIndex);
+        ExamInfo examInfo = examInfoList.get(examInfoList.size() - (rowIndex + 1));
         switch (columnIndex) {
             case 0:
                 return examInfo.getExamID();

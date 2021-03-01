@@ -8,15 +8,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class StatusPanel extends JPanel {
-    private JLabel timerLabel;
-    private JLabel dateLabel;
-
     public StatusPanel() {
-        timerLabel = new JLabel();
-        timerLabel.setFont(new Font("Arial",Font.PLAIN,12));
+        JLabel timerLabel = new JLabel();
+        timerLabel.setFont(new Font("Arial",Font.BOLD,14));
 
-        dateLabel = new JLabel();
-        dateLabel.setFont(new Font("Arial",Font.PLAIN,12));
+        JLabel dateLabel = new JLabel();
+        dateLabel.setFont(new Font("Arial",Font.BOLD,14));
 
         setLayout(new BorderLayout());
         add(timerLabel,BorderLayout.EAST);
