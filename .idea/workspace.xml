@@ -10,21 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f1e84b3-c90e-41fb-bc05-2b8d5ea8840f" name="Default Changelist" comment="Setter can edit his exam before start">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ResultDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/SetExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/SetExam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamTimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/ExamTimerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingTimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/attend_exam/WaitingTimerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/CreatedExam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Online_Exam_jar/Online-Exam.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Online_Exam_jar/Online-Exam.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/add_exam/FromPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HistoryTablePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/WaitingRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/WaitingRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/attend_exam/WaitingTimerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/attend_exam/WaitingTimerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/CreatedExam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/CreatedExam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HeaderPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/ResultDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/ResultDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/homepage/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/homepage/StatusPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HistoryTablePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homepage/ResultDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homepage/ResultDetails.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,19 +106,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -216,6 +199,7 @@
       <workItem from="1614527048913" duration="20230000" />
       <workItem from="1614594143854" duration="5644000" />
       <workItem from="1614614706039" duration="10262000" />
+      <workItem from="1614635719232" duration="3364000" />
     </task>
     <task id="LOCAL-00001" summary="First setup.">
       <created>1611686223877</created>

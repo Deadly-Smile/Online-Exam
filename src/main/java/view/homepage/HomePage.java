@@ -227,6 +227,8 @@ public class HomePage extends JFrame {
                 mark = mark - (exam.getQuestions().get(i).getMark() * penalty);
             }
         }
+        mark = Math.round(mark * 100);
+        mark /= 100;
         boolean isPassed = ((mark / exam.getMaxMark()) * 100) >= exam.getPassingPercent();
 
         result = new Result(exam.getId(), exam.getExamName(), exam.getMaxMark(),

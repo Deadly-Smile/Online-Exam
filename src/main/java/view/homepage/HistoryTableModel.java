@@ -6,6 +6,7 @@ import model.Result;
 import javax.swing.table.AbstractTableModel;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class HistoryTableModel extends AbstractTableModel {
@@ -13,7 +14,7 @@ public class HistoryTableModel extends AbstractTableModel {
     private final List<String> fieldNames = Arrays.asList("Exam name", "Scored", "Out of", "Is passed");
 
     public HistoryTableModel(List<Result> history) {
-        this.history = history;
+        setHistory(history);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class HistoryTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Result result = history.get(history.size() - (rowIndex + 1));
+        Result result = history.get(rowIndex);
         switch (columnIndex){
             case 0:
                 return result.getExamName();
@@ -49,5 +50,6 @@ public class HistoryTableModel extends AbstractTableModel {
 
     public void setHistory(List<Result> history) {
         this.history = history;
+        Collections.reverse(this.history);
     }
 }

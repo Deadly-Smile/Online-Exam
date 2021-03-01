@@ -36,7 +36,8 @@ public class HistoryTablePanel extends JPanel {
                 JTable table =(JTable) mouseEvent.getSource();
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
                     int index = table.getSelectedRow();
-                    new ResultDetails(home, source.history.get(index).getExamName(), true, source.history.get(index));
+                    new ResultDetails(home, source.history.get(index).getExamName(),
+                            false, source.history.get(index));
                 }
             }
         });

@@ -23,6 +23,7 @@ public class ResultDetails extends JDialog {
     private JLabel examName;
 
     private static final Font font = new Font("Arial", Font.PLAIN, 15);
+    private static final Color color = new Color(0x0B2341);
 
     public ResultDetails(JFrame owner, String title, boolean modal, Result result) {
         super(owner, title, modal);
@@ -37,27 +38,34 @@ public class ResultDetails extends JDialog {
 
     private void initializer(Result result) {
         examId = new JLabel("Exam Id : " + result.getExamId());
+        examId.setForeground(color);
         examId.setFont(font);
 
         setter = new JLabel("Exam Setter : " + result.getExamSetter());
+        setter.setForeground(color);
         setter.setFont(font);
 
         examName = new JLabel("Exam Name : " + result.getExamName());
+        examName.setForeground(color);
         examName.setFont(font);
 
         SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM yyyy");
         startDate = new JLabel("Start Date : " + format.format(result.getExamStartTime()));
         startDate.setFont(font);
+        startDate.setForeground(color);
 
         format = new SimpleDateFormat("HH: mm");
         startTime = new JLabel("Start Time : " + format.format(result.getExamStartTime()));
         startTime.setFont(font);
+        startTime.setForeground(color);
 
         duration = new JLabel("Duration : " + result.getExamDuration() + " Minute");
         duration.setFont(font);
+        duration.setForeground(color);
 
         totalQ = new JLabel("Total question : " + result.getNumberOfQuestion());
         totalQ.setFont(font);
+        totalQ.setForeground(color);
 
         if (result.isPassed()) {
             isPassed = new JLabel("Is passed : Passed");
@@ -65,24 +73,31 @@ public class ResultDetails extends JDialog {
             isPassed = new JLabel("Is passed : Failed");
         }
         isPassed.setFont(font);
+        isPassed.setForeground(color);
 
         totalMark = new JLabel("Total question : " + result.getMaximumMark());
         totalMark.setFont(font);
+        totalMark.setForeground(color);
 
         achievedMark = new JLabel("Achieved Mark : " + result.getAchievedMark());
         achievedMark.setFont(font);
+        achievedMark.setForeground(color);
 
         rightAnswered = new JLabel("Right Answered : " + result.getRightAnswered());
         rightAnswered.setFont(font);
+        rightAnswered.setForeground(color);
 
         wrongAnswered = new JLabel("Wrong Answered : " + result.getWrongAnswered());
         wrongAnswered.setFont(font);
+        wrongAnswered.setForeground(color);
 
         notAnswered = new JLabel("Not Answered : " + result.getNotAnswered());
         notAnswered.setFont(font);
+        notAnswered.setForeground(color);
 
         penalty = new JLabel("Penalty : " + result.getPenalty());
         penalty.setFont(font);
+        penalty.setForeground(color);
     }
 
     private void setComponents() {

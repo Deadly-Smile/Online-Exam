@@ -69,7 +69,7 @@ public class FromPanel extends JPanel {
                 invalidInfoLabel.setVisible(false);
                 tooEarlyLabel.setVisible(false);
             } else if(new Date().getTime() >= startDate.getTime()
-                    || diffInMinute < 2) {
+                    || diffInMinute < 10) {
                 tooEarlyLabel.setVisible(true);
                 invalidInfoLabel.setVisible(false);
                 invalidDateLabel.setVisible(false);
