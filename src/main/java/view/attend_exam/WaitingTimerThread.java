@@ -30,7 +30,7 @@ public class WaitingTimerThread extends Thread{
                 timeLabel.setText(
                     hour + ": " + minute + ": " + second
                 );
-                if(timeLeft == 300) {
+                if(timeLeft <= 60) {
                     timeLabel.setForeground(new Color(0xFFAA1455, true));
                 }
                 if (timeLeft == 0){

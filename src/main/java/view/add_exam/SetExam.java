@@ -43,6 +43,11 @@ public class SetExam extends JDialog {
             int penalty = event.getPenalty();
             int examDuration = event.getExamDuration();
             Date startsDate = event.getStartDate();
+            if(questionSet.size() == 0) {
+                JOptionPane.showMessageDialog(this,"Can't create an exam without question",
+                        "Error",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             if(exam != null) {
                 newExam = new Exam(exam.getId(), examName, handle, examPass, startsDate,
                         questionSet, examDuration, penalty, passingPercent);

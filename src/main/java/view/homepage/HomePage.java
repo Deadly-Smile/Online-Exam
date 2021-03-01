@@ -67,7 +67,7 @@ public class HomePage extends JFrame {
         add(headerPanel,BorderLayout.NORTH);
 
         examTablePanel = new ExamTablePanel(exams, this);
-        historyTablePanel = new HistoryTablePanel(user.getHistory());
+        historyTablePanel = new HistoryTablePanel(user.getHistory(), this);
         add(new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,historyTablePanel,examTablePanel),BorderLayout.CENTER);
     }
 
@@ -223,7 +223,8 @@ public class HomePage extends JFrame {
                 }
             }
             if (isWronged) {
-                mark = mark - (exam.getQuestions().get(i).getMark() * (double)(exam.getPenalty() / 100));
+                double penalty = (double) exam.getPenalty() / 100;
+                mark = mark - (exam.getQuestions().get(i).getMark() * penalty);
             }
         }
         boolean isPassed = ((mark / exam.getMaxMark()) * 100) >= exam.getPassingPercent();
@@ -233,13 +234,8 @@ public class HomePage extends JFrame {
                 exam.getQuestions().size(), exam.getExamDuration(), isPassed, rightAnswered,
                 wrongAnswered, exam.getQuestions().size() - (rightAnswered+wrongAnswered));
         controller.addResult(result);
-        refreshHistory(controller.getCurrentUser().getHistory());
+        historyTablePanel.setHistory(controller.getCurrentUser().getHistory());
     }
-
-    private void refreshHistory(List<Result> history) {
-        historyTablePanel.setHistory(history);
-    }
-
     public void searchExam(String key) {
         List<Exam> exams = controller.getSearchedExam(key);
         if (exams == null) {

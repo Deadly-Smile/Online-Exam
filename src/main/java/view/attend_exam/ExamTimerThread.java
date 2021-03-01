@@ -28,7 +28,7 @@ public class ExamTimerThread extends Thread{
                 timeLabel.setText(
                         minute + ": " + second
                 );
-                if(timeLeft == 60) {
+                if(timeLeft <= 60) {
                     timeLabel.setForeground(Color.RED);
                 }
                 if(timeLeft <= 0) {
